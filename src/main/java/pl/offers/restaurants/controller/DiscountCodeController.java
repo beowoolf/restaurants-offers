@@ -19,9 +19,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/discount-codes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DiscountCodeController {
 
-    interface DiscountCodeListListView extends DiscountCodeDTO.View.Basic, PeriodDTO.View.Basic {}
-    interface DiscountCodeView extends DiscountCodeDTO.View.Extended, PeriodDTO.View.Basic {}
-
     private final DiscountCodeService discountCodeService;
 
     @Autowired
@@ -52,6 +49,12 @@ public class DiscountCodeController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         discountCodeService.delete(uuid);
+    }
+
+    interface DiscountCodeListListView extends DiscountCodeDTO.View.Basic, PeriodDTO.View.Basic {
+    }
+
+    interface DiscountCodeView extends DiscountCodeDTO.View.Extended, PeriodDTO.View.Basic {
     }
 
 }

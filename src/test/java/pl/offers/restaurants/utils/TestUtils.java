@@ -72,7 +72,7 @@ public class TestUtils {
     }
 
     public static DiscountCodeDTO discountCodeDTO(String uuid, String code, BigDecimal discount, DiscountUnit unit, String begin,
-                                                  String end, List<UserDTO>  userDTOS, List<RestaurantDTO> restaurantDTOS) {
+                                                  String end, List<UserDTO> userDTOS, List<RestaurantDTO> restaurantDTOS) {
         return new DiscountCodeDTOBuilder()
                 .withUuid(UUID.fromString(uuid))
                 .withCode(code)

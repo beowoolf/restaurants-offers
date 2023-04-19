@@ -31,18 +31,7 @@ import java.util.UUID;
 })
 class DiscountCodeControllerTest {
 
-    @Configuration
-    public static class Config {
-        @Bean
-        public DiscountCodeService discountCodeService(DiscountCodeRepo discountCodeRepo, UserRepo userRepo, RestaurantRepo restaurantRepo) {
-            return new DiscountCodeServiceImpl(discountCodeRepo, userRepo, restaurantRepo);
-        }
-        @Bean
-        public DiscountCodeController discountCodeController(DiscountCodeService discountCodeService) {
-            return new DiscountCodeController(discountCodeService);
-        }
-    }
-
+    private static final String STR_UUID = "9986208e-961a-48d4-bf7a-112c627779c2";
     @Autowired
     private DiscountCodeRepo discountCodeRepo;
 
@@ -54,8 +43,6 @@ class DiscountCodeControllerTest {
 
     @Autowired
     private PlatformTransactionManager txManager;
-
-    private static final String STR_UUID = "9986208e-961a-48d4-bf7a-112c627779c2";
 
     // add
     @Test
@@ -101,6 +88,19 @@ class DiscountCodeControllerTest {
         TransactionStatus status3 = txManager.getTransaction(TransactionDefinition.withDefaults());
         Truth8.assertThat(discountCodeService.getByUuid(UUID.fromString(STR_UUID))).isEmpty();
         txManager.commit(status3);
+    }
+
+    @Configuration
+    public static class Config {
+        @Bean
+        public DiscountCodeService discountCodeService(DiscountCodeRepo discountCodeRepo, UserRepo userRepo, RestaurantRepo restaurantRepo) {
+            return new DiscountCodeServiceImpl(discountCodeRepo, userRepo, restaurantRepo);
+        }
+
+        @Bean
+        public DiscountCodeController discountCodeController(DiscountCodeService discountCodeService) {
+            return new DiscountCodeController(discountCodeService);
+        }
     }
 
 }

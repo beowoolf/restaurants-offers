@@ -25,14 +25,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/orders", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrderController {
 
-    interface OrderListListView extends OrderDTO.View.Basic, UserDTO.View.Id, DelivererDTO.View.Id, RestaurantDTO.View.Id {}
-    interface OrderView extends OrderDTO.View.Extended, UserDTO.View.Id, DelivererDTO.View.Id, RestaurantDTO.View.Id {}
-
-    interface OrderDataUpdateValidation extends Default, OrderDTO.OrderValidation {}
-    interface OrderStatusValidation extends Default, OrderDTO.OrderStatusValidation {}
-    interface GiveOutValidation extends Default, OrderDTO.OrderStatusValidation, OrderStatusDTO.GiveOutStatusValidation {}
-    interface DeliveryValidation extends Default, OrderDTO.OrderStatusValidation, OrderStatusDTO.DeliveryValidation {}
-
     private final OrderService orderService;
     private final DelivererService delivererService;
     private final UserService userService;
@@ -112,6 +104,24 @@ public class OrderController {
     @PatchMapping("/{uuid}/delivered")
     public void patchIsDelivered(@PathVariable UUID uuid, @RequestBody @Valid OrderStatusDTO orderStatusJson) {
         orderService.setIsDelivered(uuid, orderStatusJson);
+    }
+
+    interface OrderListListView extends OrderDTO.View.Basic, UserDTO.View.Id, DelivererDTO.View.Id, RestaurantDTO.View.Id {
+    }
+
+    interface OrderView extends OrderDTO.View.Extended, UserDTO.View.Id, DelivererDTO.View.Id, RestaurantDTO.View.Id {
+    }
+
+    interface OrderDataUpdateValidation extends Default, OrderDTO.OrderValidation {
+    }
+
+    interface OrderStatusValidation extends Default, OrderDTO.OrderStatusValidation {
+    }
+
+    interface GiveOutValidation extends Default, OrderDTO.OrderStatusValidation, OrderStatusDTO.GiveOutStatusValidation {
+    }
+
+    interface DeliveryValidation extends Default, OrderDTO.OrderStatusValidation, OrderStatusDTO.DeliveryValidation {
     }
 
 }

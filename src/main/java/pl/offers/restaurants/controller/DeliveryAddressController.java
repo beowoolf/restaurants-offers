@@ -19,9 +19,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/delivery-address", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DeliveryAddressController {
 
-    interface DeliveryAddressListListView extends DeliveryAddressDTO.View.Basic, UserDTO.View.Id {}
-    interface DeliveryAddressView extends DeliveryAddressDTO.View.Extended, UserDTO.View.Id {}
-
     private final DeliveryAddressService deliveryAddressService;
 
     @Autowired
@@ -52,6 +49,12 @@ public class DeliveryAddressController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         deliveryAddressService.delete(uuid);
+    }
+
+    interface DeliveryAddressListListView extends DeliveryAddressDTO.View.Basic, UserDTO.View.Id {
+    }
+
+    interface DeliveryAddressView extends DeliveryAddressDTO.View.Extended, UserDTO.View.Id {
     }
 
 }

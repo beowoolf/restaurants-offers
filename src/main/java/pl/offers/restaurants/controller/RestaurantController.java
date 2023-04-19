@@ -24,11 +24,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestaurantController {
 
-    interface RestaurantListListView extends RestaurantDTO.View.Basic {}
-    interface RestaurantView extends RestaurantDTO.View.Extended, LogginDataDTO.View.Basic, CompanyDataDTO.View.Extended, OpenTimeDTO.View.Extended {}
-
-    interface DataUpdateValidation extends Default, RestaurantDTO.DataUpdateValidation {}
-
     private final RestaurantService restaurantService;
 
     @Autowired
@@ -60,6 +55,15 @@ public class RestaurantController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         restaurantService.delete(uuid);
+    }
+
+    interface RestaurantListListView extends RestaurantDTO.View.Basic {
+    }
+
+    interface RestaurantView extends RestaurantDTO.View.Extended, LogginDataDTO.View.Basic, CompanyDataDTO.View.Extended, OpenTimeDTO.View.Extended {
+    }
+
+    interface DataUpdateValidation extends Default, RestaurantDTO.DataUpdateValidation {
     }
 
 }

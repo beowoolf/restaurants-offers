@@ -13,18 +13,12 @@ import java.time.LocalDateTime;
 @Embeddable
 public class PeriodDTO {
 
-    public static class View {
-        public interface Basic {}
-    }
-
     @JsonView(View.Basic.class)
     @Nullable
     private LocalDateTime begin;
-
     @JsonView(View.Basic.class)
     @Nullable
     private LocalDateTime end;
-
 
     @Nullable
     public LocalDateTime getBegin() {
@@ -42,6 +36,11 @@ public class PeriodDTO {
 
     public void setEnd(@Nullable LocalDateTime end) {
         this.end = end;
+    }
+
+    public static class View {
+        public interface Basic {
+        }
     }
 
 }

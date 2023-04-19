@@ -18,9 +18,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/ingredients", produces = MediaType.APPLICATION_JSON_VALUE)
 public class IngredientController {
 
-    interface IngredientListListView extends IngredientDTO.View.Basic {}
-    interface IngredientView extends IngredientListListView {}
-
     private final IngredientService ingredientService;
 
     @Autowired
@@ -51,6 +48,12 @@ public class IngredientController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         ingredientService.delete(uuid);
+    }
+
+    interface IngredientListListView extends IngredientDTO.View.Basic {
+    }
+
+    interface IngredientView extends IngredientListListView {
     }
 
 }

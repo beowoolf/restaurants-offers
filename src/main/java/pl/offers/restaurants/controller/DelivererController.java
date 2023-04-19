@@ -24,11 +24,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/deliverers", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DelivererController {
 
-    interface DelivererListView extends DelivererDTO.View.Basic, PersonalDataDTO.View.Basic {}
-    interface DelivererView extends DelivererDTO.View.Extended, PersonalDataDTO.View.Extended, LogginDataDTO.View.Basic, OrderDTO.View.Extended {}
-
-    interface NewDelivererValidation extends Default, DelivererDTO.NewDelivererValidation {}
-
     private final DelivererService delivererService;
 
     @Autowired
@@ -60,6 +55,15 @@ public class DelivererController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         delivererService.delete(uuid);
+    }
+
+    interface DelivererListView extends DelivererDTO.View.Basic, PersonalDataDTO.View.Basic {
+    }
+
+    interface DelivererView extends DelivererDTO.View.Extended, PersonalDataDTO.View.Extended, LogginDataDTO.View.Basic, OrderDTO.View.Extended {
+    }
+
+    interface NewDelivererValidation extends Default, DelivererDTO.NewDelivererValidation {
     }
 
 }

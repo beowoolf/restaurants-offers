@@ -17,54 +17,38 @@ import java.util.UUID;
 @GeneratePojoBuilder
 public class RestaurantDTO {
 
-    public static class View {
-        public interface Id {}
-        public interface Basic extends Id {}
-        public interface Extended extends Basic {}
-    }
-    public interface DataUpdateValidation {}
-
     @JsonView(View.Id.class)
     @NotNull
     private UUID uuid;
-
     @JsonView(View.Basic.class)
     @NotBlank
     private String name;
-
     @JsonView(View.Basic.class)
     @NotNull
     @Embedded
     private LogginDataDTO logginDataDTO;
-
     @JsonView(View.Extended.class)
     @NotNull
     @Embedded
     private CompanyDataDTO companyDataDTO;
-
     @JsonView(View.Extended.class)
     @NotNull
     @Size(max = 7)
     private List<OpenTimeDTO> openTimeDTOS;
-
     @JsonView(View.Extended.class)
     @Nullable
     @Null(groups = DataUpdateValidation.class)
     private List<OrderDTO> orderDTOS;
-
     @JsonView(View.Extended.class)
     @Nullable
     @Null(groups = DataUpdateValidation.class)
     private List<MenuItemDTO> menuItemDTOS;
-
     @JsonIgnore
     @NotNull
     private List<DiscountCodeDTO> discountCodeDTOS;
-
     @JsonView(View.Extended.class)
     @NotNull
     private Archive archive;
-
 
     public UUID getUuid() {
         return uuid;
@@ -136,6 +120,20 @@ public class RestaurantDTO {
 
     public void setArchive(Archive archive) {
         this.archive = archive;
+    }
+
+    public interface DataUpdateValidation {
+    }
+
+    public static class View {
+        public interface Id {
+        }
+
+        public interface Basic extends Id {
+        }
+
+        public interface Extended extends Basic {
+        }
     }
 
 }

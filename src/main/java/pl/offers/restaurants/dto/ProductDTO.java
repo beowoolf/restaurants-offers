@@ -12,27 +12,18 @@ import java.util.UUID;
 @GeneratePojoBuilder
 public class ProductDTO {
 
-    public static class View {
-        public interface Basic {}
-        public interface Extended extends Basic {}
-    }
-
     @JsonView(View.Basic.class)
     @NotNull
     private UUID uuid;
-
     @JsonView(View.Basic.class)
     @NotBlank
     private String name;
-
     @JsonView(View.Extended.class)
     @NotNull
     private List<IngredientDTO> ingredientDTOS;
-
     @JsonView(View.Extended.class)
     @Nullable
     private DishDTO dishDTO;
-
 
     public UUID getUuid() {
         return uuid;
@@ -65,6 +56,14 @@ public class ProductDTO {
 
     public void setDish(@Nullable DishDTO dishDTO) {
         this.dishDTO = dishDTO;
+    }
+
+    public static class View {
+        public interface Basic {
+        }
+
+        public interface Extended extends Basic {
+        }
     }
 
 }

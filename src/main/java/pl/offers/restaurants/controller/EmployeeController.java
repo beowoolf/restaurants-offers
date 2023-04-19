@@ -20,9 +20,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/employees", produces = MediaType.APPLICATION_JSON_VALUE)
 public class EmployeeController {
 
-    interface EmployeeListListView extends EmployeeDTO.View.Basic, PersonalDataDTO.View.Basic {}
-    interface EmployeeView extends EmployeeDTO.View.Extended, PersonalDataDTO.View.Extended, LogginDataDTO.View.Basic {}
-
     private final EmployeeService employeeService;
 
     @Autowired
@@ -53,6 +50,12 @@ public class EmployeeController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         employeeService.delete(uuid);
+    }
+
+    interface EmployeeListListView extends EmployeeDTO.View.Basic, PersonalDataDTO.View.Basic {
+    }
+
+    interface EmployeeView extends EmployeeDTO.View.Extended, PersonalDataDTO.View.Extended, LogginDataDTO.View.Basic {
     }
 
 }

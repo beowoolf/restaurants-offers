@@ -20,9 +20,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/menu-items", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MenuItemController {
 
-    interface MenuItemListListView extends MenuItemDTO.View.Basic, RestaurantDTO.View.Id {}
-    interface MenuItemView extends MenuItemDTO.View.Extended, RestaurantDTO.View.Id, DishDTO.View.Id {}
-
     private final MenuItemService menuItemService;
 
     @Autowired
@@ -53,6 +50,12 @@ public class MenuItemController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         menuItemService.delete(uuid);
+    }
+
+    interface MenuItemListListView extends MenuItemDTO.View.Basic, RestaurantDTO.View.Id {
+    }
+
+    interface MenuItemView extends MenuItemDTO.View.Extended, RestaurantDTO.View.Id, DishDTO.View.Id {
     }
 
 }

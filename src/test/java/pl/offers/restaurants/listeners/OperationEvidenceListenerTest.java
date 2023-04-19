@@ -37,26 +37,7 @@ import java.util.UUID;
 })
 class OperationEvidenceListenerTest {
 
-    @Configuration
-    public static class Config {
-        @Bean
-        public OperationEvidenceService operationEvidenceService(OperationEvidenceRepo operationEvidenceRepo) {
-            return new OperationEvidenceServiceImpl(operationEvidenceRepo);
-        }
-        @Bean
-        public OperationEvidenceListener operationEvidenceListener(OperationEvidenceService operationEvidenceService, UserRepo userRepo) {
-            return new OperationEvidenceListener(operationEvidenceService, userRepo);
-        }
-        @Bean
-        public UserService userService(UserRepo userRepo) {
-            return new UserServiceImpl(userRepo);
-        }
-        @Bean
-        public UserController userController(UserService userService, ApplicationEventPublisher applicationEventPublisher) {
-            return new UserController(userService, applicationEventPublisher);
-        }
-    }
-
+    private static final String STR_UUID = "2774af04-bdcd-44a8-a648-5b390d818f23";
     @Autowired
     private UserRepo userRepo;
 
@@ -65,8 +46,6 @@ class OperationEvidenceListenerTest {
 
     @Autowired
     private UserController userController;
-
-    private static final String STR_UUID = "2774af04-bdcd-44a8-a648-5b390d818f23";
 
     @Test
     @Transactional
@@ -139,6 +118,29 @@ class OperationEvidenceListenerTest {
                 TestUtils.operationEvidenceDTO("2020-01-01T12:00:00Z", EvidenceType.WITHDRAW, new BigDecimal("100.00"), userJson)
         ));
         Assertions.assertThrows(ResponseStatusException.class, () -> userController.postOperation(UUID.fromString(STR_UUID), userJson));
+    }
+
+    @Configuration
+    public static class Config {
+        @Bean
+        public OperationEvidenceService operationEvidenceService(OperationEvidenceRepo operationEvidenceRepo) {
+            return new OperationEvidenceServiceImpl(operationEvidenceRepo);
+        }
+
+        @Bean
+        public OperationEvidenceListener operationEvidenceListener(OperationEvidenceService operationEvidenceService, UserRepo userRepo) {
+            return new OperationEvidenceListener(operationEvidenceService, userRepo);
+        }
+
+        @Bean
+        public UserService userService(UserRepo userRepo) {
+            return new UserServiceImpl(userRepo);
+        }
+
+        @Bean
+        public UserController userController(UserService userService, ApplicationEventPublisher applicationEventPublisher) {
+            return new UserController(userService, applicationEventPublisher);
+        }
     }
 
 }

@@ -38,6 +38,12 @@ public class DelivererServiceImpl implements DelivererService {
         this.orderRepo = orderRepo;
     }
 
+    public static Deliverer newDeliverer(UUID uuid) {
+        return new DelivererBuilder()
+                .withUuid(uuid)
+                .build();
+    }
+
     @Cacheable(cacheNames = "deliverers")
     @Override
     public List<DelivererDTO> getAll() {
@@ -91,13 +97,6 @@ public class DelivererServiceImpl implements DelivererService {
     @Override
     public Optional<DelivererDTO> getByUuid(UUID uuid) {
         return delivererRepo.findByUuid(uuid).map(ConverterUtils::convert);
-    }
-
-
-    public static Deliverer newDeliverer(UUID uuid) {
-        return new DelivererBuilder()
-                .withUuid(uuid)
-                .build();
     }
 
 }

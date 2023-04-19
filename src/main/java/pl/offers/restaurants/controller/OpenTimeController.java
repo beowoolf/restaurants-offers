@@ -19,9 +19,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/open-times", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OpenTimeController {
 
-    interface OpenTimeListListView extends OpenTimeDTO.View.Basic {}
-    interface OpenTimeView extends OpenTimeDTO.View.Extended, RestaurantDTO.View.Id {}
-
     private final OpenTimeService openTimeService;
 
     @Autowired
@@ -60,6 +57,12 @@ public class OpenTimeController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         openTimeService.delete(uuid);
+    }
+
+    interface OpenTimeListListView extends OpenTimeDTO.View.Basic {
+    }
+
+    interface OpenTimeView extends OpenTimeDTO.View.Extended, RestaurantDTO.View.Id {
     }
 
 }

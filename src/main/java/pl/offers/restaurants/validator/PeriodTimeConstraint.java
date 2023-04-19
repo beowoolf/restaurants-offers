@@ -11,7 +11,9 @@ import java.lang.annotation.*;
 public @interface PeriodTimeConstraint {
 
     String message() default "{pl.offers.restaurants.validator.PeriodTimeConstraint}";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 
 }
