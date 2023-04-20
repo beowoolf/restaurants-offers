@@ -11,30 +11,20 @@ import java.util.UUID;
 @GeneratePojoBuilder
 public class EmployeeDTO {
 
-    public static class View {
-        public interface Id {}
-        public interface Basic extends Id {}
-        public interface Extended extends Basic {}
-    }
-
     @JsonView(View.Basic.class)
     @NotNull
     private UUID uuid;
-
     @JsonView(View.Basic.class)
     @NotNull
     @Embedded
     private PersonalDataDTO personalDataDTO;
-
     @JsonView(View.Extended.class)
     @NotNull
     @Embedded
     private LogginDataDTO logginData;
-
     @JsonView(View.Extended.class)
     @NotNull
     private Archive archive;
-
 
     public UUID getUuid() {
         return uuid;
@@ -66,6 +56,17 @@ public class EmployeeDTO {
 
     public void setArchive(Archive archive) {
         this.archive = archive;
+    }
+
+    public static class View {
+        public interface Id {
+        }
+
+        public interface Basic extends Id {
+        }
+
+        public interface Extended extends Basic {
+        }
     }
 
 }

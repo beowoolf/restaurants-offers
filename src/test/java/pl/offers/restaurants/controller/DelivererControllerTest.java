@@ -30,18 +30,7 @@ import java.util.UUID;
 })
 class DelivererControllerTest {
 
-    @Configuration
-    public static class Config {
-        @Bean
-        public DelivererService delivererService(DelivererRepo delivererRepo, OrderRepo orderRepo) {
-            return new DelivererServiceImpl(delivererRepo, orderRepo);
-        }
-        @Bean
-        public DelivererController delivererController(DelivererService delivererService) {
-            return new DelivererController(delivererService);
-        }
-    }
-
+    private static final String STR_UUID = "8faaace7-4d5b-4ade-ba00-c9084995d7ff";
     @Autowired
     private DelivererRepo delivererRepo;
 
@@ -53,8 +42,6 @@ class DelivererControllerTest {
 
     @Autowired
     private PlatformTransactionManager txManager;
-
-    private static final String STR_UUID = "8faaace7-4d5b-4ade-ba00-c9084995d7ff";
 
     // add
     @Test
@@ -105,6 +92,19 @@ class DelivererControllerTest {
         TransactionStatus status3 = txManager.getTransaction(TransactionDefinition.withDefaults());
         Truth8.assertThat(delivererService.getByUuid(UUID.fromString(STR_UUID))).isEmpty();
         txManager.commit(status3);
+    }
+
+    @Configuration
+    public static class Config {
+        @Bean
+        public DelivererService delivererService(DelivererRepo delivererRepo, OrderRepo orderRepo) {
+            return new DelivererServiceImpl(delivererRepo, orderRepo);
+        }
+
+        @Bean
+        public DelivererController delivererController(DelivererService delivererService) {
+            return new DelivererController(delivererService);
+        }
     }
 
 }

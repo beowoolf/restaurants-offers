@@ -20,9 +20,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/products", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProductController {
 
-    interface ProductListListView extends ProductDTO.View.Basic {}
-    interface ProductView extends ProductDTO.View.Extended, IngredientDTO.View.Basic, DishDTO.View.Basic {}
-
     private final ProductService productService;
 
     @Autowired
@@ -53,6 +50,12 @@ public class ProductController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         productService.delete(uuid);
+    }
+
+    interface ProductListListView extends ProductDTO.View.Basic {
+    }
+
+    interface ProductView extends ProductDTO.View.Extended, IngredientDTO.View.Basic, DishDTO.View.Basic {
     }
 
 }

@@ -9,9 +9,13 @@ import java.util.List;
 public interface OperationEvidenceService {
 
     List<OperationEvidence> getAll();
+
     void add(OperationEvidence operationEvidence);
+
     void delete(OperationEvidence operationEvidence);
+
     BigDecimal getUserAccountBalance(User user);
+
     BigDecimal getAccountBalanceAfterOperation(OperationEvidence operationEvidence);
 
 }

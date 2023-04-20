@@ -23,13 +23,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/users", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
-    interface UserListListView extends UserDTO.View.Basic, PersonalDataDTO.View.Basic {}
-    interface UserView extends UserDTO.View.Extended, PersonalDataDTO.View.Extended, LogginDataDTO.View.Basic,
-            DeliveryAddressDTO.View.Basic, OperationEvidenceDTO.View.Extended, DiscountCodeDTO.View.Extended {}
-
-    interface DataUpdateValidation extends Default, UserDTO.DataUpdateValidation {}
-    interface NewOperationValidation extends Default, UserDTO.NewOperationValidation {}
-
     private final UserService userService;
     private final ApplicationEventPublisher applicationEventPublisher;
 
@@ -81,6 +74,19 @@ public class UserController {
         UserDTO userDTO = userService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         return userDTO.getDeliveryAddress();
+    }
+
+    interface UserListListView extends UserDTO.View.Basic, PersonalDataDTO.View.Basic {
+    }
+
+    interface UserView extends UserDTO.View.Extended, PersonalDataDTO.View.Extended, LogginDataDTO.View.Basic,
+            DeliveryAddressDTO.View.Basic, OperationEvidenceDTO.View.Extended, DiscountCodeDTO.View.Extended {
+    }
+
+    interface DataUpdateValidation extends Default, UserDTO.DataUpdateValidation {
+    }
+
+    interface NewOperationValidation extends Default, UserDTO.NewOperationValidation {
     }
 
 }

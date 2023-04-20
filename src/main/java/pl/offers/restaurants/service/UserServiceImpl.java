@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void validateNewOperation(UUID uuid, UserDTO userDTO) {
-        if(!Objects.equal(userDTO.getUuid(), uuid)) {
+        if (!Objects.equal(userDTO.getUuid(), uuid)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
         userRepo.findByUuid(userDTO.getUuid())

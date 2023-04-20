@@ -37,49 +37,7 @@ import java.util.UUID;
 })
 class OrderControllerTest {
 
-    @Configuration
-    public static class Config {
-        @Bean
-        public OperationEvidenceService operationEvidenceService(OperationEvidenceRepo operationEvidenceRepo) {
-            return new OperationEvidenceServiceImpl(operationEvidenceRepo);
-        }
-        @Bean
-        public OperationEvidenceListener operationEvidenceListener(OperationEvidenceService operationEvidenceService, UserRepo userRepo) {
-            return new OperationEvidenceListener(operationEvidenceService, userRepo);
-        }
-        @Bean
-        public OrderItemService orderItemService(OrderItemRepo orderItemRepo) {
-            return new OrderItemServiceImpl(orderItemRepo);
-        }
-        @Bean
-        public OrderService orderService(OrderRepo orderRepo,
-                                         UserRepo userRepo,
-                                         RestaurantRepo restaurantRepo,
-                                         DelivererRepo delivererRepo,
-                                         DeliveryAddressRepo deliveryAddressRepo,
-                                         MenuItemRepo menuItemRepo,
-                                         OrderItemRepo orderItemRepo,
-                                         DiscountCodeRepo discountCodeRepo,
-                                         OrderItemService orderItemService) {
-            return new OrderServiceImpl(orderRepo, userRepo, restaurantRepo, delivererRepo, deliveryAddressRepo, menuItemRepo, discountCodeRepo, orderItemRepo, orderItemService);
-        }
-        @Bean
-        public DelivererService delivererService(DelivererRepo delivererRepo, OrderRepo orderRepo) {
-            return new DelivererServiceImpl(delivererRepo, orderRepo);
-        }
-        @Bean
-        public UserService userService(UserRepo userRepo) {
-            return new UserServiceImpl(userRepo);
-        }
-        @Bean
-        public OrderController orderController(OrderService orderService,
-                                               DelivererService delivererService,
-                                               UserService userService,
-                                               ApplicationEventPublisher applicationEventPublisher) {
-            return new OrderController(orderService, delivererService, userService, applicationEventPublisher);
-        }
-    }
-
+    private static final String STR_UUID = "34739d73-6523-417a-8f68-263f4bfde58e";
     @Autowired
     private OrderRepo orderRepo;
 
@@ -121,8 +79,6 @@ class OrderControllerTest {
 
     @Autowired
     private PlatformTransactionManager txManager;
-
-    private static final String STR_UUID = "34739d73-6523-417a-8f68-263f4bfde58e";
 
     // add
     @Test
@@ -1000,6 +956,55 @@ class OrderControllerTest {
         TransactionStatus status2 = txManager.getTransaction(TransactionDefinition.withDefaults());
         Assertions.assertThrows(ResponseStatusException.class, () -> orderController.delete(UUID.fromString(STR_UUID)));
         txManager.commit(status2);
+    }
+
+    @Configuration
+    public static class Config {
+        @Bean
+        public OperationEvidenceService operationEvidenceService(OperationEvidenceRepo operationEvidenceRepo) {
+            return new OperationEvidenceServiceImpl(operationEvidenceRepo);
+        }
+
+        @Bean
+        public OperationEvidenceListener operationEvidenceListener(OperationEvidenceService operationEvidenceService, UserRepo userRepo) {
+            return new OperationEvidenceListener(operationEvidenceService, userRepo);
+        }
+
+        @Bean
+        public OrderItemService orderItemService(OrderItemRepo orderItemRepo) {
+            return new OrderItemServiceImpl(orderItemRepo);
+        }
+
+        @Bean
+        public OrderService orderService(OrderRepo orderRepo,
+                                         UserRepo userRepo,
+                                         RestaurantRepo restaurantRepo,
+                                         DelivererRepo delivererRepo,
+                                         DeliveryAddressRepo deliveryAddressRepo,
+                                         MenuItemRepo menuItemRepo,
+                                         OrderItemRepo orderItemRepo,
+                                         DiscountCodeRepo discountCodeRepo,
+                                         OrderItemService orderItemService) {
+            return new OrderServiceImpl(orderRepo, userRepo, restaurantRepo, delivererRepo, deliveryAddressRepo, menuItemRepo, discountCodeRepo, orderItemRepo, orderItemService);
+        }
+
+        @Bean
+        public DelivererService delivererService(DelivererRepo delivererRepo, OrderRepo orderRepo) {
+            return new DelivererServiceImpl(delivererRepo, orderRepo);
+        }
+
+        @Bean
+        public UserService userService(UserRepo userRepo) {
+            return new UserServiceImpl(userRepo);
+        }
+
+        @Bean
+        public OrderController orderController(OrderService orderService,
+                                               DelivererService delivererService,
+                                               UserService userService,
+                                               ApplicationEventPublisher applicationEventPublisher) {
+            return new OrderController(orderService, delivererService, userService, applicationEventPublisher);
+        }
     }
 
 }

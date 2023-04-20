@@ -81,15 +81,14 @@ public class AssertionUtils {
         assertEqualsId(expected.getRestaurant(), actual.getRestaurant());
     }
 
-    public enum OrderStatusType {
-        NEW, PAID, GIVED_OUT, DELIVERED;
-    }
-
     private static void assertEquals(OrderStatusDTO expected, OrderStatusDTO actual, OrderStatusType orderStatus) {
         Assertions.assertNotNull(actual.getOrderTime());
         switch (orderStatus) {
-            case NEW: break;
-            case PAID: assert actual.getIsPaid(); break;
+            case NEW:
+                break;
+            case PAID:
+                assert actual.getIsPaid();
+                break;
             case GIVED_OUT:
                 assert expected != null;
                 assert actual.getIsPaid();
@@ -114,6 +113,10 @@ public class AssertionUtils {
 
     private static void assertEqualsId(RestaurantDTO expected, RestaurantDTO actual) {
         Assertions.assertEquals(expected.getUuid(), actual.getUuid());
+    }
+
+    public enum OrderStatusType {
+        NEW, PAID, GIVED_OUT, DELIVERED;
     }
 
 }

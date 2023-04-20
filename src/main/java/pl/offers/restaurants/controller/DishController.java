@@ -23,11 +23,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/dishes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DishController {
 
-    interface DishListListView extends DishDTO.View.Basic {}
-    interface DishView extends DishDTO.View.Extended, ProductDTO.View.Extended, MenuItemDTO.View.Basic {}
-
-    interface DishDataUpdateValidation extends Default, DishDTO.DataUpdateValidation {}
-
     private final DishService dishService;
 
     @Autowired
@@ -59,6 +54,15 @@ public class DishController {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         dishService.delete(uuid);
+    }
+
+    interface DishListListView extends DishDTO.View.Basic {
+    }
+
+    interface DishView extends DishDTO.View.Extended, ProductDTO.View.Extended, MenuItemDTO.View.Basic {
+    }
+
+    interface DishDataUpdateValidation extends Default, DishDTO.DataUpdateValidation {
     }
 
 }

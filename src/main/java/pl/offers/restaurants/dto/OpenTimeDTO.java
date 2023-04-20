@@ -11,28 +11,19 @@ import java.util.UUID;
 @GeneratePojoBuilder
 public class OpenTimeDTO {
 
-    public static class View {
-        public interface Basic {}
-        public interface Extended extends Basic {}
-    }
-
     @JsonView(View.Basic.class)
     @NotNull
     private UUID uuid;
-
     @JsonView(View.Extended.class)
     @NotNull
     private DayOfWeek dayOfWeek;
-
     @JsonView(View.Extended.class)
     @NotNull
     @Embedded
     private PeriodTimeDTO periodTimeDTO;
-
     @JsonView(View.Extended.class)
     @NotNull
     private RestaurantDTO restaurantDTO;
-
 
     public UUID getUuid() {
         return uuid;
@@ -64,6 +55,14 @@ public class OpenTimeDTO {
 
     public void setRestaurant(RestaurantDTO restaurantDTO) {
         this.restaurantDTO = restaurantDTO;
+    }
+
+    public static class View {
+        public interface Basic {
+        }
+
+        public interface Extended extends Basic {
+        }
     }
 
 }

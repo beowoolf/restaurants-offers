@@ -12,30 +12,20 @@ import java.time.Instant;
 @Embeddable
 public class OrderStatusDTO {
 
-    public static class View {
-        public interface Basic {}
-    }
-    public interface GiveOutStatusValidation {}
-    public interface DeliveryValidation {}
-
     @JsonView(View.Basic.class)
     @NotNull
     private Instant orderTime;
-
     @JsonView(View.Basic.class)
     @NotNull
     private Boolean isPaid;
-
     @JsonView(View.Basic.class)
     @NotNull(groups = GiveOutStatusValidation.class)
     @Nullable
     private Instant giveOutTime;
-
     @JsonView(View.Basic.class)
     @NotNull(groups = DeliveryValidation.class)
     @Nullable
     private Instant deliveryTime;
-
 
     public Instant getOrderTime() {
         return orderTime;
@@ -67,6 +57,17 @@ public class OrderStatusDTO {
 
     public void setDeliveryTime(Instant deliveryTime) {
         this.deliveryTime = deliveryTime;
+    }
+
+    public interface GiveOutStatusValidation {
+    }
+
+    public interface DeliveryValidation {
+    }
+
+    public static class View {
+        public interface Basic {
+        }
     }
 
 }

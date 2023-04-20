@@ -32,18 +32,7 @@ import java.util.UUID;
 })
 class DeliveryAddressControllerTest {
 
-    @Configuration
-    public static class Config {
-        @Bean
-        public DeliveryAddressService deliveryAddressService(DeliveryAddressRepo deliveryAddressRepo, UserRepo userRepo) {
-            return new DeliveryAddressServiceImpl(deliveryAddressRepo, userRepo);
-        }
-        @Bean
-        public DeliveryAddressController deliveryAddressController(DeliveryAddressService deliveryAddressService) {
-            return new DeliveryAddressController(deliveryAddressService);
-        }
-    }
-
+    private static final String STR_UUID = "14818fb1-ad14-484a-ad3c-e12113c4c3ab";
     @Autowired
     private UserRepo userRepo;
 
@@ -58,8 +47,6 @@ class DeliveryAddressControllerTest {
 
     @Autowired
     private PlatformTransactionManager txManager;
-
-    private static final String STR_UUID = "14818fb1-ad14-484a-ad3c-e12113c4c3ab";
 
     // add
     @Test
@@ -118,6 +105,19 @@ class DeliveryAddressControllerTest {
         TransactionStatus status3 = txManager.getTransaction(TransactionDefinition.withDefaults());
         Truth8.assertThat(deliveryAddressService.getByUuid(UUID.fromString(STR_UUID))).isEmpty();
         txManager.commit(status3);
+    }
+
+    @Configuration
+    public static class Config {
+        @Bean
+        public DeliveryAddressService deliveryAddressService(DeliveryAddressRepo deliveryAddressRepo, UserRepo userRepo) {
+            return new DeliveryAddressServiceImpl(deliveryAddressRepo, userRepo);
+        }
+
+        @Bean
+        public DeliveryAddressController deliveryAddressController(DeliveryAddressService deliveryAddressService) {
+            return new DeliveryAddressController(deliveryAddressService);
+        }
     }
 
 }
