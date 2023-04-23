@@ -30,7 +30,6 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         this.userRepo = userRepo;
     }
 
-
     @Override
     public List<DeliveryAddressDTO> getAll() {
         return deliveryAddressRepo.findAll().stream()
@@ -67,7 +66,6 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         if (deliveryAddress.getId() == null) {
             deliveryAddressRepo.save(deliveryAddress);
         }
-
     }
 
     @Override
@@ -75,14 +73,12 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         DeliveryAddress deliveryAddress = deliveryAddressRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         deliveryAddressRepo.delete(deliveryAddress);
-
     }
 
     @Override
     public Optional<DeliveryAddressDTO> getByUuid(UUID uuid) {
         return deliveryAddressRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private DeliveryAddress newDeliveryAddress(UUID uuid, User user) {
         return new DeliveryAddressBuilder()

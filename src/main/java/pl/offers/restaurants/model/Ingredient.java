@@ -28,7 +28,6 @@ public class Ingredient {
     @NotNull
     private Boolean isAllergen;
 
-
     public Long getId() {
         return id;
     }

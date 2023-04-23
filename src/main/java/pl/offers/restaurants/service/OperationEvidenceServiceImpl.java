@@ -19,7 +19,6 @@ public class OperationEvidenceServiceImpl implements OperationEvidenceService {
         this.operationEvidenceRepo = operationEvidenceRepo;
     }
 
-
     @Override
     public List<OperationEvidence> getAll() {
         return operationEvidenceRepo.findAll();

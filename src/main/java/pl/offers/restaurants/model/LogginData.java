@@ -18,7 +18,6 @@ public class LogginData {
     @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$")
     private String password;
 
-
     public String getLogin() {
         return login;
     }

@@ -27,7 +27,6 @@ public class OrderItem {
     @OneToOne
     private MenuItem menuItem;
 
-
     public Long getId() {
         return id;
     }

@@ -34,7 +34,6 @@ public class Address {
     @Nullable
     private String state;
 
-
     public String getStreet() {
         return street;
     }

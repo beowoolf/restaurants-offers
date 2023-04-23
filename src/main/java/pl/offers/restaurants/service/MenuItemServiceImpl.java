@@ -36,7 +36,6 @@ public class MenuItemServiceImpl implements MenuItemService {
         this.dishRepo = dishRepo;
     }
 
-
     @Override
     public List<MenuItemDTO> getAll() {
         return menuItemRepo.findAll().stream()
@@ -86,7 +85,6 @@ public class MenuItemServiceImpl implements MenuItemService {
     public Optional<MenuItemDTO> getByUuid(UUID uuid) {
         return menuItemRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private MenuItem newMenuItem(UUID uuid, Restaurant restaurant) {
         return new MenuItemBuilder()

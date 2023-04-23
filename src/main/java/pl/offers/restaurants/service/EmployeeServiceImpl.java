@@ -28,7 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepo = employeeRepo;
     }
 
-
     @Override
     public List<EmployeeDTO> getAll() {
         return employeeRepo.findAll().stream()
@@ -66,7 +65,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Optional<EmployeeDTO> getByUuid(UUID uuid) {
         return employeeRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private Employee newEmployee(UUID uuid) {
         return new EmployeeBuilder()

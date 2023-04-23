@@ -22,7 +22,6 @@ public class OrderStatus {
     @NotNull
     private Instant deliveryTime;
 
-
     public Instant getOrderTime() {
         return orderTime;
     }

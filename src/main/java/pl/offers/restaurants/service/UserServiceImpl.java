@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
         this.userRepo = userRepo;
     }
 
-
     @Override
     public List<UserDTO> getAll() {
         return userRepo.findAll().stream()
@@ -74,7 +73,6 @@ public class UserServiceImpl implements UserService {
         userRepo.findByUuid(userDTO.getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
-
 
     private User newUser(UUID uuid) {
         return new UserBuilder()

@@ -32,7 +32,6 @@ public class OpenTimeServiceImpl implements OpenTimeService {
         this.restaurantRepo = restaurantRepo;
     }
 
-
     @Override
     public List<OpenTimeDTO> getAll() {
         return openTimeRepo.findAll().stream()
@@ -69,14 +68,12 @@ public class OpenTimeServiceImpl implements OpenTimeService {
         OpenTime openTime = openTimeRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         openTimeRepo.delete(openTime);
-
     }
 
     @Override
     public Optional<OpenTimeDTO> getByUuid(UUID uuid) {
         return openTimeRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private OpenTime newOpenTime(UUID uuid, Restaurant restaurant) {
         return new OpenTimeBuilder()

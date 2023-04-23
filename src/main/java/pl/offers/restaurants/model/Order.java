@@ -76,7 +76,6 @@ public class Order {
     @ManyToOne
     private Restaurant restaurant;
 
-
     public Long getId() {
         return id;
     }

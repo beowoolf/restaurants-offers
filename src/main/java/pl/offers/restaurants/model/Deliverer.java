@@ -17,7 +17,6 @@ public class Deliverer extends Employee {
     @OneToMany(mappedBy = "deliverer")
     private List<Order> orders;
 
-
     @Nullable
     public List<Order> getOrders() {
         return orders;

@@ -33,7 +33,6 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private Archive archive;
 
-
     public Long getId() {
         return id;
     }

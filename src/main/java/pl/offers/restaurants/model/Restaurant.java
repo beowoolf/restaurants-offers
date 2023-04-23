@@ -54,7 +54,6 @@ public class Restaurant {
     @Enumerated(EnumType.STRING)
     private Archive archive;
 
-
     public Long getId() {
         return id;
     }

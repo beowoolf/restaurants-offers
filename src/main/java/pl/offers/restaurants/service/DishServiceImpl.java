@@ -36,7 +36,6 @@ public class DishServiceImpl implements DishService {
         this.productRepo = productRepo;
     }
 
-
     @Override
     public List<DishDTO> getAll() {
         return dishRepo.findAll().stream()

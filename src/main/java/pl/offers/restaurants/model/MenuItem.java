@@ -50,7 +50,6 @@ public class MenuItem {
     @ManyToOne
     private Restaurant restaurant;
 
-
     public Long getId() {
         return id;
     }

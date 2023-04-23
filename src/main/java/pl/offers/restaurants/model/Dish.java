@@ -33,7 +33,6 @@ public class Dish {
     @ManyToMany(mappedBy = "dishes")
     private List<MenuItem> menuItems;
 
-
     public Long getId() {
         return id;
     }

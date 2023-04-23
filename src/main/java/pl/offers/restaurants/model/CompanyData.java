@@ -31,7 +31,6 @@ public class CompanyData {
     @NotNull
     private String email;
 
-
     public String getName() {
         return name;
     }

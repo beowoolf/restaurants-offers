@@ -28,7 +28,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         this.restaurantRepo = restaurantRepo;
     }
 
-
     @Override
     public List<RestaurantDTO> getAll() {
         return restaurantRepo.findAll().stream()
@@ -70,7 +69,6 @@ public class RestaurantServiceImpl implements RestaurantService {
     public Optional<RestaurantDTO> getByUuid(UUID uuid) {
         return restaurantRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private Restaurant newRestaurant(UUID uuid) {
         return new RestaurantBuilder()

@@ -28,7 +28,6 @@ public class PersonalData {
     @Nullable
     private String email;
 
-
     @Nullable
     public String getName() {
         return name;

@@ -50,7 +50,6 @@ public class DiscountCode {
     @ManyToMany
     private List<Restaurant> restaurants;
 
-
     public Long getId() {
         return id;
     }

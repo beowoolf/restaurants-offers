@@ -36,7 +36,6 @@ public class ProductServiceImpl implements ProductService {
         this.dishRepo = dishRepo;
     }
 
-
     @Override
     public List<ProductDTO> getAll() {
         return productRepo.findAll().stream()
@@ -88,7 +87,6 @@ public class ProductServiceImpl implements ProductService {
     public Optional<ProductDTO> getByUuid(UUID uuid) {
         return productRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private Product newProduct(UUID uuid) {
         return new ProductBuilder()

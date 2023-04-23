@@ -54,7 +54,6 @@ public class OrderServiceImpl implements OrderService {
         this.orderItemService = orderItemService;
     }
 
-
     @Override
     public List<OrderDTO> getAll() {
         return orderRepo.findAll().stream()
@@ -128,7 +127,6 @@ public class OrderServiceImpl implements OrderService {
         }
 
         orderRepo.delete(order);
-
     }
 
     @Override

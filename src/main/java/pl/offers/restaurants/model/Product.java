@@ -32,7 +32,6 @@ public class Product {
     @OneToOne
     private Dish dish;
 
-
     public Long getId() {
         return id;
     }

@@ -26,7 +26,6 @@ public class IngredientServiceImpl implements IngredientService {
         this.ingredientRepo = ingredientRepo;
     }
 
-
     @Override
     public List<IngredientDTO> getAll() {
         return ingredientRepo.findAll().stream()
@@ -62,7 +61,6 @@ public class IngredientServiceImpl implements IngredientService {
     public Optional<IngredientDTO> getByUuid(UUID uuid) {
         return ingredientRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
-
 
     private Ingredient newIngredient(UUID uuid) {
         return new IngredientBuilder()
