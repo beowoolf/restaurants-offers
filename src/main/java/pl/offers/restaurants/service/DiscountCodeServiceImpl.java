@@ -97,7 +97,6 @@ public class DiscountCodeServiceImpl implements DiscountCodeService {
         return discountCodeRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
 
-
     private DiscountCode newDiscountCode(UUID uuid) {
         return new DiscountCodeBuilder()
                 .withUuid(uuid)

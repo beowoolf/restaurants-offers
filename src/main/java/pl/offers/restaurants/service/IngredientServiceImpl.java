@@ -54,7 +54,6 @@ public class IngredientServiceImpl implements IngredientService {
         Ingredient ingredient = ingredientRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         ingredientRepo.delete(ingredient);
-
     }
 
     @Override

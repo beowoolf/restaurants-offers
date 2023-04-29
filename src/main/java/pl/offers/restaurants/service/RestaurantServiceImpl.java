@@ -62,7 +62,6 @@ public class RestaurantServiceImpl implements RestaurantService {
         Restaurant restaurant = restaurantRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         restaurantRepo.delete(restaurant);
-
     }
 
     @Override

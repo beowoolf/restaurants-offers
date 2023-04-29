@@ -85,7 +85,6 @@ public class DishServiceImpl implements DishService {
         return dishRepo.findByUuid(uuid).map(ConverterUtils::convert);
     }
 
-
     private Dish newDish(UUID uuid) {
         return new DishBuilder()
                 .withUuid(uuid)

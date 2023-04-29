@@ -188,7 +188,6 @@ public class OrderServiceImpl implements OrderService {
                 .build();
     }
 
-
     private DiscountCode putDiscountCode(OrderDTO orderDTO) {
         DiscountCode discountCode = null;
         if (orderDTO.getDiscountCode() != null) {

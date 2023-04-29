@@ -78,7 +78,6 @@ public class MenuItemServiceImpl implements MenuItemService {
         MenuItem menuItem = menuItemRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         menuItemRepo.delete(menuItem);
-
     }
 
     @Override

@@ -58,7 +58,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = employeeRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         employeeRepo.delete(employee);
-
     }
 
     @Override

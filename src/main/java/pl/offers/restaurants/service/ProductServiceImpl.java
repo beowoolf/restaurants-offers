@@ -80,7 +80,6 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         productRepo.delete(product);
-
     }
 
     @Override
