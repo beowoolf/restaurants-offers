@@ -2,7 +2,7 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.model.enums.EvidenceType;
 
 import javax.validation.constraints.Digits;
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class OperationEvidenceDTO {
 
     @JsonView(View.Basic.class)

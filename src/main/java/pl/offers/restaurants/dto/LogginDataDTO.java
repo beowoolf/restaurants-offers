@@ -2,13 +2,13 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 @Embeddable
 public class LogginDataDTO {
 

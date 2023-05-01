@@ -1,7 +1,7 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.model.enums.VatTax;
 
 import javax.validation.constraints.*;
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class MenuItemDTO {
 
     @JsonView(View.Basic.class)

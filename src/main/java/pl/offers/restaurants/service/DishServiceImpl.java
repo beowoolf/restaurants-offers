@@ -8,7 +8,6 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.DishDTO;
 import pl.offers.restaurants.dto.MenuItemDTO;
 import pl.offers.restaurants.model.Dish;
-import pl.offers.restaurants.model.DishBuilder;
 import pl.offers.restaurants.model.MenuItem;
 import pl.offers.restaurants.model.Product;
 import pl.offers.restaurants.repo.DishRepo;
@@ -86,7 +85,7 @@ public class DishServiceImpl implements DishService {
     }
 
     private Dish newDish(UUID uuid) {
-        return new DishBuilder()
+        return Dish.builder()
                 .withUuid(uuid)
                 .build();
     }

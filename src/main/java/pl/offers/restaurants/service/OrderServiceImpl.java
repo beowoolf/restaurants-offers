@@ -180,7 +180,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private OperationEvidenceDTO newEwidenceForOrderPayment(OrderDTO orderDTO) {
-        return new OperationEvidenceDTOBuilder()
+        return OperationEvidenceDTO.builder()
                 .withDate(Instant.now())
                 .withUser(orderDTO.getUser())
                 .withAmount(orderDTO.getAmountToPayBrutto())
@@ -229,13 +229,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private OrderItem newOrderItem(UUID uuid) {
-        return new OrderItemBuilder()
+        return OrderItem.builder()
                 .withUuid(uuid)
                 .build();
     }
 
     private Order newOrder(UUID uuid, User user, Restaurant restaurant) {
-        return new OrderBuilder()
+        return Order.builder()
                 .withUuid(uuid)
                 .withUser(user)
                 .withRestaurant(restaurant)
@@ -244,7 +244,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private OrderStatus newOrderStatus() {
-        return new OrderStatusBuilder()
+        return OrderStatus.builder()
                 .withOrderTime(Instant.now())
                 .withIsPaid(false)
                 .build();

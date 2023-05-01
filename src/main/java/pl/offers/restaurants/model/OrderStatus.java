@@ -1,12 +1,16 @@
 package pl.offers.restaurants.model;
 
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
-@GeneratePojoBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(setterPrefix = "with")
 @Embeddable
 public class OrderStatus {
 

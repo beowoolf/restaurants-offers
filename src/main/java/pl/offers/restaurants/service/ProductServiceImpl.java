@@ -10,7 +10,6 @@ import pl.offers.restaurants.dto.ProductDTO;
 import pl.offers.restaurants.model.Dish;
 import pl.offers.restaurants.model.Ingredient;
 import pl.offers.restaurants.model.Product;
-import pl.offers.restaurants.model.ProductBuilder;
 import pl.offers.restaurants.repo.DishRepo;
 import pl.offers.restaurants.repo.IngredientRepo;
 import pl.offers.restaurants.repo.ProductRepo;
@@ -88,7 +87,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     private Product newProduct(UUID uuid) {
-        return new ProductBuilder()
+        return Product.builder()
                 .withUuid(uuid)
                 .build();
     }

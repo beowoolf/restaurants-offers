@@ -1,6 +1,8 @@
 package pl.offers.restaurants.model;
 
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import pl.offers.restaurants.model.enums.EvidenceType;
 
 import javax.persistence.*;
@@ -10,7 +12,9 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-@GeneratePojoBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(setterPrefix = "with")
 @Entity
 public class OperationEvidence {
 

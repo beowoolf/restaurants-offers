@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.DeliveryAddressDTO;
 import pl.offers.restaurants.model.DeliveryAddress;
-import pl.offers.restaurants.model.DeliveryAddressBuilder;
 import pl.offers.restaurants.model.User;
 import pl.offers.restaurants.repo.DeliveryAddressRepo;
 import pl.offers.restaurants.repo.UserRepo;
@@ -81,7 +80,7 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
     }
 
     private DeliveryAddress newDeliveryAddress(UUID uuid, User user) {
-        return new DeliveryAddressBuilder()
+        return DeliveryAddress.builder()
                 .withUuid(uuid)
                 .withUser(user)
                 .build();

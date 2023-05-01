@@ -1,13 +1,17 @@
 package pl.offers.restaurants.model;
 
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import pl.offers.restaurants.validator.PeriodTimeConstraint;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 import java.time.LocalTime;
 
-@GeneratePojoBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(setterPrefix = "with")
 @PeriodTimeConstraint
 @Embeddable
 public class PeriodTime {

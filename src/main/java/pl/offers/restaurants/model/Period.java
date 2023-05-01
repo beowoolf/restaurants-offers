@@ -1,13 +1,17 @@
 package pl.offers.restaurants.model;
 
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import pl.offers.restaurants.validator.PeriodConstraint;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 import java.time.LocalDateTime;
 
-@GeneratePojoBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(setterPrefix = "with")
 @PeriodConstraint
 @Embeddable
 public class Period {

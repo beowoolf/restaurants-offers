@@ -1,14 +1,14 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.model.enums.DayOfWeek;
 
 import javax.persistence.Embedded;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class OpenTimeDTO {
 
     @JsonView(View.Basic.class)

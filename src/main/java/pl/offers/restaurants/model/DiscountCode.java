@@ -1,6 +1,8 @@
 package pl.offers.restaurants.model;
 
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import pl.offers.restaurants.model.enums.DiscountUnit;
 
 import javax.annotation.Nullable;
@@ -13,7 +15,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(setterPrefix = "with")
 @Entity
 public class DiscountCode {
 

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.OpenTimeDTO;
 import pl.offers.restaurants.model.OpenTime;
-import pl.offers.restaurants.model.OpenTimeBuilder;
 import pl.offers.restaurants.model.Restaurant;
 import pl.offers.restaurants.repo.OpenTimeRepo;
 import pl.offers.restaurants.repo.RestaurantRepo;
@@ -76,7 +75,7 @@ public class OpenTimeServiceImpl implements OpenTimeService {
     }
 
     private OpenTime newOpenTime(UUID uuid, Restaurant restaurant) {
-        return new OpenTimeBuilder()
+        return OpenTime.builder()
                 .withUuid(uuid)
                 .withRestaurant(restaurant)
                 .build();

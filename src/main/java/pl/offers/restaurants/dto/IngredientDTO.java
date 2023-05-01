@@ -1,13 +1,13 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class IngredientDTO {
 
     @JsonView(View.Basic.class)

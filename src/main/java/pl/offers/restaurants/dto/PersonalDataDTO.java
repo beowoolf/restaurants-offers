@@ -2,13 +2,13 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.base.Joiner;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.model.enums.Sex;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 @Embeddable
 public class PersonalDataDTO {
 

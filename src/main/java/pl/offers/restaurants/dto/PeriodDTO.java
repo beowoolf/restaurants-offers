@@ -1,14 +1,14 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.validator.PeriodConstraint;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 import java.time.LocalDateTime;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 @PeriodConstraint
 @Embeddable
 public class PeriodDTO {

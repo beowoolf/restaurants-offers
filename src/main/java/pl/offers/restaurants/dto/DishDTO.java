@@ -1,7 +1,7 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.Min;
@@ -10,7 +10,7 @@ import javax.validation.constraints.Null;
 import java.util.List;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class DishDTO {
 
     @JsonView(View.Id.class)

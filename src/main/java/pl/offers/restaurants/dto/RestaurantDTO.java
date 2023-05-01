@@ -2,7 +2,7 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.annotation.Nullable;
@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class RestaurantDTO {
 
     @JsonView(View.Id.class)

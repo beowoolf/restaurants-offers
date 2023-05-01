@@ -9,7 +9,6 @@ import pl.offers.restaurants.dto.DiscountCodeDTO;
 import pl.offers.restaurants.dto.RestaurantDTO;
 import pl.offers.restaurants.dto.UserDTO;
 import pl.offers.restaurants.model.DiscountCode;
-import pl.offers.restaurants.model.DiscountCodeBuilder;
 import pl.offers.restaurants.model.Restaurant;
 import pl.offers.restaurants.model.User;
 import pl.offers.restaurants.repo.DiscountCodeRepo;
@@ -98,7 +97,7 @@ public class DiscountCodeServiceImpl implements DiscountCodeService {
     }
 
     private DiscountCode newDiscountCode(UUID uuid) {
-        return new DiscountCodeBuilder()
+        return DiscountCode.builder()
                 .withUuid(uuid)
                 .build();
     }

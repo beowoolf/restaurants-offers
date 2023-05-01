@@ -16,17 +16,17 @@ import java.util.UUID;
 public class TestUtils {
 
     public static DelivererDTO delivererDTO(String uuid, PersonalDataDTO personalDataDTO, LogginDataDTO logginDataDTO, Archive archive) {
-        return new DelivererDTOBuilder()
-                .withUuid(UUID.fromString(uuid))
-                .withPersonalData(personalDataDTO)
-                .withLogginData(logginDataDTO)
-                .withArchive(archive)
-                .withOrders(new ArrayList<>())
-                .build();
+        DelivererDTO delivererDTO = new DelivererDTO();
+        delivererDTO.setUuid(UUID.fromString(uuid));
+        delivererDTO.setPersonalData(personalDataDTO);
+        delivererDTO.setLogginData(logginDataDTO);
+        delivererDTO.setArchive(archive);
+        delivererDTO.setOrders(new ArrayList<>());
+        return delivererDTO;
     }
 
     public static PersonalDataDTO personalDataDTO(String name, String surname, Sex sex, String phone, String email) {
-        return new PersonalDataDTOBuilder()
+        return PersonalDataDTO.builder()
                 .withName(name)
                 .withSurname(surname)
                 .withSex(sex)
@@ -36,7 +36,7 @@ public class TestUtils {
     }
 
     public static LogginDataDTO logginDataDTO(String login, String passwrd) {
-        return new LogginDataDTOBuilder()
+        return LogginDataDTO.builder()
                 .withLogin(login)
                 .withPassword(passwrd)
                 .build();
@@ -45,7 +45,7 @@ public class TestUtils {
     public static DeliveryAddressDTO deliveryAddressDTO(String uuid, String description, String street, String streetNumber,
                                                         String locaNumber, String postcode, String city, String borough,
                                                         String country, String state, UserDTO userDTO) {
-        return new DeliveryAddressDTOBuilder()
+        return DeliveryAddressDTO.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withDescription(description)
                 .withStreet(street)
@@ -61,7 +61,7 @@ public class TestUtils {
     }
 
     public static UserDTO userDTO(String uuid, PersonalDataDTO personalDataDTO, List<DeliveryAddressDTO> addresses, LogginDataDTO logginDataDTO, Archive archive) {
-        return new UserDTOBuilder()
+        return UserDTO.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withPersonalData(personalDataDTO)
                 .withDeliveryAddress(addresses)
@@ -73,20 +73,20 @@ public class TestUtils {
 
     public static DiscountCodeDTO discountCodeDTO(String uuid, String code, BigDecimal discount, DiscountUnit unit, String begin,
                                                   String end, List<UserDTO> userDTOS, List<RestaurantDTO> restaurantDTOS) {
-        return new DiscountCodeDTOBuilder()
+        return DiscountCodeDTO.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withCode(code)
                 .withDiscount(discount)
                 .withDiscountUnit(unit)
                 .withPeriod(periodDTO(begin, end))
                 .withUsers(userDTOS)
-                .withRestaurants(restaurantDTOS)
+                .withRestaurantDTOS(restaurantDTOS)
                 .build();
     }
 
     public static DiscountCode discountCode(String uuid, String code, BigDecimal discount, DiscountUnit unit, String begin,
                                             String end, List<User> user, List<Restaurant> restaurant) {
-        return new DiscountCodeBuilder()
+        return DiscountCode.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withCode(code)
                 .withDiscount(discount)
@@ -98,7 +98,7 @@ public class TestUtils {
     }
 
     public static OperationEvidenceDTO operationEvidenceDTO(String dateInstant, EvidenceType evidenceType, BigDecimal amount, UserDTO userDTO) {
-        return new OperationEvidenceDTOBuilder()
+        return OperationEvidenceDTO.builder()
                 .withDate(Instant.parse(dateInstant))
                 .withType(evidenceType)
                 .withAmount(amount)
@@ -107,21 +107,21 @@ public class TestUtils {
     }
 
     public static PeriodDTO periodDTO(String begin, String end) {
-        return new PeriodDTOBuilder()
+        return PeriodDTO.builder()
                 .withBegin(begin != null ? LocalDateTime.parse(begin) : null)
                 .withEnd(end != null ? LocalDateTime.parse(end) : null)
                 .build();
     }
 
     public static Period period(String begin, String end) {
-        return new PeriodBuilder()
+        return Period.builder()
                 .withBegin(begin != null ? LocalDateTime.parse(begin) : null)
                 .withEnd(end != null ? LocalDateTime.parse(end) : null)
                 .build();
     }
 
     public static User user(String uuid, PersonalData personalData, List<DeliveryAddress> addresses, LogginData logginData, Archive archive) {
-        return new UserBuilder()
+        return User.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withPersonalData(personalData)
                 .withDeliveryAddress(addresses)
@@ -132,7 +132,7 @@ public class TestUtils {
     }
 
     public static OperationEvidence operationEvidence(String dateInstant, EvidenceType evidenceType, BigDecimal amount, User user) {
-        return new OperationEvidenceBuilder()
+        return OperationEvidence.builder()
                 .withDate(Instant.parse(dateInstant))
                 .withType(evidenceType)
                 .withAmount(amount)
@@ -141,17 +141,17 @@ public class TestUtils {
     }
 
     public static Deliverer deliverer(String uuid, PersonalData personalData, LogginData logginData, Archive archive) {
-        return new DelivererBuilder()
-                .withUuid(UUID.fromString(uuid))
-                .withPersonalData(personalData)
-                .withLogginData(logginData)
-                .withArchive(archive)
-                .withOrders(new ArrayList<>())
-                .build();
+        Deliverer deliverer = new Deliverer();
+        deliverer.setUuid(UUID.fromString(uuid));
+        deliverer.setPersonalData(personalData);
+        deliverer.setLogginData(logginData);
+        deliverer.setArchive(archive);
+        deliverer.setOrders(new ArrayList<>());
+        return deliverer;
     }
 
     public static PersonalData personalData(String name, String surname, Sex sex, String phone, String email) {
-        return new PersonalDataBuilder()
+        return PersonalData.builder()
                 .withName(name)
                 .withSurname(surname)
                 .withSex(sex)
@@ -161,7 +161,7 @@ public class TestUtils {
     }
 
     public static LogginData logginData(String login, String passwrd) {
-        return new LogginDataBuilder()
+        return LogginData.builder()
                 .withLogin(login)
                 .withPassword(passwrd)
                 .build();
@@ -170,7 +170,7 @@ public class TestUtils {
     public static DeliveryAddress deliveryAddress(String uuid, String description, String street, String streetNumber,
                                                   String locaNumber, String postcode, String city, String borough,
                                                   String country, String state, User user) {
-        return new DeliveryAddressBuilder()
+        return DeliveryAddress.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withDescription(description)
                 .withStreet(street)
@@ -186,13 +186,13 @@ public class TestUtils {
     }
 
     public static Restaurant restaurant(String uuid, String name, LogginData logginData, CompanyData companyData, Archive archive) {
-        return new RestaurantBuilder()
+        return Restaurant.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withName(name)
                 .withLogginData(logginData)
                 .withCompanyData(companyData)
                 .withArchive(archive)
-                .withOrders(new ArrayList<>())
+                .withOrderDTOS(new ArrayList<>())
                 .withOpenTimes(new ArrayList<>())
                 .withMenu(new ArrayList<>())
                 .withDiscountCodes(new ArrayList<>())
@@ -200,7 +200,7 @@ public class TestUtils {
     }
 
     public static CompanyData companyData(String name, Address address, String NIP, String REGON, String phone, String email) {
-        return new CompanyDataBuilder()
+        return CompanyData.builder()
                 .withName(name)
                 .withAddress(address)
                 .withNIP(NIP)
@@ -211,7 +211,7 @@ public class TestUtils {
     }
 
     public static Address address(String street, String streetNumber, String postcode, String city) {
-        return new AddressBuilder()
+        return Address.builder()
                 .withStreet(street)
                 .withStreetNumber(streetNumber)
                 .withPostcode(postcode)
@@ -222,7 +222,7 @@ public class TestUtils {
     public static Order order(String uuid, DiscountCode discountCode, String note, User userDTO,
                               Deliverer deliverer, DeliveryAddress deliveryAddress, Restaurant restaurant, BigDecimal nettoPrice,
                               BigDecimal bruttoPrice, BigDecimal amountToPayBrutto, OrderStatus orderStatus, OrderItem... orderItems) {
-        return new OrderBuilder()
+        return Order.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withDiscountCode(discountCode)
                 .withNote(note)
@@ -239,7 +239,7 @@ public class TestUtils {
     }
 
     public static OrderStatus orderStatus(@Nullable String orderTimeInstant, Boolean isPaid, @Nullable String giveOutTimeInstant, @Nullable String deliveryTimeInstant) {
-        return new OrderStatusBuilder()
+        return OrderStatus.builder()
                 .withOrderTime(orderTimeInstant != null ? Instant.parse(orderTimeInstant) : null)
                 .withIsPaid(isPaid)
                 .withGiveOutTime(giveOutTimeInstant != null ? Instant.parse(giveOutTimeInstant) : null)
@@ -248,9 +248,9 @@ public class TestUtils {
     }
 
     public static OrderStatusDTO orderStatusDTO(@Nullable String orderTimeInstant, Boolean isPaid, @Nullable String giveOutTimeInstant, @Nullable String deliveryTimeInstant) {
-        return new OrderStatusDTOBuilder()
+        return OrderStatusDTO.builder()
                 .withOrderTime(orderTimeInstant != null ? Instant.parse(orderTimeInstant) : null)
-                .withPaid(isPaid)
+                .withIsPaid(isPaid)
                 .withGiveOutTime(giveOutTimeInstant != null ? Instant.parse(giveOutTimeInstant) : null)
                 .withDeliveryTime(deliveryTimeInstant != null ? Instant.parse(deliveryTimeInstant) : null)
                 .build();
@@ -258,20 +258,20 @@ public class TestUtils {
 
     public static OrderDTO orderDTO(String uuid, DiscountCodeDTO discountCodeDTO, String note, UserDTO userDTO,
                                     DelivererDTO delivererDTO, DeliveryAddressDTO deliveryAddressDTO, RestaurantDTO restaurantDTO, OrderItemDTO... orderItemDTOS) {
-        return new OrderDTOBuilder()
+        return OrderDTO.builder()
                 .withUuid(UUID.fromString(uuid))
-                .withDiscountCode(discountCodeDTO)
+                .withDiscountCodeDTO(discountCodeDTO)
                 .withNote(note)
                 .withUser(userDTO)
-                .withDeliverer(delivererDTO)
+                .withDelivererDTO(delivererDTO)
                 .withDeliveryAddressDTO(deliveryAddressDTO)
-                .withRestaurant(restaurantDTO)
-                .withOrderItems(Arrays.asList(orderItemDTOS))
+                .withRestaurantDTO(restaurantDTO)
+                .withOrderItemDTOS(Arrays.asList(orderItemDTOS))
                 .build();
     }
 
     public static OrderItem orderItem(String uuid, Integer quantity, MenuItem menuItem) {
-        return new OrderItemBuilder()
+        return OrderItem.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withQuantity(quantity)
                 .withMenuItem(menuItem)
@@ -279,7 +279,7 @@ public class TestUtils {
     }
 
     public static MenuItem menuItem(String uuid, String name, BigDecimal nettoPrice, VatTax vatTax, BigDecimal bruttoPrice, Restaurant restaurant, Dish... dishes) {
-        return new MenuItemBuilder()
+        return MenuItem.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withName(name)
                 .withNettoPrice(nettoPrice)
@@ -291,7 +291,7 @@ public class TestUtils {
     }
 
     public static Dish dish(String uuid, Integer quantity, Product product) {
-        return new DishBuilder()
+        return Dish.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withQuantity(quantity)
                 .withProduct(product)
@@ -299,7 +299,7 @@ public class TestUtils {
     }
 
     public static Product product(String uuid, String name, Ingredient... ingredients) {
-        return new ProductBuilder()
+        return Product.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withName(name)
                 .withIngredients(Arrays.asList(ingredients))
@@ -307,10 +307,10 @@ public class TestUtils {
     }
 
     public static Ingredient ingredient(String uuid, String name, Boolean isAllergen) {
-        return new IngredientBuilder()
+        return Ingredient.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withName(name)
-                .withAllergen(isAllergen)
+                .withIsAllergen(isAllergen)
                 .build();
     }
 

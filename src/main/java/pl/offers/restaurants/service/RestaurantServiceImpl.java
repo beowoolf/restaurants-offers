@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.RestaurantDTO;
 import pl.offers.restaurants.model.Restaurant;
-import pl.offers.restaurants.model.RestaurantBuilder;
 import pl.offers.restaurants.repo.RestaurantRepo;
 import pl.offers.restaurants.utils.ConverterUtils;
 
@@ -70,7 +69,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     private Restaurant newRestaurant(UUID uuid) {
-        return new RestaurantBuilder()
+        return Restaurant.builder()
                 .withUuid(uuid)
                 .build();
     }

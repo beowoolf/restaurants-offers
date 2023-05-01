@@ -1,7 +1,7 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import net.karneim.pojobuilder.GeneratePojoBuilder;
+import lombok.Builder;
 import pl.offers.restaurants.model.enums.DiscountUnit;
 
 import javax.annotation.Nullable;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@GeneratePojoBuilder
+@Builder(setterPrefix = "with")
 public class DiscountCodeDTO {
 
     @JsonView(View.Basic.class)

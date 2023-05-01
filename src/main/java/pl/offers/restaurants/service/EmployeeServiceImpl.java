@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.EmployeeDTO;
 import pl.offers.restaurants.model.Employee;
-import pl.offers.restaurants.model.EmployeeBuilder;
 import pl.offers.restaurants.repo.EmployeeRepo;
 import pl.offers.restaurants.utils.ConverterUtils;
 
@@ -66,7 +65,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     private Employee newEmployee(UUID uuid) {
-        return new EmployeeBuilder()
+        return Employee.baseBuilder()
                 .withUuid(uuid)
                 .build();
     }

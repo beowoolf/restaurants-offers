@@ -9,7 +9,6 @@ import pl.offers.restaurants.dto.DishDTO;
 import pl.offers.restaurants.dto.MenuItemDTO;
 import pl.offers.restaurants.model.Dish;
 import pl.offers.restaurants.model.MenuItem;
-import pl.offers.restaurants.model.MenuItemBuilder;
 import pl.offers.restaurants.model.Restaurant;
 import pl.offers.restaurants.repo.DishRepo;
 import pl.offers.restaurants.repo.MenuItemRepo;
@@ -86,7 +85,7 @@ public class MenuItemServiceImpl implements MenuItemService {
     }
 
     private MenuItem newMenuItem(UUID uuid, Restaurant restaurant) {
-        return new MenuItemBuilder()
+        return MenuItem.builder()
                 .withUuid(uuid)
                 .withRestaurant(restaurant)
                 .build();

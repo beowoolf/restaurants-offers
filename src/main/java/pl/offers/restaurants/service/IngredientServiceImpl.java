@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.IngredientDTO;
 import pl.offers.restaurants.model.Ingredient;
-import pl.offers.restaurants.model.IngredientBuilder;
 import pl.offers.restaurants.repo.IngredientRepo;
 import pl.offers.restaurants.utils.ConverterUtils;
 
@@ -62,7 +61,7 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     private Ingredient newIngredient(UUID uuid) {
-        return new IngredientBuilder()
+        return Ingredient.builder()
                 .withUuid(uuid)
                 .build();
     }

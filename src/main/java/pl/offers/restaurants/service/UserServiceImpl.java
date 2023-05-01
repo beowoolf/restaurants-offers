@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.UserDTO;
 import pl.offers.restaurants.model.User;
-import pl.offers.restaurants.model.UserBuilder;
 import pl.offers.restaurants.repo.UserRepo;
 import pl.offers.restaurants.utils.ConverterUtils;
 
@@ -75,7 +74,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private User newUser(UUID uuid) {
-        return new UserBuilder()
+        return User.builder()
                 .withUuid(uuid)
                 .build();
     }

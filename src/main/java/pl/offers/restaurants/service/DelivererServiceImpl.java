@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.DelivererDTO;
 import pl.offers.restaurants.dto.OrderDTO;
 import pl.offers.restaurants.model.Deliverer;
-import pl.offers.restaurants.model.DelivererBuilder;
 import pl.offers.restaurants.model.Order;
 import pl.offers.restaurants.repo.DelivererRepo;
 import pl.offers.restaurants.repo.OrderRepo;
@@ -39,9 +38,9 @@ public class DelivererServiceImpl implements DelivererService {
     }
 
     public static Deliverer newDeliverer(UUID uuid) {
-        return new DelivererBuilder()
-                .withUuid(uuid)
-                .build();
+        Deliverer deliverer = new Deliverer();
+        deliverer.setUuid(uuid);
+        return deliverer;
     }
 
     @Cacheable(cacheNames = "deliverers")
