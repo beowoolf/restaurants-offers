@@ -137,7 +137,6 @@ class OrderControllerTest {
                 VatTax._23, new BigDecimal("24.60"), restaurant, dish1, dish2, dish3);
         menuItemRepo.save(menuItem1);
 
-
         OrderDTO orderJson = TestUtils.orderDTO(STR_UUID, null, "Poproszę bez panierki", ConverterUtils.convert(user), ConverterUtils.convert(deliverer),
                 ConverterUtils.convert(deliveryAddress), ConverterUtils.convert(restaurant),
                 ConverterUtils.convert(TestUtils.orderItem("1f4fa012-cd0b-4ae0-bbc0-040d73d75b6c", 2, menuItem1)));

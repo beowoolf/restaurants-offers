@@ -65,7 +65,6 @@ class DelivererControllerTest {
                 TestUtils.logginData("jSmith", "I@mIronM@n12"), Archive.CURRENT);
         delivererRepo.save(deliverer);
 
-
         DelivererDTO delivererJson = TestUtils.delivererDTO(STR_UUID,
                 TestUtils.personalDataDTO("John1", "Smith1", Sex.FEMALE, "501-501-502", "jh5123@gmail.com"),
                 TestUtils.logginDataDTO("jSmith1", "I@mIronM@n123"), Archive.ARCHIVE);
