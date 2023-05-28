@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.offers.restaurants.model.enums.Sex;
 
 import javax.annotation.Nullable;
@@ -10,6 +8,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -31,50 +31,5 @@ public class PersonalData {
 
     @Nullable
     private String email;
-
-    @Nullable
-    public String getName() {
-        return name;
-    }
-
-    public void setName(@Nullable String name) {
-        this.name = name;
-    }
-
-    @Nullable
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(@Nullable String surname) {
-        this.surname = surname;
-    }
-
-    @Nullable
-    public Sex getSex() {
-        return sex;
-    }
-
-    public void setSex(@Nullable Sex sex) {
-        this.sex = sex;
-    }
-
-    @Nullable
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(@Nullable String phone) {
-        this.phone = phone;
-    }
-
-    @Nullable
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(@Nullable String email) {
-        this.email = email;
-    }
 
 }

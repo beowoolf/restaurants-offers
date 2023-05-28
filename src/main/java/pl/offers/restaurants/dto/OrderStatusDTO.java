@@ -2,12 +2,16 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 @Embeddable
 public class OrderStatusDTO {
@@ -26,38 +30,6 @@ public class OrderStatusDTO {
     @NotNull(groups = DeliveryValidation.class)
     @Nullable
     private Instant deliveryTime;
-
-    public Instant getOrderTime() {
-        return orderTime;
-    }
-
-    public void setOrderTime(Instant orderTime) {
-        this.orderTime = orderTime;
-    }
-
-    public Boolean getIsPaid() {
-        return isPaid;
-    }
-
-    public void setPaid(Boolean paid) {
-        isPaid = paid;
-    }
-
-    public Instant getGiveOutTime() {
-        return giveOutTime;
-    }
-
-    public void setGiveOutTime(Instant giveOutTime) {
-        this.giveOutTime = giveOutTime;
-    }
-
-    public Instant getDeliveryTime() {
-        return deliveryTime;
-    }
-
-    public void setDeliveryTime(Instant deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
 
     public interface GiveOutStatusValidation {
     }

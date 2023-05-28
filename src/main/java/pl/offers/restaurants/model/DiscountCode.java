@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.offers.restaurants.model.enums.DiscountUnit;
 
 import javax.annotation.Nullable;
@@ -15,6 +13,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -53,71 +53,5 @@ public class DiscountCode {
     @Nullable
     @ManyToMany
     private List<Restaurant> restaurants;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
-    }
-
-    public Period getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(Period period) {
-        this.period = period;
-    }
-
-    public DiscountUnit getDiscountUnit() {
-        return discountUnit;
-    }
-
-    public void setDiscountUnit(DiscountUnit discountUnit) {
-        this.discountUnit = discountUnit;
-    }
-
-    @Nullable
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(@Nullable List<User> users) {
-        this.users = users;
-    }
-
-    @Nullable
-    public List<Restaurant> getRestaurants() {
-        return restaurants;
-    }
-
-    public void setRestaurants(@Nullable List<Restaurant> restaurants) {
-        this.restaurants = restaurants;
-    }
 
 }

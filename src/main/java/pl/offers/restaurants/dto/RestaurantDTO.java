@@ -3,6 +3,8 @@ package pl.offers.restaurants.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.annotation.Nullable;
@@ -14,6 +16,8 @@ import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class RestaurantDTO {
 
@@ -26,101 +30,29 @@ public class RestaurantDTO {
     @JsonView(View.Basic.class)
     @NotNull
     @Embedded
-    private LogginDataDTO logginDataDTO;
+    private LogginDataDTO logginData;
     @JsonView(View.Extended.class)
     @NotNull
     @Embedded
-    private CompanyDataDTO companyDataDTO;
+    private CompanyDataDTO companyData;
     @JsonView(View.Extended.class)
     @NotNull
     @Size(max = 7)
-    private List<OpenTimeDTO> openTimeDTOS;
+    private List<OpenTimeDTO> openTimes;
     @JsonView(View.Extended.class)
     @Nullable
     @Null(groups = DataUpdateValidation.class)
-    private List<OrderDTO> orderDTOS;
+    private List<OrderDTO> orders;
     @JsonView(View.Extended.class)
     @Nullable
     @Null(groups = DataUpdateValidation.class)
-    private List<MenuItemDTO> menuItemDTOS;
+    private List<MenuItemDTO> menuItems;
     @JsonIgnore
     @NotNull
-    private List<DiscountCodeDTO> discountCodeDTOS;
+    private List<DiscountCodeDTO> discountCodes;
     @JsonView(View.Extended.class)
     @NotNull
     private Archive archive;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LogginDataDTO getLogginData() {
-        return logginDataDTO;
-    }
-
-    public void setLogginData(LogginDataDTO logginDataDTO) {
-        this.logginDataDTO = logginDataDTO;
-    }
-
-    public CompanyDataDTO getCompanyData() {
-        return companyDataDTO;
-    }
-
-    public void setCompanyData(CompanyDataDTO companyDataDTO) {
-        this.companyDataDTO = companyDataDTO;
-    }
-
-    public List<OpenTimeDTO> getOpenTimeDTOS() {
-        return openTimeDTOS;
-    }
-
-    public void setOpenTimes(List<OpenTimeDTO> openTimeDTOS) {
-        this.openTimeDTOS = openTimeDTOS;
-    }
-
-    public List<OrderDTO> getOrders() {
-        return orderDTOS;
-    }
-
-    public void setOrders(List<OrderDTO> orderDTOS) {
-        this.orderDTOS = orderDTOS;
-    }
-
-    public List<MenuItemDTO> getMenuItemDTOS() {
-        return menuItemDTOS;
-    }
-
-    public void setMenuItems(List<MenuItemDTO> menuItemDTOS) {
-        this.menuItemDTOS = menuItemDTOS;
-    }
-
-    public List<DiscountCodeDTO> getDiscountCodes() {
-        return discountCodeDTOS;
-    }
-
-    public void setDiscountCodes(List<DiscountCodeDTO> discountCodeDTOS) {
-        this.discountCodeDTOS = discountCodeDTOS;
-    }
-
-    public Archive getArchive() {
-        return archive;
-    }
-
-    public void setArchive(Archive archive) {
-        this.archive = archive;
-    }
 
     public interface DataUpdateValidation {
     }

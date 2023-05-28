@@ -326,7 +326,7 @@ class OrderControllerTest {
         orderController.patchIsPaid(UUID.fromString(STR_UUID));
 
         OrderDTO orderDB = orderService.getByUuid(UUID.fromString(STR_UUID)).orElseThrow();
-        assert orderDB.getOrderStatusDTO().getIsPaid();
+        assert orderDB.getOrderStatus().getIsPaid();
     }
 
     // error while not enough founds
@@ -479,7 +479,7 @@ class OrderControllerTest {
         orderController.patchIsGivedOut(UUID.fromString(STR_UUID), orderStatusJson);
 
         OrderDTO orderDB = orderService.getByUuid(UUID.fromString(STR_UUID)).orElseThrow();
-        Assertions.assertEquals(orderDB.getOrderStatusDTO().getGiveOutTime(), orderStatusJson.getGiveOutTime());
+        Assertions.assertEquals(orderDB.getOrderStatus().getGiveOutTime(), orderStatusJson.getGiveOutTime());
     }
 
     // error when setting ordes as gived out when is not paid
@@ -634,7 +634,7 @@ class OrderControllerTest {
         orderController.patchIsDelivered(UUID.fromString(STR_UUID), orderStatusJson);
 
         OrderDTO orderDB = orderService.getByUuid(UUID.fromString(STR_UUID)).orElseThrow();
-        Assertions.assertEquals(orderDB.getOrderStatusDTO().getDeliveryTime(), orderStatusJson.getDeliveryTime());
+        Assertions.assertEquals(orderDB.getOrderStatus().getDeliveryTime(), orderStatusJson.getDeliveryTime());
     }
 
     // error when setting order as delivered when is not paid

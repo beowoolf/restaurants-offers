@@ -85,10 +85,10 @@ public class ConverterUtils {
                 .withDiscountCode(convert(orderDTO.getDiscountCode()))
                 .withAmountToPayBrutto(orderDTO.getAmountToPayBrutto())
                 .withNote(orderDTO.getNote())
-                .withStatus(convert(orderDTO.getOrderStatusDTO()))
+                .withStatus(convert(orderDTO.getOrderStatus()))
                 .withUser(convert(orderDTO.getUser()))
                 .withDeliverer(convert(orderDTO.getDeliverer()))
-                .withDeliveryAddress(convert(orderDTO.getDeliveryAddressDTO()))
+                .withDeliveryAddress(convert(orderDTO.getDeliveryAddress()))
                 .withOrderItems(convertOrderItems(orderDTO.getOrderItems()))
                 .withRestaurant(convert(orderDTO.getRestaurant()))
                 .build();
@@ -110,15 +110,15 @@ public class ConverterUtils {
                 .withUuid(order.getUuid())
                 .withNettoPrice(order.getNettoPrice())
                 .withBruttoPrice(order.getBruttoPrice())
-                .withDiscountCodeDTO(convert(order.getDiscountCode()))
+                .withDiscountCode(convert(order.getDiscountCode()))
                 .withAmountToPayBrutto(order.getAmountToPayBrutto())
                 .withNote(order.getNote())
-                .withOrderStatusDTO(convert(order.getStatus()))
+                .withOrderStatus(convert(order.getStatus()))
                 .withUser(convert(order.getUser()))
-                .withDelivererDTO(convert(order.getDeliverer()))
-                .withDeliveryAddressDTO(convert(order.getDeliveryAddress()))
-                .withOrderItemDTOS(convertOrderItemDTOS(order.getOrderItems()))
-                .withRestaurantDTO(convert(order.getRestaurant()))
+                .withDeliverer(convert(order.getDeliverer()))
+                .withDeliveryAddress(convert(order.getDeliveryAddress()))
+                .withOrderItems(convertOrderItemDTOS(order.getOrderItems()))
+                .withRestaurant(convert(order.getRestaurant()))
                 .build();
     }
 
@@ -394,7 +394,7 @@ public class ConverterUtils {
         return OrderItemDTO.builder()
                 .withUuid(orderItem.getUuid())
                 .withQuantity(orderItem.getQuantity())
-                .withMenuItemDTO(convert(orderItem.getMenuItem()))
+                .withMenuItem(convert(orderItem.getMenuItem()))
                 .build();
     }
 
@@ -416,9 +416,9 @@ public class ConverterUtils {
                 .withName(restaurantDTO.getName())
                 .withLogginData(convert(restaurantDTO.getLogginData()))
                 .withCompanyData(convert(restaurantDTO.getCompanyData()))
-                .withOpenTimes(convertOpenTimeDTOS(restaurantDTO.getOpenTimeDTOS()))
-                .withOrderDTOS(convertOrdersDTO(restaurantDTO.getOrders()))
-                .withMenu(convertMenuItemDTOS(restaurantDTO.getMenuItemDTOS()))
+                .withOpenTimes(convertOpenTimeDTOS(restaurantDTO.getOpenTimes()))
+                .withOrders(convertOrdersDTO(restaurantDTO.getOrders()))
+                .withMenu(convertMenuItemDTOS(restaurantDTO.getMenuItems()))
                 .withDiscountCodes(convertDiscountCodeDTOS(restaurantDTO.getDiscountCodes()))
                 .withArchive(restaurantDTO.getArchive())
                 .build();
@@ -439,12 +439,12 @@ public class ConverterUtils {
         return RestaurantDTO.builder()
                 .withUuid(restaurant.getUuid())
                 .withName(restaurant.getName())
-                .withLogginDataDTO(convert(restaurant.getLogginData()))
-                .withCompanyDataDTO(convert(restaurant.getCompanyData()))
-                .withOpenTimeDTOS(convertOpenTimes(restaurant.getOpenTimes()))
-                .withOrderDTOS(convertOrders(restaurant.getOrders()))
-                .withMenuItemDTOS(convertMenuItems(restaurant.getMenu()))
-                .withDiscountCodeDTOS(convertDiscountCodes(restaurant.getDiscountCodes()))
+                .withLogginData(convert(restaurant.getLogginData()))
+                .withCompanyData(convert(restaurant.getCompanyData()))
+                .withOpenTimes(convertOpenTimes(restaurant.getOpenTimes()))
+                .withOrders(convertOrders(restaurant.getOrders()))
+                .withMenuItems(convertMenuItems(restaurant.getMenu()))
+                .withDiscountCodes(convertDiscountCodes(restaurant.getDiscountCodes()))
                 .withArchive(restaurant.getArchive())
                 .build();
     }
@@ -532,8 +532,8 @@ public class ConverterUtils {
                 .withNettoPrice(menuItem.getNettoPrice())
                 .withVatTax(menuItem.getVatTax())
                 .withBruttoPrice(menuItem.getBruttoPrice())
-                .withDishDTOS(convertDishes(menuItem.getDishes()))
-                .withRestaurantDTO(convert(menuItem.getRestaurant()))
+                .withDishes(convertDishes(menuItem.getDishes()))
+                .withRestaurant(convert(menuItem.getRestaurant()))
                 .build();
     }
 
@@ -551,7 +551,7 @@ public class ConverterUtils {
     public static CompanyDataDTO convert(CompanyData companyData) {
         return CompanyDataDTO.builder()
                 .withName(companyData.getName())
-                .withAddressDTO(convert(companyData.getAddress()))
+                .withAddress(convert(companyData.getAddress()))
                 .withNIP(companyData.getNIP())
                 .withPhone(companyData.getPhone())
                 .withEmail(companyData.getEmail())
@@ -574,8 +574,8 @@ public class ConverterUtils {
         return OpenTime.builder()
                 .withUuid(openTimeDTO.getUuid())
                 .withDayOfWeek(openTimeDTO.getDayOfWeek())
-                .withPeriodTime(convert(openTimeDTO.getPeriodTimeDTO()))
-                .withRestaurant(convert(openTimeDTO.getRestaurantDTO()))
+                .withPeriodTime(convert(openTimeDTO.getPeriodTime()))
+                .withRestaurant(convert(openTimeDTO.getRestaurant()))
                 .build();
     }
 
@@ -594,8 +594,8 @@ public class ConverterUtils {
         return OpenTimeDTO.builder()
                 .withUuid(openTime.getUuid())
                 .withDayOfWeek(openTime.getDayOfWeek())
-                .withPeriodTimeDTO(convert(openTime.getPeriodTime()))
-                .withRestaurantDTO(convert(openTime.getRestaurant()))
+                .withPeriodTime(convert(openTime.getPeriodTime()))
+                .withRestaurant(convert(openTime.getRestaurant()))
                 .build();
     }
 
@@ -641,8 +641,8 @@ public class ConverterUtils {
         return DishDTO.builder()
                 .withUuid(dish.getUuid())
                 .withQuantity(dish.getQuantity())
-                .withProductDTO(convert(dish.getProduct()))
-                .withMenuItemDTOS(convertMenuItems(dish.getMenuItems()))
+                .withProduct(convert(dish.getProduct()))
+                .withMenuItems(convertMenuItems(dish.getMenuItems()))
                 .build();
     }
 
@@ -660,7 +660,7 @@ public class ConverterUtils {
         return ProductDTO.builder()
                 .withUuid(product.getUuid())
                 .withName(product.getName())
-                .withIngredientDTOS(convertIngredients(product.getIngredients()))
+                .withIngredients(convertIngredients(product.getIngredients()))
                 .withDishDTO(convert(product.getDish()))
                 .build();
     }
@@ -717,7 +717,7 @@ public class ConverterUtils {
     public static EmployeeDTO convert(Employee employee) {
         return EmployeeDTO.baseBuilder()
                 .withUuid(employee.getUuid())
-                .withPersonalDataDTO(convert(employee.getPersonalData()))
+                .withPersonalData(convert(employee.getPersonalData()))
                 .withLogginData(convert(employee.getLogginData()))
                 .withArchive(employee.getArchive())
                 .build();

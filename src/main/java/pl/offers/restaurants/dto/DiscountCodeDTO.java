@@ -2,6 +2,8 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import pl.offers.restaurants.model.enums.DiscountUnit;
 
 import javax.annotation.Nullable;
@@ -14,6 +16,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class DiscountCodeDTO {
 
@@ -41,73 +45,8 @@ public class DiscountCodeDTO {
     @JsonView(View.Extended.class)
     @Nullable
     private List<RestaurantDTO> restaurantDTOS;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
-    }
-
-    public DiscountUnit getDiscountUnit() {
-        return discountUnit;
-    }
-
-    public void setDiscountUnit(DiscountUnit discountUnit) {
-        this.discountUnit = discountUnit;
-    }
-
-    public PeriodDTO getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(PeriodDTO period) {
-        this.period = period;
-    }
-
-    @Nullable
-    public List<RestaurantDTO> getRestaurantDTOS() {
-        return restaurantDTOS;
-    }
-
-    public void setRestaurantDTOS(@Nullable List<RestaurantDTO> restaurantDTOS) {
-        this.restaurantDTOS = restaurantDTOS;
-    }
-
-    @Nullable
-    public List<UserDTO> getUsers() {
-        return users;
-    }
-
-    public void setUsers(@Nullable List<UserDTO> users) {
-        this.users = users;
-    }
-
-    @Nullable
-    public List<RestaurantDTO> getRestaurants() {
-        return restaurantDTOS;
-    }
-
-    public void setRestaurants(@Nullable List<RestaurantDTO> restaurantDTOS) {
-        this.restaurantDTOS = restaurantDTOS;
-    }
+    @JsonView(View.Extended.class)
+    private List<RestaurantDTO> restaurants;
 
     public static class View {
         public interface Basic {

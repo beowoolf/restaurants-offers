@@ -1,14 +1,14 @@
 package pl.offers.restaurants.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -38,72 +38,5 @@ public class Address {
 
     @Nullable
     private String state;
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
-
-    public void setStreetNumber(String streetNumber) {
-        this.streetNumber = streetNumber;
-    }
-
-    public String getLocalNumber() {
-        return localNumber;
-    }
-
-    public void setLocalNumber(String localNumber) {
-        this.localNumber = localNumber;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    @Nullable
-    public String getBorough() {
-        return borough;
-    }
-
-    public void setBorough(@Nullable String borough) {
-        this.borough = borough;
-    }
-
-    @Nullable
-    public String getCounty() {
-        return county;
-    }
-
-    public void setCounty(@Nullable String county) {
-        this.county = county;
-    }
-
-    @Nullable
-    public String getState() {
-        return state;
-    }
-
-    public void setState(@Nullable String state) {
-        this.state = state;
-    }
 
 }

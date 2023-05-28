@@ -1,14 +1,14 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with", builderMethodName = "baseBuilder")
@@ -36,45 +36,5 @@ public class Employee {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Archive archive;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public PersonalData getPersonalData() {
-        return personalData;
-    }
-
-    public void setPersonalData(PersonalData personalData) {
-        this.personalData = personalData;
-    }
-
-    public LogginData getLogginData() {
-        return logginData;
-    }
-
-    public void setLogginData(LogginData loginData) {
-        this.logginData = loginData;
-    }
-
-    public Archive getArchive() {
-        return archive;
-    }
-
-    public void setArchive(Archive archive) {
-        this.archive = archive;
-    }
 
 }

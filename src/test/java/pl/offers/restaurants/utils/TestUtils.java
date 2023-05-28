@@ -192,7 +192,7 @@ public class TestUtils {
                 .withLogginData(logginData)
                 .withCompanyData(companyData)
                 .withArchive(archive)
-                .withOrderDTOS(new ArrayList<>())
+                .withOrders(new ArrayList<>())
                 .withOpenTimes(new ArrayList<>())
                 .withMenu(new ArrayList<>())
                 .withDiscountCodes(new ArrayList<>())
@@ -260,13 +260,12 @@ public class TestUtils {
                                     DelivererDTO delivererDTO, DeliveryAddressDTO deliveryAddressDTO, RestaurantDTO restaurantDTO, OrderItemDTO... orderItemDTOS) {
         return OrderDTO.builder()
                 .withUuid(UUID.fromString(uuid))
-                .withDiscountCodeDTO(discountCodeDTO)
+                .withDiscountCode(discountCodeDTO)
                 .withNote(note)
-                .withUser(userDTO)
-                .withDelivererDTO(delivererDTO)
-                .withDeliveryAddressDTO(deliveryAddressDTO)
-                .withRestaurantDTO(restaurantDTO)
-                .withOrderItemDTOS(Arrays.asList(orderItemDTOS))
+                .withUser(userDTO).withDeliverer(delivererDTO)
+                .withDeliveryAddress(deliveryAddressDTO)
+                .withRestaurant(restaurantDTO)
+                .withOrderItems(Arrays.asList(orderItemDTOS))
                 .build();
     }
 

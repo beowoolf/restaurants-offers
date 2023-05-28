@@ -2,6 +2,8 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.NotBlank;
@@ -9,6 +11,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class ProductDTO {
 
@@ -20,43 +24,12 @@ public class ProductDTO {
     private String name;
     @JsonView(View.Extended.class)
     @NotNull
-    private List<IngredientDTO> ingredientDTOS;
+    private List<IngredientDTO> ingredients;
     @JsonView(View.Extended.class)
     @Nullable
     private DishDTO dishDTO;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<IngredientDTO> getIngredients() {
-        return ingredientDTOS;
-    }
-
-    public void setIngredients(List<IngredientDTO> ingredientDTOS) {
-        this.ingredientDTOS = ingredientDTOS;
-    }
-
-    @Nullable
-    public DishDTO getDish() {
-        return dishDTO;
-    }
-
-    public void setDish(@Nullable DishDTO dishDTO) {
-        this.dishDTO = dishDTO;
-    }
+    @JsonView(View.Extended.class)
+    private DishDTO dish;
 
     public static class View {
         public interface Basic {

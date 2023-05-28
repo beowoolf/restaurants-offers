@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.persistence.*;
@@ -12,6 +10,8 @@ import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -44,7 +44,7 @@ public class Restaurant {
 
     @NotNull
     @OneToMany(mappedBy = "restaurant")
-    private List<Order> orderDTOS;
+    private List<Order> orders;
 
     @NotNull
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -57,85 +57,5 @@ public class Restaurant {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Archive archive;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LogginData getLogginData() {
-        return logginData;
-    }
-
-    public void setLogginData(LogginData logginData) {
-        this.logginData = logginData;
-    }
-
-    public CompanyData getCompanyData() {
-        return companyData;
-    }
-
-    public void setCompanyData(CompanyData companyData) {
-        this.companyData = companyData;
-    }
-
-    public List<OpenTime> getOpenTimes() {
-        return openTimes;
-    }
-
-    public void setOpenTimes(List<OpenTime> openTimes) {
-        this.openTimes = openTimes;
-    }
-
-    public List<Order> getOrders() {
-        return orderDTOS;
-    }
-
-    public void setOrders(List<Order> orderDTOS) {
-        this.orderDTOS = orderDTOS;
-    }
-
-    public List<MenuItem> getMenu() {
-        return menu;
-    }
-
-    public void setMenu(List<MenuItem> menuItems) {
-        this.menu = menuItems;
-    }
-
-    public List<DiscountCode> getDiscountCodes() {
-        return discountCodes;
-    }
-
-    public void setDiscountCodes(List<DiscountCode> discountCodes) {
-        this.discountCodes = discountCodes;
-    }
-
-    public Archive getArchive() {
-        return archive;
-    }
-
-    public void setArchive(Archive archive) {
-        this.archive = archive;
-    }
 
 }

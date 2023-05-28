@@ -3,6 +3,8 @@ package pl.offers.restaurants.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import pl.offers.restaurants.model.enums.EvidenceType;
 
 import javax.validation.constraints.Digits;
@@ -11,6 +13,8 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class OperationEvidenceDTO {
 
@@ -28,38 +32,6 @@ public class OperationEvidenceDTO {
     @JsonIgnore
     @NotNull
     private UserDTO user;
-
-    public Instant getDate() {
-        return date;
-    }
-
-    public void setDate(Instant date) {
-        this.date = date;
-    }
-
-    public EvidenceType getType() {
-        return type;
-    }
-
-    public void setType(EvidenceType type) {
-        this.type = type;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public UserDTO getUser() {
-        return user;
-    }
-
-    public void setUser(UserDTO user) {
-        this.user = user;
-    }
 
     public static class View {
         public interface Basic {

@@ -3,11 +3,15 @@ package pl.offers.restaurants.dto;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.base.Joiner;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import pl.offers.restaurants.model.enums.Sex;
 
 import javax.annotation.Nullable;
 import javax.persistence.Embeddable;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 @Embeddable
 public class PersonalDataDTO {
@@ -31,51 +35,6 @@ public class PersonalDataDTO {
     @JsonView(View.Basic.class)
     public String nameAndSurname() {
         return Joiner.on(" ").skipNulls().join(name, surname);
-    }
-
-    @Nullable
-    public String getName() {
-        return name;
-    }
-
-    public void setName(@Nullable String name) {
-        this.name = name;
-    }
-
-    @Nullable
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(@Nullable String surname) {
-        this.surname = surname;
-    }
-
-    @Nullable
-    public Sex getSex() {
-        return sex;
-    }
-
-    public void setSex(@Nullable Sex sex) {
-        this.sex = sex;
-    }
-
-    @Nullable
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(@Nullable String phone) {
-        this.phone = phone;
-    }
-
-    @Nullable
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(@Nullable String email) {
-        this.email = email;
     }
 
     public static class View {

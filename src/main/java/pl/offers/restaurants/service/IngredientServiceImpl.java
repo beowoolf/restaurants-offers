@@ -41,7 +41,7 @@ public class IngredientServiceImpl implements IngredientService {
                 .orElseGet(() -> newIngredient(uuid));
 
         ingredient.setName(ingredientDTO.getName());
-        ingredient.setAllergen(ingredientDTO.getIsAllergen());
+        ingredient.setIsAllergen(ingredientDTO.getIsAllergen());
 
         if (ingredient.getId() == null) {
             ingredientRepo.save(ingredient);

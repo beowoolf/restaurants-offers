@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import javax.persistence.DiscriminatorValue;
@@ -10,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -20,14 +20,5 @@ public class Deliverer extends Employee {
     @Nullable
     @OneToMany(mappedBy = "deliverer")
     private List<Order> orders;
-
-    @Nullable
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(@Nullable List<Order> orderDTOS) {
-        this.orders = orderDTOS;
-    }
 
 }

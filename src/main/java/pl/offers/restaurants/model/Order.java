@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import javax.persistence.*;
@@ -14,6 +12,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -79,111 +79,5 @@ public class Order {
     @NotNull
     @ManyToOne
     private Restaurant restaurant;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public BigDecimal getNettoPrice() {
-        return nettoPrice;
-    }
-
-    public void setNettoPrice(BigDecimal neetoPrice) {
-        this.nettoPrice = neetoPrice;
-    }
-
-    public BigDecimal getBruttoPrice() {
-        return bruttoPrice;
-    }
-
-    public void setBruttoPrice(BigDecimal bruttoPrice) {
-        this.bruttoPrice = bruttoPrice;
-    }
-
-    @Nullable
-    public DiscountCode getDiscountCode() {
-        return discountCode;
-    }
-
-    public void setDiscountCode(@Nullable DiscountCode discountCode) {
-        this.discountCode = discountCode;
-    }
-
-    public BigDecimal getAmountToPayBrutto() {
-        return amountToPayBrutto;
-    }
-
-    public void setAmountToPayBrutto(BigDecimal amountToPayBrutto) {
-        this.amountToPayBrutto = amountToPayBrutto;
-    }
-
-    @Nullable
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(@Nullable String note) {
-        this.note = note;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(OrderStatus orderStatus) {
-        this.status = orderStatus;
-    }
-
-    public DeliveryAddress getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(DeliveryAddress deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Deliverer getDeliverer() {
-        return deliverer;
-    }
-
-    public void setDeliverer(Deliverer deliverer) {
-        this.deliverer = deliverer;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
 
 }

@@ -44,18 +44,18 @@ public class OpenTimeServiceImpl implements OpenTimeService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
-        Restaurant restaurant = restaurantRepo.findByUuid(openTimeDTO.getRestaurantDTO().getUuid())
+        Restaurant restaurant = restaurantRepo.findByUuid(openTimeDTO.getRestaurant().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
 
         OpenTime openTime = openTimeRepo.findByUuid(openTimeDTO.getUuid())
                 .orElseGet(() -> newOpenTime(uuid, restaurant));
 
-        if (!Objects.equal(openTime.getRestaurant().getUuid(), openTimeDTO.getRestaurantDTO().getUuid())) {
+        if (!Objects.equal(openTime.getRestaurant().getUuid(), openTimeDTO.getRestaurant().getUuid())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
         openTime.setDayOfWeek(openTimeDTO.getDayOfWeek());
-        openTime.setPeriodTime(convert(openTimeDTO.getPeriodTimeDTO()));
+        openTime.setPeriodTime(convert(openTimeDTO.getPeriodTime()));
 
         if (openTime.getId() == null) {
             openTimeRepo.save(openTime);

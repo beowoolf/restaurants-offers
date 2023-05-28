@@ -76,7 +76,7 @@ public class AssertionUtils {
         assertEqualsId(expected.getDiscountCode(), actual.getDiscountCode());
         Assertions.assertEquals(expected.getAmountToPayBrutto(), actual.getAmountToPayBrutto());
         Assertions.assertEquals(expected.getNote(), actual.getNote());
-        assertEquals(expected.getOrderStatusDTO(), actual.getOrderStatusDTO(), orderStatusType);
+        assertEquals(expected.getOrderStatus(), actual.getOrderStatus(), orderStatusType);
         assertEqualsId(expected.getUser(), actual.getUser());
         assertEqualsId(expected.getRestaurant(), actual.getRestaurant());
     }

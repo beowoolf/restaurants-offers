@@ -3,11 +3,15 @@ package pl.offers.restaurants.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 @Embeddable
 public class LogginDataDTO {
@@ -18,22 +22,6 @@ public class LogginDataDTO {
     @JsonIgnore
     @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$")
     private String password;
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public static class View {
         public interface Basic {

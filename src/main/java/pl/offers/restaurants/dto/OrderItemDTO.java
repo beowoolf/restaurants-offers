@@ -2,11 +2,15 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class OrderItemDTO {
 
@@ -19,31 +23,7 @@ public class OrderItemDTO {
     private Integer quantity;
     @JsonView(View.Extended.class)
     @NotNull
-    private MenuItemDTO menuItemDTO;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public MenuItemDTO getMenuItem() {
-        return menuItemDTO;
-    }
-
-    public void setMenuItem(MenuItemDTO menuItemDTO) {
-        this.menuItemDTO = menuItemDTO;
-    }
+    private MenuItemDTO menuItem;
 
     public static class View {
         public interface Basic {

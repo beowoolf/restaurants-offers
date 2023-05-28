@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.annotation.Nullable;
@@ -11,6 +9,8 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -52,80 +52,5 @@ public class User {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Archive archive;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public PersonalData getPersonalData() {
-        return personalData;
-    }
-
-    public void setPersonalData(PersonalData personalData) {
-        this.personalData = personalData;
-    }
-
-    @Nullable
-    public List<DeliveryAddress> getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(@Nullable List<DeliveryAddress> addresses) {
-        this.deliveryAddress = addresses;
-    }
-
-    public LogginData getLogginData() {
-        return logginData;
-    }
-
-    public void setLogginData(LogginData logginData) {
-        this.logginData = logginData;
-    }
-
-    @Nullable
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(@Nullable List<Order> orderDTOS) {
-        this.orders = orderDTOS;
-    }
-
-    public List<OperationEvidence> getOperationEvidence() {
-        return operationEvidence;
-    }
-
-    public void setOperationEvidence(List<OperationEvidence> operationEvidences) {
-        this.operationEvidence = operationEvidences;
-    }
-
-    @Nullable
-    public List<DiscountCode> getDiscountCodes() {
-        return discountCodes;
-    }
-
-    public void setDiscountCodes(@Nullable List<DiscountCode> discountCodes) {
-        this.discountCodes = discountCodes;
-    }
-
-    public Archive getArchive() {
-        return archive;
-    }
-
-    public void setArchive(Archive archive) {
-        this.archive = archive;
-    }
 
 }

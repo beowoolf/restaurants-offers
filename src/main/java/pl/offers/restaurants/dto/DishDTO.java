@@ -2,6 +2,8 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.Min;
@@ -10,6 +12,8 @@ import javax.validation.constraints.Null;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class DishDTO {
 
@@ -22,44 +26,11 @@ public class DishDTO {
     private Integer quantity;
     @JsonView(View.Extended.class)
     @NotNull
-    private ProductDTO productDTO;
+    private ProductDTO product;
     @JsonView(View.Extended.class)
     @Nullable
     @Null(groups = DataUpdateValidation.class)
-    private List<MenuItemDTO> menuItemDTOS;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public ProductDTO getProduct() {
-        return productDTO;
-    }
-
-    public void setProduct(ProductDTO productDTO) {
-        this.productDTO = productDTO;
-    }
-
-    @Nullable
-    public List<MenuItemDTO> getMenuItems() {
-        return menuItemDTOS;
-    }
-
-    public void setMenuItems(@Nullable List<MenuItemDTO> menuItemDTOS) {
-        this.menuItemDTOS = menuItemDTOS;
-    }
+    private List<MenuItemDTO> menuItems;
 
     public interface DataUpdateValidation {
     }

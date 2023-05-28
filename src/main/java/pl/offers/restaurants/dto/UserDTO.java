@@ -3,6 +3,8 @@ package pl.offers.restaurants.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.annotation.Nullable;
@@ -13,6 +15,8 @@ import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class UserDTO {
 
@@ -45,73 +49,6 @@ public class UserDTO {
     @JsonView(View.Extended.class)
     @NotNull
     private Archive archive;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public PersonalDataDTO getPersonalData() {
-        return personalData;
-    }
-
-    public void setPersonalData(PersonalDataDTO personalData) {
-        this.personalData = personalData;
-    }
-
-    @Nullable
-    public List<DeliveryAddressDTO> getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(@Nullable List<DeliveryAddressDTO> deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
-
-    public LogginDataDTO getLogginData() {
-        return logginData;
-    }
-
-    public void setLogginData(LogginDataDTO logginData) {
-        this.logginData = logginData;
-    }
-
-    @Nullable
-    public List<OrderDTO> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(@Nullable List<OrderDTO> orders) {
-        this.orders = orders;
-    }
-
-    public List<OperationEvidenceDTO> getOperationEvidence() {
-        return operationEvidence;
-    }
-
-    public void setOperationEvidence(List<OperationEvidenceDTO> operationEvidence) {
-        this.operationEvidence = operationEvidence;
-    }
-
-    @Nullable
-    public List<DiscountCodeDTO> getDiscountCodes() {
-        return discountCodes;
-    }
-
-    public void setDiscountCodes(@Nullable List<DiscountCodeDTO> discountCodes) {
-        this.discountCodes = discountCodes;
-    }
-
-    public Archive getArchive() {
-        return archive;
-    }
-
-    public void setArchive(Archive archive) {
-        this.archive = archive;
-    }
 
     public interface DataUpdateValidation {
     }

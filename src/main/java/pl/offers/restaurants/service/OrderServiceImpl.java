@@ -73,7 +73,7 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
         Deliverer deliverer = delivererRepo.findByUuid(orderDTO.getDeliverer().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
-        DeliveryAddress deliveryAddress = deliveryAddressRepo.findByUuid(orderDTO.getDeliveryAddressDTO().getUuid())
+        DeliveryAddress deliveryAddress = deliveryAddressRepo.findByUuid(orderDTO.getDeliveryAddress().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
         Order order = orderRepo.findByUuid(orderDTO.getUuid())
                 .orElseGet(() -> newOrder(uuid, user, restaurant));

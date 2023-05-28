@@ -1,8 +1,6 @@
 package pl.offers.restaurants.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import pl.offers.restaurants.model.enums.VatTax;
 
 import javax.persistence.*;
@@ -11,6 +9,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -53,69 +53,5 @@ public class MenuItem {
     @NotNull
     @ManyToOne
     private Restaurant restaurant;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BigDecimal getNettoPrice() {
-        return nettoPrice;
-    }
-
-    public void setNettoPrice(BigDecimal neetoPrice) {
-        this.nettoPrice = neetoPrice;
-    }
-
-    public VatTax getVatTax() {
-        return vatTax;
-    }
-
-    public void setVatTax(VatTax vatTax) {
-        this.vatTax = vatTax;
-    }
-
-    public BigDecimal getBruttoPrice() {
-        return bruttoPrice;
-    }
-
-    public void setBruttoPrice(BigDecimal bruttoPrice) {
-        this.bruttoPrice = bruttoPrice;
-    }
-
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
-
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
 
 }

@@ -2,6 +2,8 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import pl.offers.restaurants.model.enums.VatTax;
 
 import javax.validation.constraints.*;
@@ -9,6 +11,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 public class MenuItemDTO {
 
@@ -34,66 +38,10 @@ public class MenuItemDTO {
     @JsonView(View.Extended.class)
     @NotNull
     @Size(min = 1)
-    private List<DishDTO> dishDTOS;
+    private List<DishDTO> dishes;
     @JsonView(View.Extended.class)
     @NotNull
-    private RestaurantDTO restaurantDTO;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BigDecimal getNettoPrice() {
-        return nettoPrice;
-    }
-
-    public void setNettoPrice(BigDecimal nettoPrice) {
-        this.nettoPrice = nettoPrice;
-    }
-
-    public VatTax getVatTax() {
-        return vatTax;
-    }
-
-    public void setVatTax(VatTax vatTax) {
-        this.vatTax = vatTax;
-    }
-
-    public BigDecimal getBruttoPrice() {
-        return bruttoPrice;
-    }
-
-    public void setBruttoPrice(BigDecimal bruttoPrice) {
-        this.bruttoPrice = bruttoPrice;
-    }
-
-    public List<DishDTO> getDishes() {
-        return dishDTOS;
-    }
-
-    public void setDishes(List<DishDTO> dishDTOS) {
-        this.dishDTOS = dishDTOS;
-    }
-
-    public RestaurantDTO getRestaurant() {
-        return restaurantDTO;
-    }
-
-    public void setRestaurant(RestaurantDTO restaurantDTO) {
-        this.restaurantDTO = restaurantDTO;
-    }
+    private RestaurantDTO restaurant;
 
     public static class View {
         public interface Basic {

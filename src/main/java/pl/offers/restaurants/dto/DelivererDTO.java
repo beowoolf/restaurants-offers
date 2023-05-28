@@ -1,14 +1,14 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import javax.validation.constraints.Null;
 import java.util.List;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
@@ -17,16 +17,7 @@ public class DelivererDTO extends EmployeeDTO {
     @JsonView(View.Extended.class)
     @Nullable
     @Null(groups = NewDelivererValidation.class)
-    private List<OrderDTO> orderDTOS;
-
-    @Nullable
-    public List<OrderDTO> getOrders() {
-        return orderDTOS;
-    }
-
-    public void setOrders(@Nullable List<OrderDTO> orderDTOS) {
-        this.orderDTOS = orderDTOS;
-    }
+    private List<OrderDTO> orders;
 
 
     public interface NewDelivererValidation {

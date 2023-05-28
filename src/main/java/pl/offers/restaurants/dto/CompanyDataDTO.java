@@ -2,11 +2,15 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.validation.constraints.NotNull;
 
+@Setter
+@Getter
 @Builder(setterPrefix = "with")
 @Embeddable
 public class CompanyDataDTO {
@@ -17,7 +21,7 @@ public class CompanyDataDTO {
     @JsonView(View.Extended.class)
     @Embedded
     @NotNull
-    private AddressDTO addressDTO;
+    private AddressDTO address;
     @JsonView(View.Extended.class)
     @NotNull
     private String NIP;
@@ -30,54 +34,6 @@ public class CompanyDataDTO {
     @JsonView(View.Extended.class)
     @NotNull
     private String email;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public AddressDTO getAddress() {
-        return addressDTO;
-    }
-
-    public void setAddress(AddressDTO addressDTO) {
-        this.addressDTO = addressDTO;
-    }
-
-    public String getNIP() {
-        return NIP;
-    }
-
-    public void setNIP(String NIP) {
-        this.NIP = NIP;
-    }
-
-    public String getREGON() {
-        return REGON;
-    }
-
-    public void setREGON(String REGON) {
-        this.REGON = REGON;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public static class View {
         public interface Basic {
