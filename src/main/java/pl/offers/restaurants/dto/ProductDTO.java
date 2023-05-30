@@ -16,17 +16,17 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class ProductDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UUID uuid;
-    @JsonView(View.Basic.class)
     @NotBlank
+    @JsonView(View.Basic.class)
     private String name;
-    @JsonView(View.Extended.class)
     @NotNull
-    private List<IngredientDTO> ingredients;
     @JsonView(View.Extended.class)
+    private List<IngredientDTO> ingredients;
     @Nullable
+    @JsonView(View.Extended.class)
     private DishDTO dishDTO;
     @JsonView(View.Extended.class)
     private DishDTO dish;

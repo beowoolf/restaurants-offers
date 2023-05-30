@@ -9,14 +9,14 @@ import javax.validation.constraints.Size;
 
 @Setter
 @Getter
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Embeddable
 public class LogginData {
 
-    @Column(unique = true)
     @Size(min = 3)
+    @Column(unique = true)
     private String login;
 
     @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$")

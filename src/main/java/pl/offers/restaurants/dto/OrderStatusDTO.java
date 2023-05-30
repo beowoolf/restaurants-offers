@@ -12,23 +12,23 @@ import java.time.Instant;
 
 @Setter
 @Getter
-@Builder(setterPrefix = "with")
 @Embeddable
+@Builder(setterPrefix = "with")
 public class OrderStatusDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private Instant orderTime;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private Boolean isPaid;
+    @Nullable
     @JsonView(View.Basic.class)
     @NotNull(groups = GiveOutStatusValidation.class)
-    @Nullable
     private Instant giveOutTime;
+    @Nullable
     @JsonView(View.Basic.class)
     @NotNull(groups = DeliveryValidation.class)
-    @Nullable
     private Instant deliveryTime;
 
     public interface GiveOutStatusValidation {

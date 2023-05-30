@@ -43,8 +43,8 @@ public class DelivererServiceImpl implements DelivererService {
         return deliverer;
     }
 
-    @Cacheable(cacheNames = "deliverers")
     @Override
+    @Cacheable(cacheNames = "deliverers")
     public List<DelivererDTO> getAll() {
         try {
             Thread.sleep(1000L);
@@ -56,8 +56,8 @@ public class DelivererServiceImpl implements DelivererService {
                 .collect(Collectors.toList());
     }
 
-    @CacheEvict(cacheNames = "deliverers", allEntries = true)
     @Override
+    @CacheEvict(cacheNames = "deliverers", allEntries = true)
     public void put(UUID uuid, DelivererDTO delivererDTO) {
         if (!Objects.equal(delivererDTO.getUuid(), uuid)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
@@ -85,8 +85,8 @@ public class DelivererServiceImpl implements DelivererService {
         }
     }
 
-    @CacheEvict(cacheNames = "deliverers", allEntries = true)
     @Override
+    @CacheEvict(cacheNames = "deliverers", allEntries = true)
     public void delete(UUID uuid) {
         Deliverer deliverer = delivererRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

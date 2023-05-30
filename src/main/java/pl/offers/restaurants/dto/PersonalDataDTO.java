@@ -12,24 +12,24 @@ import javax.persistence.Embeddable;
 
 @Setter
 @Getter
-@Builder(setterPrefix = "with")
 @Embeddable
+@Builder(setterPrefix = "with")
 public class PersonalDataDTO {
 
-    @JsonView(View.Basic.class)
     @Nullable
+    @JsonView(View.Basic.class)
     private String name;
+    @Nullable
     @JsonView(View.Basic.class)
-    @Nullable
     private String surname;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private Sex sex;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String phone;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String email;
 
     @JsonView(View.Basic.class)

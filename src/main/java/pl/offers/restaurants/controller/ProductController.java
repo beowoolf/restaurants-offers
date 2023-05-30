@@ -27,14 +27,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @JsonView(ProductListListView.class)
     @GetMapping
+    @JsonView(ProductListListView.class)
     public List<ProductDTO> get() {
         return productService.getAll();
     }
 
-    @JsonView(ProductView.class)
     @GetMapping("/{uuid}")
+    @JsonView(ProductView.class)
     public ProductDTO get(@PathVariable UUID uuid) {
         return productService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

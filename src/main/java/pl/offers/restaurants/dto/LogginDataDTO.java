@@ -12,12 +12,12 @@ import javax.validation.constraints.Size;
 
 @Setter
 @Getter
-@Builder(setterPrefix = "with")
 @Embeddable
+@Builder(setterPrefix = "with")
 public class LogginDataDTO {
 
-    @JsonView(View.Basic.class)
     @Size(min = 3)
+    @JsonView(View.Basic.class)
     private String login;
     @JsonIgnore
     @Pattern(regexp = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,}$")

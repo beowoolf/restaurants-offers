@@ -11,28 +11,28 @@ import javax.validation.constraints.NotNull;
 
 @Setter
 @Getter
-@Builder(setterPrefix = "with")
 @Embeddable
+@Builder(setterPrefix = "with")
 public class CompanyDataDTO {
 
+    @NotNull
     @JsonView(View.Basic.class)
-    @NotNull
     private String name;
-    @JsonView(View.Extended.class)
+    @NotNull
     @Embedded
-    @NotNull
+    @JsonView(View.Extended.class)
     private AddressDTO address;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String NIP;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String REGON;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String phone;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String email;
 
     public static class View {

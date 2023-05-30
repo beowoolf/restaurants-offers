@@ -11,33 +11,33 @@ import javax.validation.constraints.NotNull;
 
 @Setter
 @Getter
-@Builder(setterPrefix = "with")
 @Embeddable
+@Builder(setterPrefix = "with")
 public class AddressDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private String street;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private String streetNumber;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private String localNumber;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private String postcode;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private String city;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String borough;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String county;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String state;
 
     public static class View {

@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
+@Embeddable
+@PeriodConstraint
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@PeriodConstraint
-@Embeddable
 public class Period {
 
     @Nullable

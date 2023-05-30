@@ -26,22 +26,22 @@ public class OpenTimeController {
         this.openTimeService = openTimeService;
     }
 
-    @JsonView(OpenTimeListListView.class)
     @GetMapping
+    @JsonView(OpenTimeListListView.class)
     public List<OpenTimeDTO> get() {
         return openTimeService.getAll();
     }
 
-    @Transactional
     @PostMapping
+    @Transactional
     public void post(@RequestBody List<@Valid OpenTimeDTO> openTimesJson) {
         for (OpenTimeDTO openTimeDTO : openTimesJson) {
             put(openTimeDTO.getUuid(), openTimeDTO);
         }
     }
 
-    @JsonView(OpenTimeView.class)
     @GetMapping("/{uuid}")
+    @JsonView(OpenTimeView.class)
     public OpenTimeDTO get(@PathVariable UUID uuid) {
         return openTimeService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

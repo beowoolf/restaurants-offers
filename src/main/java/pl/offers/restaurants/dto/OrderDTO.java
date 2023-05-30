@@ -17,50 +17,50 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class OrderDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UUID uuid;
+    @Min(0)
     @JsonView(View.Extended.class)
     @Digits(integer = 10, fraction = 2)
-    @Min(0)
     @Null(groups = OrderValidation.class)
     private BigDecimal nettoPrice;
-    @JsonView(View.Extended.class)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @JsonView(View.Extended.class)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal bruttoPrice;
-    @JsonView(View.Extended.class)
     @Nullable
-    private DiscountCodeDTO discountCode;
     @JsonView(View.Extended.class)
-    @Digits(integer = 10, fraction = 2)
+    private DiscountCodeDTO discountCode;
     @Min(0)
     @NotNull
-    private BigDecimal amountToPayBrutto;
     @JsonView(View.Extended.class)
+    @Digits(integer = 10, fraction = 2)
+    private BigDecimal amountToPayBrutto;
     @Nullable
+    @JsonView(View.Extended.class)
     private String note;
+    @Embedded
     @JsonView(View.Basic.class)
     @Null(groups = OrderValidation.class)
     @NotNull(groups = OrderStatusValidation.class)
-    @Embedded
     private OrderStatusDTO orderStatus;
-    @JsonView(View.Extended.class)
     @NotNull
-    private DeliveryAddressDTO deliveryAddress;
     @JsonView(View.Extended.class)
+    private DeliveryAddressDTO deliveryAddress;
     @NotNull
     @Size(min = 1)
+    @JsonView(View.Extended.class)
     private List<OrderItemDTO> orderItems;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UserDTO user;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private DelivererDTO deliverer;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private RestaurantDTO restaurant;
 
     public interface OrderValidation {

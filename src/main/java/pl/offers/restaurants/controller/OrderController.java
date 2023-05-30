@@ -38,14 +38,14 @@ public class OrderController {
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-    @JsonView(OrderListListView.class)
     @GetMapping
+    @JsonView(OrderListListView.class)
     public List<OrderDTO> get() {
         return orderService.getAll();
     }
 
-    @JsonView(OrderListListView.class)
     @GetMapping(params = {"user"})
+    @JsonView(OrderListListView.class)
     public List<OrderDTO> getByUser(@RequestParam("user") UUID userUuid) {
         UserDTO user = userService.getByUuid(userUuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -60,16 +60,16 @@ public class OrderController {
         return delivererDTO.getOrders();
     }
 
-    @JsonView(OrderView.class)
     @GetMapping("/{uuid}")
+    @JsonView(OrderView.class)
     public OrderDTO get(@PathVariable UUID uuid) {
         return orderService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Transactional
-    @Validated(OrderDataUpdateValidation.class)
     @PutMapping("/{uuid}")
+    @Validated(OrderDataUpdateValidation.class)
     public void put(@PathVariable UUID uuid, @RequestBody @Valid OrderDTO json) {
         orderService.put(uuid, json);
     }
@@ -81,8 +81,8 @@ public class OrderController {
     }
 
     @Transactional
-    @Validated(OrderStatusValidation.class)
     @PatchMapping("/{uuid}/paid")
+    @Validated(OrderStatusValidation.class)
     public void patchIsPaid(@PathVariable UUID uuid) {
         OrderDTO orderDTO = orderService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -93,15 +93,15 @@ public class OrderController {
     }
 
     @Transactional
-    @Validated(GiveOutValidation.class)
     @PatchMapping("/{uuid}/gived-out")
+    @Validated(GiveOutValidation.class)
     public void patchIsGivedOut(@PathVariable UUID uuid, @RequestBody @Valid OrderStatusDTO orderStatusJson) {
         orderService.setIsGivedOut(uuid, orderStatusJson);
     }
 
     @Transactional
-    @Validated(DeliveryValidation.class)
     @PatchMapping("/{uuid}/delivered")
+    @Validated(DeliveryValidation.class)
     public void patchIsDelivered(@PathVariable UUID uuid, @RequestBody @Valid OrderStatusDTO orderStatusJson) {
         orderService.setIsDelivered(uuid, orderStatusJson);
     }

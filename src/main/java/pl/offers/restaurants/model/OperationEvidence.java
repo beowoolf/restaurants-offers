@@ -10,12 +10,12 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Entity
 public class OperationEvidence {
 
     @Id
@@ -29,10 +29,10 @@ public class OperationEvidence {
     @Enumerated(EnumType.STRING)
     private EvidenceType type;
 
+    @Min(0)
     @NotNull
     @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
-    @Min(0)
     private BigDecimal amount;
 
     @NotNull

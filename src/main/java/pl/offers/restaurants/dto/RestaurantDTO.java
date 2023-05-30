@@ -21,37 +21,37 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class RestaurantDTO {
 
+    @NotNull
     @JsonView(View.Id.class)
-    @NotNull
     private UUID uuid;
-    @JsonView(View.Basic.class)
     @NotBlank
-    private String name;
     @JsonView(View.Basic.class)
+    private String name;
     @NotNull
     @Embedded
+    @JsonView(View.Basic.class)
     private LogginDataDTO logginData;
-    @JsonView(View.Extended.class)
     @NotNull
     @Embedded
-    private CompanyDataDTO companyData;
     @JsonView(View.Extended.class)
+    private CompanyDataDTO companyData;
     @NotNull
     @Size(max = 7)
-    private List<OpenTimeDTO> openTimes;
     @JsonView(View.Extended.class)
+    private List<OpenTimeDTO> openTimes;
     @Nullable
+    @JsonView(View.Extended.class)
     @Null(groups = DataUpdateValidation.class)
     private List<OrderDTO> orders;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     @Null(groups = DataUpdateValidation.class)
     private List<MenuItemDTO> menuItems;
+    @NotNull
     @JsonIgnore
-    @NotNull
     private List<DiscountCodeDTO> discountCodes;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private Archive archive;
 
     public interface DataUpdateValidation {

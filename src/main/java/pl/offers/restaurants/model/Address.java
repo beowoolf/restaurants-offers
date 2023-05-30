@@ -9,10 +9,10 @@ import javax.validation.constraints.NotNull;
 
 @Setter
 @Getter
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Embeddable
 public class Address {
 
     @NotNull

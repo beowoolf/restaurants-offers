@@ -27,14 +27,14 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @JsonView(EmployeeListListView.class)
     @GetMapping
+    @JsonView(EmployeeListListView.class)
     public List<EmployeeDTO> get() {
         return employeeService.getAll();
     }
 
-    @JsonView(EmployeeView.class)
     @GetMapping("/{uuid}")
+    @JsonView(EmployeeView.class)
     public EmployeeDTO get(@PathVariable UUID uuid) {
         return employeeService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

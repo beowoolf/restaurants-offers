@@ -31,22 +31,22 @@ public class DelivererController {
         this.delivererService = delivererService;
     }
 
-    @JsonView(DelivererListView.class)
     @GetMapping
+    @JsonView(DelivererListView.class)
     public List<DelivererDTO> get() {
         return delivererService.getAll();
     }
 
-    @JsonView(DelivererView.class)
     @GetMapping("/{uuid}")
+    @JsonView(DelivererView.class)
     public DelivererDTO get(@PathVariable UUID uuid) {
         return delivererService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Transactional
-    @Validated(NewDelivererValidation.class)
     @PutMapping("/{uuid}")
+    @Validated(NewDelivererValidation.class)
     public void put(@PathVariable UUID uuid, @RequestBody @Valid DelivererDTO json) {
         delivererService.put(uuid, json);
     }

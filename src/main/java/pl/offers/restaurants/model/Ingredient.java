@@ -10,20 +10,20 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Entity
 public class Ingredient {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
     @NotBlank

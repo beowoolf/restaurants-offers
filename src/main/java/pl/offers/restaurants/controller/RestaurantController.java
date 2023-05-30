@@ -31,22 +31,22 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @JsonView(RestaurantListListView.class)
     @GetMapping
+    @JsonView(RestaurantListListView.class)
     public List<RestaurantDTO> get() {
         return restaurantService.getAll();
     }
 
-    @JsonView(RestaurantView.class)
     @GetMapping("/{uuid}")
+    @JsonView(RestaurantView.class)
     public RestaurantDTO get(@PathVariable UUID uuid) {
         return restaurantService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Transactional
-    @Validated(DataUpdateValidation.class)
     @PutMapping("/{uuid}")
+    @Validated(DataUpdateValidation.class)
     public void put(@PathVariable UUID uuid, @RequestBody @Valid RestaurantDTO json) {
         restaurantService.put(uuid, json);
     }

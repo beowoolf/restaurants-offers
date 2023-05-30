@@ -14,8 +14,8 @@ import java.util.List;
 @Builder(setterPrefix = "with")
 public class DelivererDTO extends EmployeeDTO {
 
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     @Null(groups = NewDelivererValidation.class)
     private List<OrderDTO> orders;
 

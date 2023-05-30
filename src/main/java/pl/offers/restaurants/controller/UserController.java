@@ -32,22 +32,22 @@ public class UserController {
         this.applicationEventPublisher = applicationEventPublisher;
     }
 
-    @JsonView(UserListListView.class)
     @GetMapping
+    @JsonView(UserListListView.class)
     public List<UserDTO> get() {
         return userService.getAll();
     }
 
-    @JsonView(UserView.class)
     @GetMapping("/{uuid}")
+    @JsonView(UserView.class)
     public UserDTO get(@PathVariable UUID uuid) {
         return userService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Transactional
-    @Validated(DataUpdateValidation.class)
     @PutMapping("/{uuid}")
+    @Validated(DataUpdateValidation.class)
     public void put(@PathVariable UUID uuid, @RequestBody @Valid UserDTO json) {
         userService.put(uuid, json);
     }
@@ -59,8 +59,8 @@ public class UserController {
     }
 
     @Transactional
-    @Validated(NewOperationValidation.class)
     @PostMapping("/{uuid}/new-operation")
+    @Validated(NewOperationValidation.class)
     public void postOperation(@PathVariable UUID uuid, @RequestBody @Valid UserDTO json) {
         userService.validateNewOperation(uuid, json);
 

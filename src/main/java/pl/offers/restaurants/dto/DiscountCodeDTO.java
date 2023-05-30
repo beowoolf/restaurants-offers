@@ -21,29 +21,29 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class DiscountCodeDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
-    private UUID uuid;
     @JsonView(View.Basic.class)
+    private UUID uuid;
     @NotBlank
+    @JsonView(View.Basic.class)
     private String code;
-    @JsonView(View.Extended.class)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
-    private BigDecimal discount;
     @JsonView(View.Extended.class)
+    @Digits(integer = 10, fraction = 2)
+    private BigDecimal discount;
     @NotNull
+    @JsonView(View.Extended.class)
     private DiscountUnit discountUnit;
-    @JsonView(View.Basic.class)
     @NotNull
     @Embedded
+    @JsonView(View.Basic.class)
     private PeriodDTO period;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private List<UserDTO> users;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private List<RestaurantDTO> restaurantDTOS;
     @JsonView(View.Extended.class)
     private List<RestaurantDTO> restaurants;

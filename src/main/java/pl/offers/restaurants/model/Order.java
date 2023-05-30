@@ -12,47 +12,47 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(setterPrefix = "with")
-@Entity
 @Table(name = "orders")
+@Builder(setterPrefix = "with")
 public class Order {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
-    @Column(scale = 2, precision = 12)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @Column(scale = 2, precision = 12)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal nettoPrice;
 
-    @Column(scale = 2, precision = 12)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @Column(scale = 2, precision = 12)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal bruttoPrice;
 
     @Nullable
     @ManyToOne
     private DiscountCode discountCode;
 
-    @Column(scale = 2, precision = 12)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @Column(scale = 2, precision = 12)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal amountToPayBrutto;
 
-    @Nullable
     @Lob
+    @Nullable
     private String note;
 
     @NotNull
@@ -64,8 +64,8 @@ public class Order {
     private DeliveryAddress deliveryAddress;
 
     @NotNull
-    @Size(min = 1)
     @OneToMany
+    @Size(min = 1)
     private List<OrderItem> orderItems;
 
     @NotNull

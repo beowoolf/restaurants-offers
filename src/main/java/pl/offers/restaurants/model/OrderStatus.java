@@ -8,10 +8,10 @@ import java.time.Instant;
 
 @Setter
 @Getter
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Embeddable
 public class OrderStatus {
 
     @NotNull

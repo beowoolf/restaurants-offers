@@ -7,24 +7,24 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Entity
 public class OrderItem {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
-    @NotNull
     @Min(1)
+    @NotNull
     private Integer quantity;
 
     @NotNull

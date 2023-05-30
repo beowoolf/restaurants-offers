@@ -17,18 +17,18 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class DishDTO {
 
+    @NotNull
     @JsonView(View.Id.class)
-    @NotNull
     private UUID uuid;
-    @JsonView(View.Extended.class)
-    @NotNull
     @Min(1)
-    private Integer quantity;
-    @JsonView(View.Extended.class)
     @NotNull
-    private ProductDTO product;
     @JsonView(View.Extended.class)
+    private Integer quantity;
+    @NotNull
+    @JsonView(View.Extended.class)
+    private ProductDTO product;
     @Nullable
+    @JsonView(View.Extended.class)
     @Null(groups = DataUpdateValidation.class)
     private List<MenuItemDTO> menuItems;
 

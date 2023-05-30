@@ -10,10 +10,10 @@ import javax.persistence.Enumerated;
 
 @Setter
 @Getter
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Embeddable
 public class PersonalData {
 
     @Nullable

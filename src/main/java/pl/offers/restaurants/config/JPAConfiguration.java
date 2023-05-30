@@ -19,8 +19,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories("pl.offers.restaurants.repo")
 @EnableTransactionManagement
+@EnableJpaRepositories("pl.offers.restaurants.repo")
 public class JPAConfiguration {
 
     @Bean

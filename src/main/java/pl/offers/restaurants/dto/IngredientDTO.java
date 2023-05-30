@@ -14,14 +14,14 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class IngredientDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UUID uuid;
-    @JsonView(View.Basic.class)
     @NotBlank
-    private String name;
     @JsonView(View.Basic.class)
+    private String name;
     @NotNull
+    @JsonView(View.Basic.class)
     private Boolean isAllergen;
 
     public static class View {

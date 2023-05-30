@@ -9,24 +9,24 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Entity
 public class Dish {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
-    @NotNull
     @Min(1)
+    @NotNull
     private Integer quantity;
 
     @NotNull

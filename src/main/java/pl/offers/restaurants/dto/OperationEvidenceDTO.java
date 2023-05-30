@@ -18,19 +18,19 @@ import java.time.Instant;
 @Builder(setterPrefix = "with")
 public class OperationEvidenceDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private Instant date;
+    @NotNull
     @JsonView(View.Basic.class)
-    @NotNull
     private EvidenceType type;
-    @JsonView(View.Extended.class)
-    @NotNull
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
-    private BigDecimal amount;
-    @JsonIgnore
     @NotNull
+    @JsonView(View.Extended.class)
+    @Digits(integer = 10, fraction = 2)
+    private BigDecimal amount;
+    @NotNull
+    @JsonIgnore
     private UserDTO user;
 
     public static class View {

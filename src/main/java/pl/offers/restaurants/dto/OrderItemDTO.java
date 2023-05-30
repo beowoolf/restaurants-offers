@@ -14,15 +14,15 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class OrderItemDTO {
 
+    @NotNull
     @JsonView(View.Basic.class)
-    @NotNull
     private UUID uuid;
-    @JsonView(View.Extended.class)
-    @NotNull
     @Min(1)
-    private Integer quantity;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
+    private Integer quantity;
+    @NotNull
+    @JsonView(View.Extended.class)
     private MenuItemDTO menuItem;
 
     public static class View {

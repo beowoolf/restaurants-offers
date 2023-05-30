@@ -26,14 +26,14 @@ public class DeliveryAddressController {
         this.deliveryAddressService = deliveryAddressService;
     }
 
-    @JsonView(DeliveryAddressListListView.class)
     @GetMapping
+    @JsonView(DeliveryAddressListListView.class)
     public List<DeliveryAddressDTO> get() {
         return deliveryAddressService.getAll();
     }
 
-    @JsonView(DeliveryAddressView.class)
     @GetMapping("/{uuid}")
+    @JsonView(DeliveryAddressView.class)
     public DeliveryAddressDTO get(@PathVariable UUID uuid) {
         return deliveryAddressService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

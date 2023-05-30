@@ -30,22 +30,22 @@ public class DishController {
         this.dishService = dishService;
     }
 
-    @JsonView(DishListListView.class)
     @GetMapping
+    @JsonView(DishListListView.class)
     public List<DishDTO> get() {
         return dishService.getAll();
     }
 
-    @JsonView(DishView.class)
     @GetMapping("/{uuid}")
+    @JsonView(DishView.class)
     public DishDTO get(@PathVariable UUID uuid) {
         return dishService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Transactional
-    @Validated(DishDataUpdateValidation.class)
     @PutMapping("/{uuid}")
+    @Validated(DishDataUpdateValidation.class)
     public void put(@PathVariable UUID uuid, @RequestBody @Valid DishDTO json) {
         dishService.put(uuid, json);
     }

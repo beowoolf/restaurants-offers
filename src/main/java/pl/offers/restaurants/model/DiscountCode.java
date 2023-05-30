@@ -13,29 +13,29 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Entity
 public class DiscountCode {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
     @NotBlank
     private String code;
 
-    @Column(scale = 2, precision = 12)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @Column(scale = 2, precision = 12)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal discount;
 
     @NotNull

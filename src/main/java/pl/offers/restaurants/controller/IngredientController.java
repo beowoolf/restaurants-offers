@@ -25,14 +25,14 @@ public class IngredientController {
         this.ingredientService = ingredientService;
     }
 
-    @JsonView(IngredientListListView.class)
     @GetMapping
+    @JsonView(IngredientListListView.class)
     public List<IngredientDTO> get() {
         return ingredientService.getAll();
     }
 
-    @JsonView(IngredientView.class)
     @GetMapping("/{uuid}")
+    @JsonView(IngredientView.class)
     public IngredientDTO get(@PathVariable UUID uuid) {
         return ingredientService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

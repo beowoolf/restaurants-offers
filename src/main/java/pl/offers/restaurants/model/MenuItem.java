@@ -9,45 +9,45 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(setterPrefix = "with")
-@Entity
 @Table(name = "menuitems")
+@Builder(setterPrefix = "with")
 public class MenuItem {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
     @NotBlank
     private String name;
 
-    @Column(scale = 2, precision = 12)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @Column(scale = 2, precision = 12)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal nettoPrice;
 
     @NotNull
     @Enumerated(EnumType.STRING)
     private VatTax vatTax;
 
-    @Column(scale = 2, precision = 12)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @Column(scale = 2, precision = 12)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal bruttoPrice;
 
     @NotNull
-    @Size(min = 1)
     @ManyToMany
+    @Size(min = 1)
     private List<Dish> dishes;
 
     @NotNull

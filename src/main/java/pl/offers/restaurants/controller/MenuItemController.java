@@ -27,14 +27,14 @@ public class MenuItemController {
         this.menuItemService = menuItemService;
     }
 
-    @JsonView(MenuItemListListView.class)
     @GetMapping
+    @JsonView(MenuItemListListView.class)
     public List<MenuItemDTO> get() {
         return menuItemService.getAll();
     }
 
-    @JsonView(MenuItemView.class)
     @GetMapping("/{uuid}")
+    @JsonView(MenuItemView.class)
     public MenuItemDTO get(@PathVariable UUID uuid) {
         return menuItemService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

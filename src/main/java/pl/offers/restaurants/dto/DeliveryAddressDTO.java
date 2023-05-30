@@ -14,38 +14,38 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class DeliveryAddressDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UUID uuid;
-    @JsonView(View.Basic.class)
     @Nullable
+    @JsonView(View.Basic.class)
     private String description;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String street;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String streetNumber;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String localNumber;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String postcode;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     private String city;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String borough;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String county;
-    @JsonView(View.Extended.class)
     @Nullable
+    @JsonView(View.Extended.class)
     private String state;
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UserDTO user;
 
     public static class View {

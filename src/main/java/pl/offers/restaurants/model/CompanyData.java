@@ -9,18 +9,18 @@ import javax.validation.constraints.NotNull;
 
 @Setter
 @Getter
+@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(setterPrefix = "with")
-@Embeddable
 public class CompanyData {
 
     @NotNull
     @Column(name = "companyName")
     private String name;
 
-    @Embedded
     @NotNull
+    @Embedded
     private Address address;
 
     @NotNull

@@ -7,22 +7,22 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Entity
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(setterPrefix = "with", builderMethodName = "baseBuilder")
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("employee")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Builder(setterPrefix = "with", builderMethodName = "baseBuilder")
 public class Employee {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(unique = true)
     @NotNull
+    @Column(unique = true)
     private UUID uuid;
 
     @NotNull

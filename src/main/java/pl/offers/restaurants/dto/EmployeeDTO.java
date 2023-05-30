@@ -15,19 +15,19 @@ import java.util.UUID;
 @Builder(setterPrefix = "with", builderMethodName = "baseBuilder")
 public class EmployeeDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UUID uuid;
+    @NotNull
+    @Embedded
     @JsonView(View.Basic.class)
-    @NotNull
-    @Embedded
     private PersonalDataDTO personalData;
-    @JsonView(View.Extended.class)
     @NotNull
     @Embedded
-    private LogginDataDTO logginData;
     @JsonView(View.Extended.class)
+    private LogginDataDTO logginData;
     @NotNull
+    @JsonView(View.Extended.class)
     private Archive archive;
 
     public static class View {

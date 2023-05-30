@@ -16,31 +16,31 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class MenuItemDTO {
 
-    @JsonView(View.Basic.class)
     @NotNull
+    @JsonView(View.Basic.class)
     private UUID uuid;
-    @JsonView(View.Basic.class)
     @NotBlank
+    @JsonView(View.Basic.class)
     private String name;
-    @JsonView(View.Extended.class)
-    @Digits(integer = 10, fraction = 2)
     @Min(0)
     @NotNull
+    @JsonView(View.Extended.class)
+    @Digits(integer = 10, fraction = 2)
     private BigDecimal nettoPrice;
-    @JsonView(View.Extended.class)
     @NotNull
-    private VatTax vatTax;
     @JsonView(View.Extended.class)
-    @Digits(integer = 10, fraction = 2)
+    private VatTax vatTax;
     @Min(0)
     @NotNull
-    private BigDecimal bruttoPrice;
     @JsonView(View.Extended.class)
+    @Digits(integer = 10, fraction = 2)
+    private BigDecimal bruttoPrice;
     @NotNull
     @Size(min = 1)
-    private List<DishDTO> dishes;
     @JsonView(View.Extended.class)
+    private List<DishDTO> dishes;
     @NotNull
+    @JsonView(View.Extended.class)
     private RestaurantDTO restaurant;
 
     public static class View {

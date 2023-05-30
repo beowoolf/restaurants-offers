@@ -15,18 +15,18 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class OpenTimeDTO {
 
+    @NotNull
     @JsonView(View.Basic.class)
-    @NotNull
     private UUID uuid;
-    @JsonView(View.Extended.class)
     @NotNull
-    private DayOfWeek dayOfWeek;
     @JsonView(View.Extended.class)
+    private DayOfWeek dayOfWeek;
     @NotNull
     @Embedded
-    private PeriodTimeDTO periodTime;
     @JsonView(View.Extended.class)
+    private PeriodTimeDTO periodTime;
     @NotNull
+    @JsonView(View.Extended.class)
     private RestaurantDTO restaurant;
 
     public static class View {

@@ -20,34 +20,34 @@ import java.util.UUID;
 @Builder(setterPrefix = "with")
 public class UserDTO {
 
+    @NotNull
     @JsonView(View.Id.class)
-    @NotNull
     private UUID uuid;
+    @NotNull
+    @Embedded
     @JsonView(View.Basic.class)
-    @NotNull
-    @Embedded
     private PersonalDataDTO personalData;
-    @JsonView(View.Extended.class)
     @Nullable
-    private List<DeliveryAddressDTO> deliveryAddress;
     @JsonView(View.Extended.class)
+    private List<DeliveryAddressDTO> deliveryAddress;
     @NotNull
     @Embedded
+    @JsonView(View.Extended.class)
     private LogginDataDTO logginData;
-    @JsonIgnore
     @Nullable
+    @JsonIgnore
     @Null(groups = DataUpdateValidation.class)
     private List<OrderDTO> orders;
-    @JsonView(View.Extended.class)
     @NotNull
+    @JsonView(View.Extended.class)
     @Size(max = 0, groups = DataUpdateValidation.class)
     @Size(min = 1, max = 1, groups = NewOperationValidation.class)
     private List<OperationEvidenceDTO> operationEvidence;
-    @JsonView(View.Extended.class)
     @Nullable
-    private List<DiscountCodeDTO> discountCodes;
     @JsonView(View.Extended.class)
+    private List<DiscountCodeDTO> discountCodes;
     @NotNull
+    @JsonView(View.Extended.class)
     private Archive archive;
 
     public interface DataUpdateValidation {

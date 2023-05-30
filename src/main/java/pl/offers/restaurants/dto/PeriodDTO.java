@@ -12,16 +12,16 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
-@Builder(setterPrefix = "with")
-@PeriodConstraint
 @Embeddable
+@PeriodConstraint
+@Builder(setterPrefix = "with")
 public class PeriodDTO {
 
-    @JsonView(View.Basic.class)
     @Nullable
+    @JsonView(View.Basic.class)
     private LocalDateTime begin;
-    @JsonView(View.Basic.class)
     @Nullable
+    @JsonView(View.Basic.class)
     private LocalDateTime end;
 
     public static class View {

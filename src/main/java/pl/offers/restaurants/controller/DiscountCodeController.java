@@ -26,14 +26,14 @@ public class DiscountCodeController {
         this.discountCodeService = discountCodeService;
     }
 
-    @JsonView(DiscountCodeListListView.class)
     @GetMapping
+    @JsonView(DiscountCodeListListView.class)
     public List<DiscountCodeDTO> get() {
         return discountCodeService.getAll();
     }
 
-    @JsonView(DiscountCodeView.class)
     @GetMapping("/{uuid}")
+    @JsonView(DiscountCodeView.class)
     public DiscountCodeDTO get(@PathVariable UUID uuid) {
         return discountCodeService.getByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
