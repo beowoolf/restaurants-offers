@@ -44,8 +44,6 @@ public class DiscountCodeDTO {
     private List<UserDTO> users;
     @Nullable
     @JsonView(View.Extended.class)
-    private List<RestaurantDTO> restaurantDTOS;
-    @JsonView(View.Extended.class)
     private List<RestaurantDTO> restaurants;
 
     public static class View {

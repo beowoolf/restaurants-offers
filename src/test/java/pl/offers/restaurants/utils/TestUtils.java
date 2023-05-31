@@ -72,15 +72,15 @@ public class TestUtils {
     }
 
     public static DiscountCodeDTO discountCodeDTO(String uuid, String code, BigDecimal discount, DiscountUnit unit, String begin,
-                                                  String end, List<UserDTO> userDTOS, List<RestaurantDTO> restaurantDTOS) {
+                                                  String end, List<UserDTO> users, List<RestaurantDTO> restaurants) {
         return DiscountCodeDTO.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withCode(code)
                 .withDiscount(discount)
                 .withDiscountUnit(unit)
                 .withPeriod(periodDTO(begin, end))
-                .withUsers(userDTOS)
-                .withRestaurantDTOS(restaurantDTOS)
+                .withUsers(users)
+                .withRestaurants(restaurants)
                 .build();
     }
 
@@ -257,7 +257,7 @@ public class TestUtils {
     }
 
     public static OrderDTO orderDTO(String uuid, DiscountCodeDTO discountCodeDTO, String note, UserDTO userDTO,
-                                    DelivererDTO delivererDTO, DeliveryAddressDTO deliveryAddressDTO, RestaurantDTO restaurantDTO, OrderItemDTO... orderItemDTOS) {
+                                    DelivererDTO delivererDTO, DeliveryAddressDTO deliveryAddressDTO, RestaurantDTO restaurantDTO, OrderItemDTO... orderItems) {
         return OrderDTO.builder()
                 .withUuid(UUID.fromString(uuid))
                 .withDiscountCode(discountCodeDTO)
@@ -265,7 +265,7 @@ public class TestUtils {
                 .withUser(userDTO).withDeliverer(delivererDTO)
                 .withDeliveryAddress(deliveryAddressDTO)
                 .withRestaurant(restaurantDTO)
-                .withOrderItems(Arrays.asList(orderItemDTOS))
+                .withOrderItems(Arrays.asList(orderItems))
                 .build();
     }
 
