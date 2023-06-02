@@ -3,13 +3,11 @@ package pl.offers.restaurants.repo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import pl.offers.restaurants.model.OperationEvidence;
 import pl.offers.restaurants.model.User;
 
 import java.math.BigDecimal;
 
-@Repository
 public interface OperationEvidenceRepo extends JpaRepository<OperationEvidence, Long> {
 
     @Query("SELECT COALESCE(SUM(" +
