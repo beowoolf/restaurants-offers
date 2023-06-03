@@ -70,11 +70,11 @@ public class ConverterUtils {
         if (orders == null) {
             return new ArrayList<>();
         }
-        ArrayList<Order> orders = new ArrayList<>();
+        ArrayList<Order> ordersToReturn = new ArrayList<>();
         for (OrderDTO dto : orders) {
-            orders.add(convert(dto));
+            ordersToReturn.add(convert(dto));
         }
-        return orders;
+        return ordersToReturn;
     }
 
     public static Order convert(OrderDTO orderDTO) {
@@ -89,7 +89,7 @@ public class ConverterUtils {
                 .withUser(convert(orderDTO.getUser()))
                 .withDeliverer(convert(orderDTO.getDeliverer()))
                 .withDeliveryAddress(convert(orderDTO.getDeliveryAddress()))
-                .withOrderItems(convertOrderItems(orderDTO.getOrderItems()))
+                .withOrderItems(convertOrderItemsFromDTOS(orderDTO.getOrderItems()))
                 .withRestaurant(convert(orderDTO.getRestaurant()))
                 .build();
     }
@@ -98,11 +98,11 @@ public class ConverterUtils {
         if (orders == null) {
             return new ArrayList<>();
         }
-        ArrayList<OrderDTO> orders = new ArrayList<>();
+        ArrayList<OrderDTO> ordersToReturn = new ArrayList<>();
         for (Order dto : orders) {
-            orders.add(convert(dto));
+            ordersToReturn.add(convert(dto));
         }
-        return orders;
+        return ordersToReturn;
     }
 
     public static OrderDTO convert(Order order) {
@@ -123,15 +123,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<DiscountCode> convertDiscountCodes(List<DiscountCodeDTO> discountCodes) {
+    public static List<DiscountCode> convertDiscountCodesFromDTOS(List<DiscountCodeDTO> discountCodes) {
         if (discountCodes == null) {
             return new ArrayList<>();
         }
-        ArrayList<DiscountCode> discountCodes = new ArrayList<>();
+        ArrayList<DiscountCode> discountCodesToReturn = new ArrayList<>();
         for (DiscountCodeDTO dto : discountCodes) {
-            discountCodes.add(convert(dto));
+            discountCodesToReturn.add(convert(dto));
         }
-        return discountCodes;
+        return discountCodesToReturn;
     }
 
     public static DiscountCode convert(@Nullable DiscountCodeDTO discountCodeDTO) {
@@ -144,8 +144,8 @@ public class ConverterUtils {
                 .withDiscount(discountCodeDTO.getDiscount())
                 .withDiscountUnit(discountCodeDTO.getDiscountUnit())
                 .withPeriod(convert(discountCodeDTO.getPeriod()))
-                .withUsers(convertUsers(discountCodeDTO.getUsers()))
-                .withRestaurants(convertRestaurants(discountCodeDTO.getRestaurants()))
+                .withUsers(convertUsersFromDTOS(discountCodeDTO.getUsers()))
+                .withRestaurants(convertRestaurantsFromDTOS(discountCodeDTO.getRestaurants()))
                 .build();
     }
 
@@ -153,11 +153,11 @@ public class ConverterUtils {
         if (discountCodes == null) {
             return new ArrayList<>();
         }
-        ArrayList<DiscountCodeDTO> discountCodes = new ArrayList<>();
+        ArrayList<DiscountCodeDTO> discountCodesToReturn = new ArrayList<>();
         for (DiscountCode dto : discountCodes) {
-            discountCodes.add(convert(dto));
+            discountCodesToReturn.add(convert(dto));
         }
-        return discountCodes;
+        return discountCodesToReturn;
     }
 
     public static DiscountCodeDTO convert(@Nullable DiscountCode discountCode) {
@@ -225,15 +225,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<User> convertUsers(List<UserDTO> users) {
+    public static List<User> convertUsersFromDTOS(List<UserDTO> users) {
         if (users == null) {
             return new ArrayList<>();
         }
-        ArrayList<User> users = new ArrayList<>();
+        ArrayList<User> usersToReturn = new ArrayList<>();
         for (UserDTO dto : users) {
-            users.add(convert(dto));
+            usersToReturn.add(convert(dto));
         }
-        return users;
+        return usersToReturn;
     }
 
     public static User convert(UserDTO userDTO) {
@@ -243,8 +243,8 @@ public class ConverterUtils {
                 .withDeliveryAddress(convertAddresses(userDTO.getDeliveryAddress()))
                 .withLogginData(convert(userDTO.getLogginData()))
                 .withOrders(convertOrdersDTO(userDTO.getOrders()))
-                .withOperationEvidence(convertOperationEvidences(userDTO.getOperationEvidence()))
-                .withDiscountCodes(convertDiscountCodes(userDTO.getDiscountCodes()))
+                .withOperationEvidence(convertOperationEvidencesFromDTOS(userDTO.getOperationEvidence()))
+                .withDiscountCodes(convertDiscountCodesFromDTOS(userDTO.getDiscountCodes()))
                 .withArchive(userDTO.getArchive())
                 .build();
     }
@@ -259,11 +259,11 @@ public class ConverterUtils {
         if (users == null) {
             return new ArrayList<>();
         }
-        ArrayList<UserDTO> users = new ArrayList<>();
+        ArrayList<UserDTO> usersToReturn = new ArrayList<>();
         for (User dto : users) {
-            users.add(convert(dto));
+            usersToReturn.add(convert(dto));
         }
-        return users;
+        return usersToReturn;
     }
 
     public static UserDTO convert(User user) {
@@ -360,15 +360,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<OrderItem> convertOrderItems(List<OrderItemDTO> orderItems) {
+    public static List<OrderItem> convertOrderItemsFromDTOS(List<OrderItemDTO> orderItems) {
         if (orderItems == null) {
             return new ArrayList<>();
         }
-        ArrayList<OrderItem> orderItems = new ArrayList<>();
+        ArrayList<OrderItem> orderItemsToReturn = new ArrayList<>();
         for (OrderItemDTO dto : orderItems) {
-            orderItems.add(convert(dto));
+            orderItemsToReturn.add(convert(dto));
         }
-        return orderItems;
+        return orderItemsToReturn;
     }
 
     public static OrderItem convert(OrderItemDTO orderItemDTO) {
@@ -383,11 +383,11 @@ public class ConverterUtils {
         if (orderItems == null) {
             return new ArrayList<>();
         }
-        ArrayList<OrderItemDTO> orderItems = new ArrayList<>();
+        ArrayList<OrderItemDTO> orderItemsToReturn = new ArrayList<>();
         for (OrderItem dto : orderItems) {
-            orderItems.add(convert(dto));
+            orderItemsToReturn.add(convert(dto));
         }
-        return orderItems;
+        return orderItemsToReturn;
     }
 
     public static OrderItemDTO convert(OrderItem orderItem) {
@@ -399,15 +399,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<Restaurant> convertRestaurants(List<RestaurantDTO> restaurants) {
+    public static List<Restaurant> convertRestaurantsFromDTOS(List<RestaurantDTO> restaurants) {
         if (restaurants == null) {
             return new ArrayList<>();
         }
-        ArrayList<Restaurant> restaurants = new ArrayList<>();
+        ArrayList<Restaurant> restaurantsToReturn = new ArrayList<>();
         for (RestaurantDTO dto : restaurants) {
-            restaurants.add(convert(dto));
+            restaurantsToReturn.add(convert(dto));
         }
-        return restaurants;
+        return restaurantsToReturn;
     }
 
     public static Restaurant convert(RestaurantDTO restaurantDTO) {
@@ -416,10 +416,10 @@ public class ConverterUtils {
                 .withName(restaurantDTO.getName())
                 .withLogginData(convert(restaurantDTO.getLogginData()))
                 .withCompanyData(convert(restaurantDTO.getCompanyData()))
-                .withOpenTimes(convertOpenTimes(restaurantDTO.getOpenTimes()))
+                .withOpenTimes(convertOpenTimesFromDTOS(restaurantDTO.getOpenTimes()))
                 .withOrders(convertOrdersDTO(restaurantDTO.getOrders()))
-                .withMenu(convertMenuItems(restaurantDTO.getMenuItems()))
-                .withDiscountCodes(convertDiscountCodes(restaurantDTO.getDiscountCodes()))
+                .withMenu(convertMenuItemsFromDTOS(restaurantDTO.getMenuItems()))
+                .withDiscountCodes(convertDiscountCodesFromDTOS(restaurantDTO.getDiscountCodes()))
                 .withArchive(restaurantDTO.getArchive())
                 .build();
     }
@@ -428,11 +428,11 @@ public class ConverterUtils {
         if (restaurants == null) {
             return new ArrayList<>();
         }
-        ArrayList<RestaurantDTO> restaurants = new ArrayList<>();
+        ArrayList<RestaurantDTO> restaurantsToReturn = new ArrayList<>();
         for (Restaurant dto : restaurants) {
-            restaurants.add(convert(dto));
+            restaurantsToReturn.add(convert(dto));
         }
-        return restaurants;
+        return restaurantsToReturn;
     }
 
     public static RestaurantDTO convert(Restaurant restaurant) {
@@ -450,15 +450,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<OperationEvidence> convertOperationEvidences(List<OperationEvidenceDTO> operationEvidences) {
+    public static List<OperationEvidence> convertOperationEvidencesFromDTOS(List<OperationEvidenceDTO> operationEvidences) {
         if (operationEvidences == null) {
             return new ArrayList<>();
         }
-        ArrayList<OperationEvidence> operationEvidences = new ArrayList<>();
+        ArrayList<OperationEvidence> operationEvidencesToReturn = new ArrayList<>();
         for (OperationEvidenceDTO dto : operationEvidences) {
-            operationEvidences.add(convert(dto));
+            operationEvidencesToReturn.add(convert(dto));
         }
-        return operationEvidences;
+        return operationEvidencesToReturn;
     }
 
     public static OperationEvidence convert(OperationEvidenceDTO operationEvidenceDTO) {
@@ -474,11 +474,11 @@ public class ConverterUtils {
         if (operationEvidences == null) {
             return new ArrayList<>();
         }
-        ArrayList<OperationEvidenceDTO> operationEvidences = new ArrayList<>();
+        ArrayList<OperationEvidenceDTO> operationEvidencesToReturn = new ArrayList<>();
         for (OperationEvidence dto : operationEvidences) {
-            operationEvidences.add(convert(dto));
+            operationEvidencesToReturn.add(convert(dto));
         }
-        return operationEvidences;
+        return operationEvidencesToReturn;
     }
 
     public static OperationEvidenceDTO convert(OperationEvidence operationEvidence) {
@@ -491,15 +491,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<MenuItem> convertMenuItems(List<MenuItemDTO> menuItems) {
+    public static List<MenuItem> convertMenuItemsFromDTOS(List<MenuItemDTO> menuItems) {
         if (menuItems == null) {
             return new ArrayList<>();
         }
-        ArrayList<MenuItem> menuItems = new ArrayList<>();
+        ArrayList<MenuItem> menuItemsToReturn = new ArrayList<>();
         for (MenuItemDTO dto : menuItems) {
-            menuItems.add(convert(dto));
+            menuItemsToReturn.add(convert(dto));
         }
-        return menuItems;
+        return menuItemsToReturn;
     }
 
     public static MenuItem convert(MenuItemDTO menuItemDTO) {
@@ -518,11 +518,11 @@ public class ConverterUtils {
         if (menuItems == null) {
             return new ArrayList<>();
         }
-        ArrayList<MenuItemDTO> menuItems = new ArrayList<>();
+        ArrayList<MenuItemDTO> menuItemsToReturn = new ArrayList<>();
         for (MenuItem dto : menuItems) {
-            menuItems.add(convert(dto));
+            menuItemsToReturn.add(convert(dto));
         }
-        return menuItems;
+        return menuItemsToReturn;
     }
 
     public static MenuItemDTO convert(MenuItem menuItem) {
@@ -559,15 +559,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<OpenTime> convertOpenTimes(List<OpenTimeDTO> openTimes) {
+    public static List<OpenTime> convertOpenTimesFromDTOS(List<OpenTimeDTO> openTimes) {
         if (openTimes == null) {
             return new ArrayList<>();
         }
-        ArrayList<OpenTime> openTimes = new ArrayList<>();
+        ArrayList<OpenTime> openTimesToReturn = new ArrayList<>();
         for (OpenTimeDTO dto : openTimes) {
-            openTimes.add(convert(dto));
+            openTimesToReturn.add(convert(dto));
         }
-        return openTimes;
+        return openTimesToReturn;
     }
 
     public static OpenTime convert(OpenTimeDTO openTimeDTO) {
@@ -583,11 +583,11 @@ public class ConverterUtils {
         if (openTimes == null) {
             return new ArrayList<>();
         }
-        ArrayList<OpenTimeDTO> openTimes = new ArrayList<>();
+        ArrayList<OpenTimeDTO> openTimesToReturn = new ArrayList<>();
         for (OpenTime dto : openTimes) {
-            openTimes.add(convert(dto));
+            openTimesToReturn.add(convert(dto));
         }
-        return openTimes;
+        return openTimesToReturn;
     }
 
     public static OpenTimeDTO convert(OpenTime openTime) {
@@ -619,7 +619,7 @@ public class ConverterUtils {
                 .withUuid(dishDTO.getUuid())
                 .withQuantity(dishDTO.getQuantity())
                 .withProduct(convert(dishDTO.getProduct()))
-                .withMenuItems(convertMenuItems(dishDTO.getMenuItems()))
+                .withMenuItems(convertMenuItemsFromDTOS(dishDTO.getMenuItems()))
                 .build();
     }
 
@@ -651,7 +651,7 @@ public class ConverterUtils {
         return Product.builder()
                 .withUuid(productDTO.getUuid())
                 .withName(productDTO.getName())
-                .withIngredients(convertIngredients(productDTO.getIngredients()))
+                .withIngredients(convertIngredientsFromDTOS(productDTO.getIngredients()))
                 .withDish(convert(productDTO.getDish()))
                 .build();
     }
@@ -666,15 +666,15 @@ public class ConverterUtils {
     }
 
 
-    public static List<Ingredient> convertIngredients(List<IngredientDTO> ingredients) {
+    public static List<Ingredient> convertIngredientsFromDTOS(List<IngredientDTO> ingredients) {
         if (ingredients == null) {
             return new ArrayList<>();
         }
-        ArrayList<Ingredient> ingredients = new ArrayList<>();
+        ArrayList<Ingredient> ingredientsToReturn = new ArrayList<>();
         for (IngredientDTO dto : ingredients) {
-            ingredients.add(convert(dto));
+            ingredientsToReturn.add(convert(dto));
         }
-        return ingredients;
+        return ingredientsToReturn;
     }
 
     public static Ingredient convert(IngredientDTO ingredientDTO) {
@@ -689,11 +689,11 @@ public class ConverterUtils {
         if (ingredients == null) {
             return new ArrayList<>();
         }
-        ArrayList<IngredientDTO> ingredients = new ArrayList<>();
+        ArrayList<IngredientDTO> ingredientsToReturn = new ArrayList<>();
         for (Ingredient dto : ingredients) {
-            ingredients.add(convert(dto));
+            ingredientsToReturn.add(convert(dto));
         }
-        return ingredients;
+        return ingredientsToReturn;
     }
 
     public static IngredientDTO convert(Ingredient ingredient) {

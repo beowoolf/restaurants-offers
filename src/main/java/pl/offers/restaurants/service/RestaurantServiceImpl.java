@@ -46,9 +46,9 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurant.setName(restaurantDTO.getName());
         restaurant.setLogginData(convert(restaurantDTO.getLogginData()));
         restaurant.setCompanyData(convert(restaurantDTO.getCompanyData()));
-        restaurant.setOpenTimes(convertOpenTimes(restaurantDTO.getOpenTimes()));
-        restaurant.setMenu(convertMenuItems(restaurantDTO.getMenuItems()));
-        restaurant.setDiscountCodes(convertDiscountCodes(restaurantDTO.getDiscountCodes()));
+        restaurant.setOpenTimes(convertOpenTimesFromDTOS(restaurantDTO.getOpenTimes()));
+        restaurant.setMenu(convertMenuItemsFromDTOS(restaurantDTO.getMenuItems()));
+        restaurant.setDiscountCodes(convertDiscountCodesFromDTOS(restaurantDTO.getDiscountCodes()));
         restaurant.setArchive(restaurantDTO.getArchive());
 
         if (restaurant.getId() == null) {
