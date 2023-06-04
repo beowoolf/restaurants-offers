@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,6 +22,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepo orderRepo;
@@ -33,26 +34,6 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountCodeRepo discountCodeRepo;
     private final OrderItemRepo orderItemRepo;
     private final OrderItemService orderItemService;
-
-    @Autowired
-    public OrderServiceImpl(OrderRepo orderRepo,
-                            UserRepo userRepo,
-                            RestaurantRepo restaurantRepo,
-                            DelivererRepo delivererRepo,
-                            DeliveryAddressRepo deliveryAddressRepo, MenuItemRepo menuItemRepo,
-                            DiscountCodeRepo discountCodeRepo,
-                            OrderItemRepo orderItemRepo,
-                            OrderItemService orderItemService) {
-        this.orderRepo = orderRepo;
-        this.userRepo = userRepo;
-        this.restaurantRepo = restaurantRepo;
-        this.delivererRepo = delivererRepo;
-        this.deliveryAddressRepo = deliveryAddressRepo;
-        this.menuItemRepo = menuItemRepo;
-        this.discountCodeRepo = discountCodeRepo;
-        this.orderItemRepo = orderItemRepo;
-        this.orderItemService = orderItemService;
-    }
 
     @Override
     public List<OrderDTO> getAll() {

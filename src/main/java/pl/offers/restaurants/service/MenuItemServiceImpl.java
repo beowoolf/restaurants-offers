@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,18 +22,12 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class MenuItemServiceImpl implements MenuItemService {
 
     private final MenuItemRepo menuItemRepo;
     private final RestaurantRepo restaurantRepo;
     private final DishRepo dishRepo;
-
-    @Autowired
-    public MenuItemServiceImpl(MenuItemRepo menuItemRepo, RestaurantRepo restaurantRepo, DishRepo dishRepo) {
-        this.menuItemRepo = menuItemRepo;
-        this.restaurantRepo = restaurantRepo;
-        this.dishRepo = dishRepo;
-    }
 
     @Override
     public List<MenuItemDTO> getAll() {

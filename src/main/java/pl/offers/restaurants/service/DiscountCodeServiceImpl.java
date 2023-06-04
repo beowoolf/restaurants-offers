@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,18 +25,12 @@ import java.util.stream.Collectors;
 import static pl.offers.restaurants.utils.ConverterUtils.convert;
 
 @Service
+@RequiredArgsConstructor
 public class DiscountCodeServiceImpl implements DiscountCodeService {
 
     private final DiscountCodeRepo discountCodeRepo;
     private final UserRepo userRepo;
     private final RestaurantRepo restaurantRepo;
-
-    @Autowired
-    public DiscountCodeServiceImpl(DiscountCodeRepo discountCodeRepo, UserRepo userRepo, RestaurantRepo restaurantRepo) {
-        this.discountCodeRepo = discountCodeRepo;
-        this.userRepo = userRepo;
-        this.restaurantRepo = restaurantRepo;
-    }
 
     @Override
     public List<DiscountCodeDTO> getAll() {

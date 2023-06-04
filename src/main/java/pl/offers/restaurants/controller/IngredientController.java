@@ -1,7 +1,7 @@
 package pl.offers.restaurants.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,15 +15,11 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/api/ingredients", produces = MediaType.APPLICATION_JSON_VALUE)
 public class IngredientController {
 
     private final IngredientService ingredientService;
-
-    @Autowired
-    public IngredientController(IngredientService ingredientService) {
-        this.ingredientService = ingredientService;
-    }
 
     @GetMapping
     @JsonView(IngredientListListView.class)

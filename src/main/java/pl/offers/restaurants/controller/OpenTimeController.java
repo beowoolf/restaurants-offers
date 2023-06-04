@@ -1,7 +1,7 @@
 package pl.offers.restaurants.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,15 +16,11 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/api/open-times", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OpenTimeController {
 
     private final OpenTimeService openTimeService;
-
-    @Autowired
-    public OpenTimeController(OpenTimeService openTimeService) {
-        this.openTimeService = openTimeService;
-    }
 
     @GetMapping
     @JsonView(OpenTimeListListView.class)

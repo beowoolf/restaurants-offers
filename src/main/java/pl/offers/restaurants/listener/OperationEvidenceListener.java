@@ -1,6 +1,6 @@
 package pl.offers.restaurants.listener;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -16,16 +16,11 @@ import pl.offers.restaurants.utils.ConverterUtils;
 import java.math.BigDecimal;
 
 @Component
+@RequiredArgsConstructor
 public class OperationEvidenceListener {
 
     private final OperationEvidenceService operationEvidenceService;
     private final UserRepo userRepo;
-
-    @Autowired
-    public OperationEvidenceListener(OperationEvidenceService operationEvidenceService, UserRepo userRepo) {
-        this.operationEvidenceService = operationEvidenceService;
-        this.userRepo = userRepo;
-    }
 
     @EventListener
     public void onAddOperation(OperationEvidenceCreator operationEvidenceCreator) {

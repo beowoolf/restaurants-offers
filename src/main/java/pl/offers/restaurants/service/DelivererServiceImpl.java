@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -25,17 +25,12 @@ import java.util.stream.Collectors;
 import static pl.offers.restaurants.utils.ConverterUtils.convert;
 
 @Service
+@RequiredArgsConstructor
 @CacheConfig(cacheNames = "deliverers")
 public class DelivererServiceImpl implements DelivererService {
 
     private final DelivererRepo delivererRepo;
     private final OrderRepo orderRepo;
-
-    @Autowired
-    public DelivererServiceImpl(DelivererRepo delivererRepo, OrderRepo orderRepo) {
-        this.delivererRepo = delivererRepo;
-        this.orderRepo = orderRepo;
-    }
 
     public static Deliverer newDeliverer(UUID uuid) {
         Deliverer deliverer = new Deliverer();

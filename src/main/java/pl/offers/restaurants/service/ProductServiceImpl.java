@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,18 +22,12 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepo productRepo;
     private final IngredientRepo ingredientRepo;
     private final DishRepo dishRepo;
-
-    @Autowired
-    public ProductServiceImpl(ProductRepo productRepo, IngredientRepo ingredientRepo, DishRepo dishRepo) {
-        this.productRepo = productRepo;
-        this.ingredientRepo = ingredientRepo;
-        this.dishRepo = dishRepo;
-    }
 
     @Override
     public List<ProductDTO> getAll() {

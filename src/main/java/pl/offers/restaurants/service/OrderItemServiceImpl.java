@@ -1,6 +1,6 @@
 package pl.offers.restaurants.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.offers.restaurants.model.DiscountCode;
 import pl.offers.restaurants.model.OrderItem;
@@ -18,14 +18,10 @@ import static pl.offers.restaurants.model.enums.PriceType.BRUTTO;
 import static pl.offers.restaurants.model.enums.PriceType.NETTO;
 
 @Service
+@RequiredArgsConstructor
 public class OrderItemServiceImpl implements OrderItemService {
 
     private final OrderItemRepo orderItemRepo;
-
-    @Autowired
-    public OrderItemServiceImpl(OrderItemRepo orderItemRepo) {
-        this.orderItemRepo = orderItemRepo;
-    }
 
     @Override
     public List<OrderItem> getAll() {

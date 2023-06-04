@@ -1,6 +1,6 @@
 package pl.offers.restaurants.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.offers.restaurants.model.OperationEvidence;
 import pl.offers.restaurants.model.User;
@@ -10,14 +10,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class OperationEvidenceServiceImpl implements OperationEvidenceService {
 
     private final OperationEvidenceRepo operationEvidenceRepo;
-
-    @Autowired
-    public OperationEvidenceServiceImpl(OperationEvidenceRepo operationEvidenceRepo) {
-        this.operationEvidenceRepo = operationEvidenceRepo;
-    }
 
     @Override
     public List<OperationEvidence> getAll() {

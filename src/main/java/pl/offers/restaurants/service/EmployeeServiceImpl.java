@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,14 +18,10 @@ import java.util.stream.Collectors;
 import static pl.offers.restaurants.utils.ConverterUtils.convert;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepo employeeRepo;
-
-    @Autowired
-    public EmployeeServiceImpl(EmployeeRepo employeeRepo) {
-        this.employeeRepo = employeeRepo;
-    }
 
     @Override
     public List<EmployeeDTO> getAll() {

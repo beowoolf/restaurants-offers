@@ -1,7 +1,7 @@
 package pl.offers.restaurants.service;
 
 import com.google.common.base.Objects;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -18,16 +18,11 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class DeliveryAddressServiceImpl implements DeliveryAddressService {
 
     private final DeliveryAddressRepo deliveryAddressRepo;
     private final UserRepo userRepo;
-
-    @Autowired
-    public DeliveryAddressServiceImpl(DeliveryAddressRepo deliveryAddressRepo, UserRepo userRepo) {
-        this.deliveryAddressRepo = deliveryAddressRepo;
-        this.userRepo = userRepo;
-    }
 
     @Override
     public List<DeliveryAddressDTO> getAll() {

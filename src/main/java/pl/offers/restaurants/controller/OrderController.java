@@ -1,7 +1,7 @@
 package pl.offers.restaurants.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,6 +22,7 @@ import java.util.UUID;
 
 @Validated
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(path = "/api/orders", produces = MediaType.APPLICATION_JSON_VALUE)
 public class OrderController {
 
@@ -29,14 +30,6 @@ public class OrderController {
     private final DelivererService delivererService;
     private final UserService userService;
     private final ApplicationEventPublisher applicationEventPublisher;
-
-    @Autowired
-    public OrderController(OrderService orderService, DelivererService delivererService, UserService userService, ApplicationEventPublisher applicationEventPublisher) {
-        this.orderService = orderService;
-        this.delivererService = delivererService;
-        this.userService = userService;
-        this.applicationEventPublisher = applicationEventPublisher;
-    }
 
     @GetMapping
     @JsonView(OrderListListView.class)
