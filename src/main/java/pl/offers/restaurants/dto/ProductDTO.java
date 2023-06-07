@@ -27,8 +27,6 @@ public class ProductDTO {
     private List<IngredientDTO> ingredients;
     @Nullable
     @JsonView(View.Extended.class)
-    private DishDTO dishDTO;
-    @JsonView(View.Extended.class)
     private DishDTO dish;
 
     public static class View {

@@ -661,7 +661,7 @@ public class ConverterUtils {
                 .withUuid(product.getUuid())
                 .withName(product.getName())
                 .withIngredients(convertIngredients(product.getIngredients()))
-                .withDishDTO(convert(product.getDish()))
+                .withDish(convert(product.getDish()))
                 .build();
     }
 

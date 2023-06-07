@@ -1,6 +1,5 @@
 package pl.offers.restaurants.validator;
 
-import pl.offers.restaurants.model.Period;
 import pl.offers.restaurants.model.PeriodTime;
 
 import javax.validation.ConstraintValidator;

@@ -14,9 +14,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static pl.offers.restaurants.model.enums.PriceType.BRUTTO;
-import static pl.offers.restaurants.model.enums.PriceType.NETTO;
-
 @Service
 @RequiredArgsConstructor
 public class OrderItemServiceImpl implements OrderItemService {
