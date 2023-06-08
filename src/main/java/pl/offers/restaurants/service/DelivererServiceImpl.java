@@ -42,7 +42,7 @@ public class DelivererServiceImpl implements DelivererService {
     @Cacheable(cacheNames = "deliverers")
     public List<DelivererDTO> getAll() {
         try {
-            Thread.sleep(1000L);
+            Thread.sleep(1000L); // to simulate loading
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
