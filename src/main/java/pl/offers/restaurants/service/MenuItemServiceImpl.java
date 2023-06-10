@@ -38,9 +38,8 @@ public class MenuItemServiceImpl implements MenuItemService {
 
     @Override
     public void put(UUID uuid, MenuItemDTO menuItemDTO) {
-        if (!Objects.equal(menuItemDTO.getUuid(), uuid)) {
+        if (!Objects.equal(menuItemDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         Restaurant restaurant = restaurantRepo.findByUuid(menuItemDTO.getRestaurant().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -61,9 +60,8 @@ public class MenuItemServiceImpl implements MenuItemService {
         menuItem.setBruttoPrice(menuItemDTO.getBruttoPrice());
         menuItem.setDishes(dishes);
 
-        if (menuItem.getId() == null) {
+        if (menuItem.getId() == null)
             menuItemRepo.save(menuItem);
-        }
     }
 
     @Override

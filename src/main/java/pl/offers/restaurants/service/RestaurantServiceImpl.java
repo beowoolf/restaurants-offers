@@ -33,9 +33,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public void put(UUID uuid, RestaurantDTO restaurantDTO) {
 
-        if (!Objects.equal(restaurantDTO.getUuid(), uuid)) {
+        if (!Objects.equal(restaurantDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
         Restaurant restaurant = restaurantRepo.findByUuid(restaurantDTO.getUuid())
                 .orElseGet(() -> newRestaurant(uuid));
 
@@ -47,9 +46,8 @@ public class RestaurantServiceImpl implements RestaurantService {
         restaurant.setDiscountCodes(convertDiscountCodesFromDTOS(restaurantDTO.getDiscountCodes()));
         restaurant.setArchive(restaurantDTO.getArchive());
 
-        if (restaurant.getId() == null) {
+        if (restaurant.getId() == null)
             restaurantRepo.save(restaurant);
-        }
     }
 
     @Override

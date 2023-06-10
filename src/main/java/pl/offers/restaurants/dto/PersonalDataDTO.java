@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.base.Joiner;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import pl.offers.restaurants.model.enums.Sex;
 
@@ -13,6 +14,7 @@ import javax.persistence.Embeddable;
 @Setter
 @Getter
 @Embeddable
+@NoArgsConstructor
 @Builder(setterPrefix = "with")
 public class PersonalDataDTO {
 

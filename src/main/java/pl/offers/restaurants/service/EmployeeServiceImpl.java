@@ -32,9 +32,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void put(UUID uuid, EmployeeDTO employeeDTO) {
-        if (!Objects.equal(employeeDTO.getUuid(), uuid)) {
+        if (!Objects.equal(employeeDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         Employee employee = employeeRepo.findByUuid(employeeDTO.getUuid())
                 .orElseGet(() -> newEmployee(uuid));
@@ -43,9 +42,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setLogginData(convert(employeeDTO.getLogginData()));
         employee.setArchive(employeeDTO.getArchive());
 
-        if (employee.getId() == null) {
+        if (employee.getId() == null)
             employeeRepo.save(employee);
-        }
     }
 
     @Override

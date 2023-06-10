@@ -41,27 +41,24 @@ public class DiscountCodeServiceImpl implements DiscountCodeService {
 
     @Override
     public void put(UUID uuid, DiscountCodeDTO discountCodeDTO) {
-        if (!Objects.equal(discountCodeDTO.getUuid(), uuid)) {
+        if (!Objects.equal(discountCodeDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         List<User> users = new ArrayList<>();
-        if (discountCodeDTO.getUsers() != null) {
+        if (discountCodeDTO.getUsers() != null)
             for (UserDTO userDTO : discountCodeDTO.getUsers()) {
                 User user = userRepo.findByUuid(userDTO.getUuid())
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
                 users.add(user);
             }
-        }
 
         List<Restaurant> restaurants = new ArrayList<>();
-        if (discountCodeDTO.getRestaurants() != null) {
+        if (discountCodeDTO.getRestaurants() != null)
             for (RestaurantDTO restaurantDTO : discountCodeDTO.getRestaurants()) {
                 Restaurant restaurant = restaurantRepo.findByUuid(restaurantDTO.getUuid())
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
                 restaurants.add(restaurant);
             }
-        }
 
         DiscountCode discountCode = discountCodeRepo.findByUuid(discountCodeDTO.getUuid())
                 .orElseGet(() -> newDiscountCode(uuid));
@@ -73,9 +70,8 @@ public class DiscountCodeServiceImpl implements DiscountCodeService {
         discountCode.setUsers(users);
         discountCode.setRestaurants(restaurants);
 
-        if (discountCode.getId() == null) {
+        if (discountCode.getId() == null)
             discountCodeRepo.save(discountCode);
-        }
     }
 
     @Override

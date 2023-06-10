@@ -38,21 +38,19 @@ public class DishServiceImpl implements DishService {
 
     @Override
     public void put(UUID uuid, DishDTO dishDTO) {
-        if (!Objects.equal(dishDTO.getUuid(), uuid)) {
+        if (!Objects.equal(dishDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         Product product = productRepo.findByUuid(dishDTO.getProduct().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         List<MenuItem> menuItems = new ArrayList<>();
-        if (dishDTO.getMenuItems() != null) {
+        if (dishDTO.getMenuItems() != null)
             for (MenuItemDTO d : dishDTO.getMenuItems()) {
                 MenuItem menuItem = menuItemRepo.findByUuid(d.getUuid())
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
                 menuItems.add(menuItem);
             }
-        }
 
         Dish dish = dishRepo.findByUuid(dishDTO.getUuid())
                 .orElseGet(() -> newDish(uuid));
@@ -61,9 +59,8 @@ public class DishServiceImpl implements DishService {
         dish.setProduct(product);
         dish.setMenuItems(menuItems);
 
-        if (dish.getId() == null) {
+        if (dish.getId() == null)
             dishRepo.save(dish);
-        }
     }
 
     @Override

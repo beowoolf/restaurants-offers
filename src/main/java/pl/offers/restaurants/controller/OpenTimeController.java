@@ -31,9 +31,8 @@ public class OpenTimeController {
     @PostMapping
     @Transactional
     public void post(@RequestBody List<@Valid OpenTimeDTO> openTimesJson) {
-        for (OpenTimeDTO openTimeDTO : openTimesJson) {
+        for (OpenTimeDTO openTimeDTO : openTimesJson)
             put(openTimeDTO.getUuid(), openTimeDTO);
-        }
     }
 
     @GetMapping("/{uuid}")

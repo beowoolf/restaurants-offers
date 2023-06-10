@@ -44,9 +44,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void put(UUID uuid, OrderDTO orderDTO) {
-        if (!Objects.equal(orderDTO.getUuid(), uuid)) {
+        if (!Objects.equal(orderDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         User user = userRepo.findByUuid(orderDTO.getUser().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
@@ -59,15 +58,12 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepo.findByUuid(orderDTO.getUuid())
                 .orElseGet(() -> newOrder(uuid, user, restaurant));
 
-        if (!Objects.equal(order.getUser().getUuid(), orderDTO.getUser().getUuid())) {
+        if (!Objects.equal(order.getUser().getUuid(), orderDTO.getUser().getUuid()))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
-        if (!Objects.equal(order.getRestaurant().getUuid(), orderDTO.getRestaurant().getUuid())) {
+        if (!Objects.equal(order.getRestaurant().getUuid(), orderDTO.getRestaurant().getUuid()))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
-        if (order.getStatus().getDeliveryTime() != null) {
+        if (order.getStatus().getDeliveryTime() != null)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         List<OrderItem> orderItems = putOrderItems(orderDTO);
         DiscountCode discountCode = putDiscountCode(orderDTO);
@@ -93,9 +89,8 @@ public class OrderServiceImpl implements OrderService {
         order.setDeliverer(deliverer);
         order.setDeliveryAddress(deliveryAddress);
 
-        if (order.getId() == null) {
+        if (order.getId() == null)
             orderRepo.save(order);
-        }
     }
 
     @Override
@@ -103,9 +98,8 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if (order.getStatus().getIsPaid()) {
+        if (order.getStatus().getIsPaid())
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         orderRepo.delete(order);
     }
@@ -120,11 +114,10 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepo.findByUuid(orderDTO.getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if (!order.getStatus().getIsPaid()) {
+        if (!order.getStatus().getIsPaid())
             order.getStatus().setIsPaid(true);
-        } else {
+        else
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
     }
 
     @Override
@@ -132,9 +125,8 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if (!order.getStatus().getIsPaid() || order.getStatus().getDeliveryTime() != null) {
+        if (!order.getStatus().getIsPaid() || order.getStatus().getDeliveryTime() != null)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         order.getStatus().setGiveOutTime(orderStatusDTO.getGiveOutTime());
     }
@@ -144,9 +136,8 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepo.findByUuid(uuid)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if (!order.getStatus().getIsPaid() || order.getStatus().getGiveOutTime() == null) {
+        if (!order.getStatus().getIsPaid() || order.getStatus().getGiveOutTime() == null)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         order.getStatus().setDeliveryTime(orderStatusDTO.getDeliveryTime());
     }
@@ -175,18 +166,16 @@ public class OrderServiceImpl implements OrderService {
             discountCode = discountCodeRepo.findByUuid(orderDTO.getDiscountCode().getUuid())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
 
-            if (discountCode.getRestaurants() != null) {
+            if (discountCode.getRestaurants() != null)
                 discountCode.getRestaurants().stream()
                         .filter(r -> r.getUuid().equals(orderDTO.getRestaurant().getUuid()))
                         .findFirst()
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
-            }
-            if (discountCode.getUsers() != null) {
+            if (discountCode.getUsers() != null)
                 discountCode.getUsers().stream()
                         .filter(u -> u.getUuid().equals(orderDTO.getUser().getUuid()))
                         .findFirst()
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
-            }
         }
         return discountCode;
     }
@@ -201,9 +190,8 @@ public class OrderServiceImpl implements OrderService {
                     .orElseGet(() -> newOrderItem(orderItemDTO.getUuid()));
             orderItem.setQuantity(orderItemDTO.getQuantity());
             orderItem.setMenuItem(menuItem);
-            if (orderItem.getId() == null) {
+            if (orderItem.getId() == null)
                 orderItemRepo.save(orderItem);
-            }
             orderItems.add(orderItem);
         }
         return orderItems;

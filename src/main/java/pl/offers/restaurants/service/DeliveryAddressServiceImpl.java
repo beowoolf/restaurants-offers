@@ -33,9 +33,8 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
 
     @Override
     public void put(UUID uuid, DeliveryAddressDTO deliveryAddressDTO) {
-        if (!Objects.equal(deliveryAddressDTO.getUuid(), uuid)) {
+        if (!Objects.equal(deliveryAddressDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         User user = userRepo.findByUuid(deliveryAddressDTO.getUser().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
@@ -43,9 +42,8 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         DeliveryAddress deliveryAddress = deliveryAddressRepo.findByUuid(deliveryAddressDTO.getUuid())
                 .orElseGet(() -> newDeliveryAddress(uuid, user));
 
-        if (!Objects.equal(deliveryAddress.getUser().getUuid(), deliveryAddressDTO.getUser().getUuid())) {
+        if (!Objects.equal(deliveryAddress.getUser().getUuid(), deliveryAddressDTO.getUser().getUuid()))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         deliveryAddress.setDescription(deliveryAddressDTO.getDescription());
         deliveryAddress.setStreet(deliveryAddressDTO.getStreet());
@@ -57,9 +55,8 @@ public class DeliveryAddressServiceImpl implements DeliveryAddressService {
         deliveryAddress.setCounty(deliveryAddressDTO.getCounty());
         deliveryAddress.setState(deliveryAddressDTO.getState());
 
-        if (deliveryAddress.getId() == null) {
+        if (deliveryAddress.getId() == null)
             deliveryAddressRepo.save(deliveryAddress);
-        }
     }
 
     @Override

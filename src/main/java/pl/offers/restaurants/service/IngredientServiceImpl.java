@@ -30,18 +30,16 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public void put(UUID uuid, IngredientDTO ingredientDTO) {
-        if (!Objects.equal(ingredientDTO.getUuid(), uuid)) {
+        if (!Objects.equal(ingredientDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
         Ingredient ingredient = ingredientRepo.findByUuid(ingredientDTO.getUuid())
                 .orElseGet(() -> newIngredient(uuid));
 
         ingredient.setName(ingredientDTO.getName());
         ingredient.setIsAllergen(ingredientDTO.getIsAllergen());
 
-        if (ingredient.getId() == null) {
+        if (ingredient.getId() == null)
             ingredientRepo.save(ingredient);
-        }
     }
 
     @Override

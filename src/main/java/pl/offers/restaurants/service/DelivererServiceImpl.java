@@ -54,30 +54,27 @@ public class DelivererServiceImpl implements DelivererService {
     @Override
     @CacheEvict(cacheNames = "deliverers", allEntries = true)
     public void put(UUID uuid, DelivererDTO delivererDTO) {
-        if (!Objects.equal(delivererDTO.getUuid(), uuid)) {
+        if (!Objects.equal(delivererDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         Deliverer deliverer = delivererRepo.findByUuid(delivererDTO.getUuid())
                 .orElseGet(() -> newDeliverer(delivererDTO.getUuid()));
 
         List<Order> orders = new ArrayList<>();
-        if (delivererDTO.getOrders() != null) {
+        if (delivererDTO.getOrders() != null)
             for (OrderDTO o : delivererDTO.getOrders()) {
                 Order order = orderRepo.findByUuid(o.getUuid())
                         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
                 orders.add(order);
             }
-        }
 
         deliverer.setPersonalData(convert(delivererDTO.getPersonalData()));
         deliverer.setLogginData(convert(delivererDTO.getLogginData()));
         deliverer.setArchive(delivererDTO.getArchive());
         deliverer.setOrders(orders);
 
-        if (deliverer.getId() == null) {
+        if (deliverer.getId() == null)
             delivererRepo.save(deliverer);
-        }
     }
 
     @Override

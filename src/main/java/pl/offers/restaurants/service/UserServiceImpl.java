@@ -32,9 +32,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void put(UUID uuid, UserDTO userDTO) {
-        if (!Objects.equal(userDTO.getUuid(), uuid)) {
+        if (!Objects.equal(userDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         User user = userRepo.findByUuid(userDTO.getUuid())
                 .orElseGet(() -> newUser(uuid));
@@ -43,9 +42,8 @@ public class UserServiceImpl implements UserService {
         user.setLogginData(convert(userDTO.getLogginData()));
         user.setArchive(userDTO.getArchive());
 
-        if (user.getId() == null) {
+        if (user.getId() == null)
             userRepo.save(user);
-        }
     }
 
     @Override
@@ -62,9 +60,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void validateNewOperation(UUID uuid, UserDTO userDTO) {
-        if (!Objects.equal(userDTO.getUuid(), uuid)) {
+        if (!Objects.equal(userDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
         userRepo.findByUuid(userDTO.getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }

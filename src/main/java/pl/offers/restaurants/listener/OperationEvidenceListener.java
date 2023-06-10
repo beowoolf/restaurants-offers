@@ -35,9 +35,8 @@ public class OperationEvidenceListener {
 
     private void validateAccountBalanceAfterOperation(OperationEvidence operationEvidence) {
         BigDecimal acconutBalanceAfterOperation = operationEvidenceService.getAccountBalanceAfterOperation(operationEvidence);
-        if (acconutBalanceAfterOperation.compareTo(BigDecimal.ZERO) <= 0) {
+        if (acconutBalanceAfterOperation.compareTo(BigDecimal.ZERO) <= 0)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
     }
 
 }

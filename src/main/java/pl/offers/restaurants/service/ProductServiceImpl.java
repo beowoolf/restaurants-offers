@@ -38,9 +38,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void put(UUID uuid, ProductDTO productDTO) {
-        if (!Objects.equal(productDTO.getUuid(), uuid)) {
+        if (!Objects.equal(productDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         List<Ingredient> ingredients = new ArrayList<>();
         for (IngredientDTO p : productDTO.getIngredients()) {
@@ -59,13 +58,11 @@ public class ProductServiceImpl implements ProductService {
             Dish dish = dishRepo.findByUuid(productDTO.getDish().getUuid())
                     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
             product.setDish(dish);
-        } else {
+        } else
             product.setDish(null);
-        }
 
-        if (product.getId() == null) {
+        if (product.getId() == null)
             productRepo.save(product);
-        }
     }
 
     @Override

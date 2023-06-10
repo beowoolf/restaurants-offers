@@ -35,9 +35,8 @@ public class OpenTimeServiceImpl implements OpenTimeService {
 
     @Override
     public void put(UUID uuid, OpenTimeDTO openTimeDTO) {
-        if (!Objects.equal(openTimeDTO.getUuid(), uuid)) {
+        if (!Objects.equal(openTimeDTO.getUuid(), uuid))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         Restaurant restaurant = restaurantRepo.findByUuid(openTimeDTO.getRestaurant().getUuid())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST));
@@ -45,16 +44,14 @@ public class OpenTimeServiceImpl implements OpenTimeService {
         OpenTime openTime = openTimeRepo.findByUuid(openTimeDTO.getUuid())
                 .orElseGet(() -> newOpenTime(uuid, restaurant));
 
-        if (!Objects.equal(openTime.getRestaurant().getUuid(), openTimeDTO.getRestaurant().getUuid())) {
+        if (!Objects.equal(openTime.getRestaurant().getUuid(), openTimeDTO.getRestaurant().getUuid()))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
 
         openTime.setDayOfWeek(openTimeDTO.getDayOfWeek());
         openTime.setPeriodTime(convert(openTimeDTO.getPeriodTime()));
 
-        if (openTime.getId() == null) {
+        if (openTime.getId() == null)
             openTimeRepo.save(openTime);
-        }
     }
 
     @Override
