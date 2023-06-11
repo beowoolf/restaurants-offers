@@ -1,5 +1,5 @@
 # restaurants-offers
 
-WebAPI do zamawiania jedzenia. Technologie wykorzystane w projekcie: Spring Boot: Web (RestControllers), Test, Data JPA,
-Validation, Java 11, MySQL/MariaDB, Testy Jednostkowe JUnit, Testy Integracyjne SpringBootTest, Lombok, Guava, Truth,
+WebAPI for ordering food. Technologies used in the project: Spring Boot: Web (RestControllers), Test, Data JPA,
+Validation, Java 11, MySQL/MariaDB, JUnit Unit Tests, SpringBootTest Integration Tests, Lombok, Guava, Truth,
 Maven, Git, GitHub, IntelliJ Ultimate.
