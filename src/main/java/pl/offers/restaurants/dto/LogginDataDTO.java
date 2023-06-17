@@ -2,6 +2,7 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Embeddable
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder(setterPrefix = "with")
 public class LogginDataDTO {
 

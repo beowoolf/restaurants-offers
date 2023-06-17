@@ -1,6 +1,7 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @Embeddable
 @PeriodConstraint
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder(setterPrefix = "with")
 public class PeriodDTO {
 
