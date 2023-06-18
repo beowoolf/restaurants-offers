@@ -2,11 +2,7 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.base.Joiner;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.offers.restaurants.model.enums.Sex;
 
 import javax.annotation.Nullable;
