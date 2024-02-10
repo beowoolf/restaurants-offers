@@ -3,8 +3,8 @@ package pl.offers.restaurants.model;
 import lombok.*;
 import pl.offers.restaurants.model.enums.VatTax;
 
-import javax.persistence.*;
-import javax.validation.constraints.*;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;

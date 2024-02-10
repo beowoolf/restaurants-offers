@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.offers.restaurants.model.enums.VatTax;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;

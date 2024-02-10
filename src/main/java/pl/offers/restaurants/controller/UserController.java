@@ -13,8 +13,8 @@ import pl.offers.restaurants.dto.*;
 import pl.offers.restaurants.event.OperationEvidenceCreator;
 import pl.offers.restaurants.service.UserService;
 
-import javax.validation.Valid;
-import javax.validation.groups.Default;
+import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import java.util.List;
 import java.util.UUID;
 

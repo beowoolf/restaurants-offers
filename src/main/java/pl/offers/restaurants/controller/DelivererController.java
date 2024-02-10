@@ -14,8 +14,8 @@ import pl.offers.restaurants.dto.OrderDTO;
 import pl.offers.restaurants.dto.PersonalDataDTO;
 import pl.offers.restaurants.service.DelivererService;
 
-import javax.validation.Valid;
-import javax.validation.groups.Default;
+import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import java.util.List;
 import java.util.UUID;
 

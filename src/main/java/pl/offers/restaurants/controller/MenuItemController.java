@@ -12,7 +12,7 @@ import pl.offers.restaurants.dto.MenuItemDTO;
 import pl.offers.restaurants.dto.RestaurantDTO;
 import pl.offers.restaurants.service.MenuItemService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

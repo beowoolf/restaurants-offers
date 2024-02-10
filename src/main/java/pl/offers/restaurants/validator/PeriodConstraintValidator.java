@@ -2,8 +2,8 @@ package pl.offers.restaurants.validator;
 
 import pl.offers.restaurants.model.Period;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class PeriodConstraintValidator implements ConstraintValidator<PeriodConstraint, Period> {
 

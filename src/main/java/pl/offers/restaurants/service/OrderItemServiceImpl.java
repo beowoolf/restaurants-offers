@@ -2,12 +2,12 @@ package pl.offers.restaurants.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.offers.restaurants.exception.UnsupportedDataTypeException;
 import pl.offers.restaurants.model.DiscountCode;
 import pl.offers.restaurants.model.OrderItem;
 import pl.offers.restaurants.model.enums.PriceType;
 import pl.offers.restaurants.repo.OrderItemRepo;
 
-import javax.activation.UnsupportedDataTypeException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.List;

@@ -11,7 +11,7 @@ import pl.offers.restaurants.dto.DeliveryAddressDTO;
 import pl.offers.restaurants.dto.UserDTO;
 import pl.offers.restaurants.service.DeliveryAddressService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

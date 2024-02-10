@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.offers.restaurants.model.enums.DayOfWeek;
 
-import javax.persistence.Embedded;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Embedded;
+import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Setter

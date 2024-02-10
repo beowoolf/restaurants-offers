@@ -10,7 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.IngredientDTO;
 import pl.offers.restaurants.service.IngredientService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

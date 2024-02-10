@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.Nullable;
-import javax.persistence.Embedded;
-import javax.validation.constraints.*;
+import jakarta.persistence.Embedded;
+import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;

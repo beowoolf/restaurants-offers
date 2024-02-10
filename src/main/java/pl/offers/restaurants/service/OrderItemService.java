@@ -1,10 +1,10 @@
 package pl.offers.restaurants.service;
 
+import pl.offers.restaurants.exception.UnsupportedDataTypeException;
 import pl.offers.restaurants.model.DiscountCode;
 import pl.offers.restaurants.model.OrderItem;
 import pl.offers.restaurants.model.enums.PriceType;
 
-import javax.activation.UnsupportedDataTypeException;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;

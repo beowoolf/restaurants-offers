@@ -11,7 +11,7 @@ import pl.offers.restaurants.dto.OpenTimeDTO;
 import pl.offers.restaurants.dto.RestaurantDTO;
 import pl.offers.restaurants.service.OpenTimeService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

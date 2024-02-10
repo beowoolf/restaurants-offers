@@ -6,13 +6,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import pl.offers.restaurants.dto.*;
+import pl.offers.restaurants.exception.UnsupportedDataTypeException;
 import pl.offers.restaurants.model.*;
 import pl.offers.restaurants.model.enums.EvidenceType;
 import pl.offers.restaurants.model.enums.PriceType;
 import pl.offers.restaurants.repo.*;
 import pl.offers.restaurants.utils.ConverterUtils;
 
-import javax.activation.UnsupportedDataTypeException;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.ArrayList;

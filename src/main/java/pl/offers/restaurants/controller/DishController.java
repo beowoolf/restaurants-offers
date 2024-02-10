@@ -13,8 +13,8 @@ import pl.offers.restaurants.dto.MenuItemDTO;
 import pl.offers.restaurants.dto.ProductDTO;
 import pl.offers.restaurants.service.DishService;
 
-import javax.validation.Valid;
-import javax.validation.groups.Default;
+import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import java.util.List;
 import java.util.UUID;
 

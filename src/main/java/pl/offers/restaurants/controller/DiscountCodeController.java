@@ -11,7 +11,7 @@ import pl.offers.restaurants.dto.DiscountCodeDTO;
 import pl.offers.restaurants.dto.PeriodDTO;
 import pl.offers.restaurants.service.DiscountCodeService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

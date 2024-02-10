@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.*;
 
 import javax.annotation.Nullable;
-import javax.validation.constraints.Null;
+import jakarta.validation.constraints.Null;
 import java.util.List;
 
 @Setter

@@ -6,7 +6,7 @@ import lombok.*;
 import pl.offers.restaurants.model.enums.Sex;
 
 import javax.annotation.Nullable;
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 
 @Setter
 @Getter

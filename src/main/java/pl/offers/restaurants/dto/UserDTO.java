@@ -8,10 +8,10 @@ import lombok.Setter;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.annotation.Nullable;
-import javax.persistence.Embedded;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Size;
+import jakarta.persistence.Embedded;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 

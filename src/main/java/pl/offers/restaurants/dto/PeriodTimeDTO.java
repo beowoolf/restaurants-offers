@@ -5,7 +5,7 @@ import lombok.*;
 import pl.offers.restaurants.validator.PeriodTimeConstraint;
 
 import javax.annotation.Nullable;
-import javax.persistence.Embeddable;
+import jakarta.persistence.Embeddable;
 import java.time.LocalTime;
 
 @Setter

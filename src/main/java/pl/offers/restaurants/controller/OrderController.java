@@ -15,8 +15,8 @@ import pl.offers.restaurants.service.DelivererService;
 import pl.offers.restaurants.service.OrderService;
 import pl.offers.restaurants.service.UserService;
 
-import javax.validation.Valid;
-import javax.validation.groups.Default;
+import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import java.util.List;
 import java.util.UUID;
 
