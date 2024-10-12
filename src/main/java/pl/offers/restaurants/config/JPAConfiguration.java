@@ -63,7 +63,7 @@ public class JPAConfiguration {
                 "pl.offers.restaurants.converter"
         );
         entityManagerFactory.setJpaPropertyMap(ImmutableMap.of(
-                AvailableSettings.DIALECT, "org.hibernate.dialect.MySQL8Dialect",
+                AvailableSettings.DIALECT, "org.hibernate.dialect.MySQLDialect",
 //			AvailableSettings.SHOW_SQL, "true",
                 AvailableSettings.HBM2DDL_AUTO, "update"
         ));
