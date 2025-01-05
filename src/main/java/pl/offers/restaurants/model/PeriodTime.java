@@ -1,10 +1,10 @@
 package pl.offers.restaurants.model;
 
+import jakarta.persistence.Embeddable;
 import lombok.*;
 import pl.offers.restaurants.validator.PeriodTimeConstraint;
 
 import javax.annotation.Nullable;
-import jakarta.persistence.Embeddable;
 import java.time.LocalTime;
 
 @Setter

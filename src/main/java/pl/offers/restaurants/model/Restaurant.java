@@ -1,12 +1,12 @@
 package pl.offers.restaurants.model;
 
-import lombok.*;
-import pl.offers.restaurants.model.enums.Archive;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.*;
+import pl.offers.restaurants.model.enums.Archive;
+
 import java.util.List;
 import java.util.UUID;
 

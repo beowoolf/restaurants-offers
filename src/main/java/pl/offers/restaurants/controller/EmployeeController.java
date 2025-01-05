@@ -1,6 +1,7 @@
 package pl.offers.restaurants.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,7 +13,6 @@ import pl.offers.restaurants.dto.LogginDataDTO;
 import pl.offers.restaurants.dto.PersonalDataDTO;
 import pl.offers.restaurants.service.EmployeeService;
 
-import jakarta.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

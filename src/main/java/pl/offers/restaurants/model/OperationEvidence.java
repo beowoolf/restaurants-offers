@@ -1,12 +1,12 @@
 package pl.offers.restaurants.model;
 
-import lombok.*;
-import pl.offers.restaurants.model.enums.EvidenceType;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
+import pl.offers.restaurants.model.enums.EvidenceType;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 

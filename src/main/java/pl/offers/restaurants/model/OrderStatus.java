@@ -1,9 +1,9 @@
 package pl.offers.restaurants.model;
 
-import lombok.*;
-
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
+
 import java.time.Instant;
 
 @Setter

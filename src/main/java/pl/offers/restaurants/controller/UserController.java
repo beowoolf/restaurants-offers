@@ -1,6 +1,8 @@
 package pl.offers.restaurants.controller;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -13,8 +15,6 @@ import pl.offers.restaurants.dto.*;
 import pl.offers.restaurants.event.OperationEvidenceCreator;
 import pl.offers.restaurants.service.UserService;
 
-import jakarta.validation.Valid;
-import jakarta.validation.groups.Default;
 import java.util.List;
 import java.util.UUID;
 

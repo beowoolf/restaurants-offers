@@ -1,11 +1,10 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import lombok.*;
-
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 @Setter
 @Getter

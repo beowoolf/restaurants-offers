@@ -1,10 +1,10 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.validation.constraints.Null;
 import lombok.*;
 
 import javax.annotation.Nullable;
-import jakarta.validation.constraints.Null;
 import java.util.List;
 
 @Setter

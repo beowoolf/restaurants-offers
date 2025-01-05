@@ -2,6 +2,7 @@ package pl.offers.restaurants.converter;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+
 import java.util.UUID;
 
 @Converter(autoApply = true)

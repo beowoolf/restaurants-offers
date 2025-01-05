@@ -1,9 +1,8 @@
 package pl.offers.restaurants.validator;
 
-import pl.offers.restaurants.model.PeriodTime;
-
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import pl.offers.restaurants.model.PeriodTime;
 
 public class PeriodTimeConstraintValidator implements ConstraintValidator<PeriodTimeConstraint, PeriodTime> {
 

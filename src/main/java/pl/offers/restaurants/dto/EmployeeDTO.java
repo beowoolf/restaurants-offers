@@ -1,11 +1,11 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.persistence.Embedded;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import pl.offers.restaurants.model.enums.Archive;
 
-import jakarta.persistence.Embedded;
-import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Setter

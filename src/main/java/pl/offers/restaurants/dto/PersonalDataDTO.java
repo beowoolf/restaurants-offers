@@ -2,11 +2,11 @@ package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import com.google.common.base.Joiner;
+import jakarta.persistence.Embeddable;
 import lombok.*;
 import pl.offers.restaurants.model.enums.Sex;
 
 import javax.annotation.Nullable;
-import jakarta.persistence.Embeddable;
 
 @Setter
 @Getter

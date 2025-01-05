@@ -1,11 +1,11 @@
 package pl.offers.restaurants.model;
 
-import lombok.*;
-
-import javax.annotation.Nullable;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import lombok.*;
+
+import javax.annotation.Nullable;
 import java.util.List;
 
 @Entity

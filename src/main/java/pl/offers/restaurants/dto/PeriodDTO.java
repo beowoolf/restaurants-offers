@@ -1,11 +1,11 @@
 package pl.offers.restaurants.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.persistence.Embeddable;
 import lombok.*;
 import pl.offers.restaurants.validator.PeriodConstraint;
 
 import javax.annotation.Nullable;
-import jakarta.persistence.Embeddable;
 import java.time.LocalDateTime;
 
 @Setter

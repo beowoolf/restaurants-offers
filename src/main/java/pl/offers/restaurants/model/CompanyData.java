@@ -1,11 +1,10 @@
 package pl.offers.restaurants.model;
 
-import lombok.*;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 @Setter
 @Getter

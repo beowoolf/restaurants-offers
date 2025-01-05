@@ -1,10 +1,10 @@
 package pl.offers.restaurants.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import pl.offers.restaurants.model.enums.VatTax;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;

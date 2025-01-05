@@ -1,11 +1,11 @@
 package pl.offers.restaurants.model;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import pl.offers.restaurants.model.enums.Archive;
 
 import javax.annotation.Nullable;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 

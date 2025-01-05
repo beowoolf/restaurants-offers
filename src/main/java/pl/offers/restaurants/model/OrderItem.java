@@ -1,10 +1,10 @@
 package pl.offers.restaurants.model;
 
-import lombok.*;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
+
 import java.util.UUID;
 
 @Entity
